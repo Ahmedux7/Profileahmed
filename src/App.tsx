@@ -274,7 +274,7 @@ const Services = () => (
           { title: "وسائل التواصل الاجتماعي", desc: "نصمم محتوى جذاباً مخصصاً للمنصات الاجتماعية لزيادة التفاعل والوصول.", icon: <Share2 /> },
           { title: "إدارة المشاريع", desc: "ندير المشاريع بكفاءة من التخطيط حتى التسليم لضمان تنفيذ سلس ونتائج واضحة.", icon: <Briefcase /> },
         ].map((service, i) => (
-          <div key={i} className="glass-card p-10 hover:border-brand/30 transition-all duration-300 group">
+          <div key={i} className="bg-white border border-gray-100 shadow-sm rounded-2xl p-10 hover:shadow-md hover:border-brand/30 transition-all duration-300 group">
             <div className="text-brand mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
             <h3 className="text-2xl font-bold mb-4 tracking-tight text-gray-900">{service.title}</h3>
             <p className="text-gray-500 leading-relaxed font-medium text-sm md:text-base">{service.desc}</p>
@@ -329,17 +329,28 @@ const TrustedBy = () => {
             transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
           >
             {[...companies.slice(0, 6), ...companies.slice(0, 6)].map((company, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 border border-gray-100"
+                whileHover={{ y: -5, backgroundColor: "#fff" }}
+                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
               >
                 <img 
                   src={`https://logo.clearbit.com/${company.domain}`} 
                   alt={company.name}
-                  className="max-h-full max-w-full object-contain grayscale opacity-40"
+                  className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                    const parent = (e.target as HTMLImageElement).parentElement;
+                    if (parent) {
+                      const span = document.createElement('span');
+                      span.className = 'text-gray-300 font-bold text-sm';
+                      span.innerText = company.name;
+                      parent.appendChild(span);
+                    }
+                  }}
                 />
-              </div>
+              </motion.div>
             ))}
           </motion.div>
 
@@ -350,40 +361,31 @@ const TrustedBy = () => {
             transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
           >
             {[...companies.slice(6), ...companies.slice(6)].map((company, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 border border-gray-100"
+                whileHover={{ y: -5, backgroundColor: "#fff" }}
+                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
               >
                 <img 
                   src={`https://logo.clearbit.com/${company.domain}`} 
                   alt={company.name}
-                  className="max-h-full max-w-full object-contain grayscale opacity-40"
+                  className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                    const parent = (e.target as HTMLImageElement).parentElement;
+                    if (parent) {
+                      const span = document.createElement('span');
+                      span.className = 'text-gray-300 font-bold text-sm';
+                      span.innerText = company.name;
+                      parent.appendChild(span);
+                    }
+                  }}
                 />
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
-
-      {/* Courses Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-black text-gray-900 mb-16 text-center">الكورسات القادمة</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: "احتراف البيتش ديك وجلب الاستثمار", desc: "تعلم كيف تصمم عرضاً تقديمياً مقنعاً وتجذب المستثمرين لمشروعك." },
-              { title: "تعلم الفايب كوديتنج (Vibe Coding)", desc: "اكتشف أسرار البرمجة الحديثة باستخدام أدوات الذكاء الاصطناعي." },
-              { title: "أتمتة العمليات باستخدام n8n", desc: "حول مهامك المتكررة إلى عمليات مؤتمتة بالكامل." }
-            ].map((course, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all">
-                <h3 className="text-2xl font-bold mb-4">{course.title}</h3>
-                <p className="text-gray-500 mb-8">{course.desc}</p>
-                <span className="inline-block px-4 py-2 bg-brand/10 text-brand font-bold rounded-full">قريباً (Soon)</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 pt-12 border-t border-gray-50">
           {stats.map((stat, index) => (
@@ -552,7 +554,7 @@ const Testimonials = () => {
             <motion.div
               key={i}
               whileHover={{ y: -5 }}
-              className="bg-gray-50/50 p-6 rounded-2xl border border-gray-100 relative overflow-hidden group"
+              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md relative overflow-hidden group transition-all duration-300"
             >
               <div className="absolute -top-4 -left-4 text-brand/5 group-hover:text-brand/10 transition-colors">
                 <Quote size={80} />
@@ -630,7 +632,7 @@ const FAQ = () => {
                   className={`rounded-2xl border transition-all duration-300 ${
                     open === i 
                     ? 'border-brand bg-white shadow-xl shadow-brand/5' 
-                    : 'border-gray-100 bg-gray-50/50 hover:border-brand/30'
+                    : 'border-gray-100 bg-white hover:border-brand/30 hover:shadow-md'
                   }`}
                 >
                   <button 

@@ -11,13 +11,13 @@
 
 @layer base {
   body {
-    @apply bg-[#F8F9FA] text-dark font-sans dark:bg-gray-900 dark:text-white;
+    @apply bg-[#F8F9FA] text-dark font-sans;
     direction: rtl;
   }
 }
 
 .glass-card {
-  @apply bg-white border border-gray-200 shadow-sm rounded-2xl dark:bg-gray-800 dark:border-gray-700 dark:shadow-none;
+  @apply bg-white border border-gray-200 shadow-sm rounded-2xl;
 }
 
 .orange-gradient {
