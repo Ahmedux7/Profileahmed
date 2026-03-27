@@ -10,7 +10,8 @@ import {
   Route, 
   Link, 
   useNavigate,
-  useLocation
+  useLocation,
+  useParams
 } from "react-router-dom";
 import { useEffect } from "react";
 import { 
@@ -79,6 +80,198 @@ const ScrollToTop = () => {
   }, [pathname]);
   return null;
 };
+
+const coursesData = [
+  {
+    title: "جلب المستثمر والبيتش ديك",
+    desc: "تعلم كيفية بناء عرض تقديمي (Pitch Deck) احترافي يجذب المستثمرين ويقنعهم بتمويل مشروعك أو شركتك الناشئة.",
+    price: "قريباً",
+    oldPrice: "",
+    category: "BUSINESS",
+    students: "قريباً",
+    duration: "قريباً",
+    rating: "5.0",
+    tags: ["استثمار", "بيتش ديك"]
+  },
+  {
+    title: "الأتمتة و n8n",
+    desc: "احترف أتمتة المهام والعمليات باستخدام أداة n8n، ووفر مئات الساعات من العمل اليدوي لزيادة إنتاجيتك.",
+    price: "قريباً",
+    oldPrice: "",
+    category: "AUTOMATION",
+    students: "قريباً",
+    duration: "قريباً",
+    rating: "5.0",
+    tags: ["أتمتة", "n8n"]
+  },
+  {
+    title: "احتراف فايب كودينج",
+    desc: "دليلك الشامل لتعلم البرمجة بالذكاء الاصطناعي (Vibe Coding) وبناء تطبيقات متكاملة بسرعة وكفاءة عالية.",
+    price: "قريباً",
+    oldPrice: "",
+    category: "AI CODING",
+    students: "قريباً",
+    duration: "قريباً",
+    rating: "5.0",
+    tags: ["ذكاء اصطناعي", "برمجة"]
+  }
+];
+
+const courseDetailsData = [
+  {
+    title: "جلب المستثمر والبيتش ديك",
+    desc: "تعلم كيفية بناء عرض تقديمي (Pitch Deck) احترافي يجذب المستثمرين ويقنعهم بتمويل مشروعك أو شركتك الناشئة.",
+    price: "قريباً",
+    oldPrice: "",
+    category: "BUSINESS",
+    students: "قريباً",
+    duration: "قريباً",
+    rating: "4.9",
+    tags: ["بيزنس", "استثمار"],
+    about: [
+      "أنت تملك فكرة عظيمة، لكن المستثمر يرى مئات الأفكار يومياً.",
+      "كيف تجعل مشروعك يبرز؟ كيف تقنعهم بأنك الاستثمار الرابح؟",
+      "في هذا الكورس، ستتعلم خطوة بخطوة كيفية بناء Pitch Deck لا يقاوم.",
+      "هذه الدورة هي دليلك الشامل لفهم عقلية المستثمر وتأمين التمويل اللازم."
+    ],
+    learnings: [
+      "بناء بيتش ديك احترافي من الصفر",
+      "فهم متطلبات المستثمرين وكيفية إقناعهم",
+      "استراتيجيات التفاوض على التمويل",
+      "نماذج وقوالب جاهزة للاستخدام",
+      "كيفية عرض المشكلة والحل بشكل مقنع",
+      "توضيح نموذج العمل التجاري بوضوح"
+    ],
+    modules: [
+      {
+        title: "الوحدة 1: أساسيات البيتش ديك",
+        lessons: [
+          { title: "ما هو البيتش ديك وأهميته؟", duration: "05:00", isPreview: true },
+          { title: "الهيكل الأساسي للعرض التقديمي", duration: "08:00", isPreview: true },
+        ]
+      },
+      {
+        title: "الوحدة 2: فهم عقلية المستثمر",
+        lessons: [
+          { title: "ماذا يبحث المستثمرون؟", duration: "10:00", isPreview: false },
+          { title: "التقييم والمخاطر", duration: "12:00", isPreview: false },
+        ]
+      },
+      {
+        title: "الوحدة 3: بناء العرض التقديمي",
+        lessons: [
+          { title: "عرض المشكلة والحل", duration: "15:00", isPreview: false },
+          { title: "السوق ونموذج العمل", duration: "20:00", isPreview: false },
+        ]
+      }
+    ]
+  },
+  {
+    title: "الأتمتة و n8n",
+    desc: "اكتشف قوة الأتمتة مع n8n لتوفير الوقت والجهد. تعلم كيف تربط التطبيقات المختلفة وتبني مسارات عمل ذكية.",
+    price: "قريباً",
+    oldPrice: "",
+    category: "AUTOMATION",
+    students: "قريباً",
+    duration: "قريباً",
+    rating: "5.0",
+    tags: ["أتمتة", "n8n"],
+    about: [
+      "هل تضيع ساعات طويلة في مهام روتينية متكررة؟",
+      "هل ترغب في ربط تطبيقاتك المفضلة لتعمل معاً بسلاسة؟",
+      "مع n8n، يمكنك بناء مسارات عمل معقدة بدون كتابة سطر كود واحد.",
+      "هذه الدورة ستنقل إنتاجيتك إلى مستوى آخر تماماً."
+    ],
+    learnings: [
+      "توفير مئات الساعات شهرياً عبر الأتمتة",
+      "ربط أكثر من 200 تطبيق مختلف",
+      "بناء أنظمة عمل تعمل تلقائياً 24/7",
+      "تقليل الأخطاء البشرية وزيادة الإنتاجية",
+      "استخدام Webhooks والـ APIs",
+      "معالجة البيانات المعقدة بسهولة"
+    ],
+    modules: [
+      {
+        title: "الوحدة 1: مقدمة في الأتمتة",
+        lessons: [
+          { title: "المفاهيم الأساسية للأتمتة", duration: "07:00", isPreview: true },
+          { title: "تثبيت وإعداد n8n", duration: "10:00", isPreview: true },
+        ]
+      },
+      {
+        title: "الوحدة 2: العقد (Nodes) والاتصالات",
+        lessons: [
+          { title: "كيفية ربط التطبيقات", duration: "15:00", isPreview: false },
+          { title: "نقل ومعالجة البيانات", duration: "18:00", isPreview: false },
+        ]
+      },
+      {
+        title: "الوحدة 3: مسارات عمل متقدمة",
+        lessons: [
+          { title: "الشروط والتكرار (Loops)", duration: "20:00", isPreview: false },
+          { title: "معالجة الأخطاء (Error Handling)", duration: "15:00", isPreview: false },
+        ]
+      }
+    ]
+  },
+  {
+    title: "احتراف فايب كودينج",
+    desc: "تعلم كيف تستخدم أدوات الذكاء الاصطناعي لكتابة الأكواد وبناء التطبيقات بسرعة وكفاءة، حتى لو لم تكن مبرمجاً محترفاً.",
+    price: "قريباً",
+    oldPrice: "",
+    category: "AI CODING",
+    students: "قريباً",
+    duration: "قريباً",
+    rating: "4.8",
+    tags: ["ذكاء اصطناعي", "برمجة"],
+    about: [
+      "هل ترغب في بناء تطبيقات ولكنك تجد البرمجة معقدة؟",
+      "هل أنت مبرمج وتريد مضاعفة سرعة إنتاجك؟",
+      "الـ Vibe Coding هو المستقبل، حيث تقوم بتوجيه الذكاء الاصطناعي لكتابة الكود بدلاً منك.",
+      "هذه الدورة ستعلمك كيف تتحدث لغة الآلة بفعالية."
+    ],
+    learnings: [
+      "بناء تطبيقات ومواقع في وقت قياسي",
+      "التغلب على حاجز البرمجة المعقدة",
+      "استخدام أحدث أدوات الذكاء الاصطناعي (Cursor, Copilot)",
+      "تحويل أفكارك إلى منتجات حقيقية بسهولة",
+      "هندسة الأوامر (Prompt Engineering) للبرمجة",
+      "تصحيح الأخطاء (Debugging) بمساعدة AI"
+    ],
+    modules: [
+      {
+        title: "الوحدة 1: ما هو الـ Vibe Coding؟",
+        lessons: [
+          { title: "المفهوم والمستقبل", duration: "06:00", isPreview: true },
+          { title: "التعرف على الأدوات (Cursor, Copilot)", duration: "12:00", isPreview: true },
+        ]
+      },
+      {
+        title: "الوحدة 2: هندسة الأوامر للبرمجة",
+        lessons: [
+          { title: "كيف تطلب الكود الصحيح", duration: "15:00", isPreview: false },
+          { title: "تقسيم المهام المعقدة", duration: "18:00", isPreview: false },
+        ]
+      },
+      {
+        title: "الوحدة 3: بناء تطبيقات كاملة",
+        lessons: [
+          { title: "من الفكرة إلى الهيكل الأساسي", duration: "25:00", isPreview: false },
+          { title: "تصحيح الأخطاء والنشر", duration: "20:00", isPreview: false },
+        ]
+      }
+    ]
+  }
+];
+
+const CourseCover = () => (
+  <div className="w-full h-full bg-gradient-to-br from-[#4a3b2c] via-[#b87c4c] to-[#3a2a1c] flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500">
+    <span className="text-white font-bold text-2xl drop-shadow-md">قريباً</span>
+    <div className="absolute top-3 right-3 px-4 py-1 bg-[#0a3a2a] text-[#00ff88] text-xs font-bold rounded-full border border-[#1a5c44] shadow-sm">
+      عرض
+    </div>
+  </div>
+);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -687,7 +880,7 @@ const FAQ = () => {
               {/* Main Image Container */}
               <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden border-8 border-white shadow-2xl">
                 <img 
-                  src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" 
+                  src="https://i.ibb.co/8DyXMqRJ/534936271-783282314390097-1989541586977274025-n.jpg" 
                   alt="Ahmed Ali" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -852,65 +1045,14 @@ const Courses = () => (
       </div>
       
       <div className="grid md:grid-cols-3 gap-8">
-        {[
-          {
-            title: "كومبو أبيع نفسي - لأول 100 شخص",
-            desc: "في ناس شاطرة جداً في شغلها... لكن محدش عارفهم. وفي ناس أقل مهارة... لكن بيعرفوا يسوقوا لنفسهم فيكسبوا أكتر بكتير. الفرق مش [...]",
-            price: "600 EGP",
-            oldPrice: "3,500 EGP",
-            badge: "SAVE 82.86%",
-            badgeColor: "bg-red-600",
-            category: "COURSE BUNDLE - 3",
-            students: "+96 طالب",
-            duration: "12 ساعة",
-            rating: "4.8",
-            tags: ["تسويق", "مبيعات"],
-            img: "https://picsum.photos/seed/course1/600/400"
-          },
-          {
-            title: "دبلومة التسويق الشاملة - 5 كورسات",
-            desc: "كل محتوى الموقع! عشر ساعات = عبارة عن دبلومة تسويق وبيرسونال براندنج شاملة",
-            price: "1,199 EGP",
-            oldPrice: "6,000 EGP",
-            badge: "SAVE 80.02%",
-            badgeColor: "bg-red-600",
-            category: "COURSE BUNDLE - 5",
-            students: "+5 طالب",
-            duration: "25 ساعة",
-            rating: "4.9",
-            tags: ["تسويق", "براندنج"],
-            img: "https://picsum.photos/seed/course2/600/400"
-          },
-          {
-            title: "استراتيجيات بناء براند شخصي",
-            desc: "في زمن أصبح فيه الظهور الرقمي أساس الفرص المهنية، ومع سباق محموم بين المحترفين لإثبات وجودهم، يبرز سؤال واحد: كيف [...]",
-            price: "299 EGP",
-            oldPrice: "1,000 EGP",
-            badge: "جديد",
-            badgeColor: "bg-brand",
-            category: "BRANDING",
-            students: "+734 طالب",
-            duration: "8 ساعات",
-            rating: "4.9",
-            tags: ["براندنج", "ظهور"],
-            img: "https://picsum.photos/seed/course3/600/400"
-          }
-        ].map((course, i) => (
+        {coursesData.map((course, i) => (
           <motion.div 
             key={i} 
             whileHover={{ y: -8 }}
             className="bg-white rounded-2xl overflow-hidden flex flex-col group shadow-sm border border-gray-50"
           >
             <div className="relative h-40 overflow-hidden">
-              <img 
-                src={course.img} 
-                alt={course.title} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                referrerPolicy="no-referrer"
-              />
-              <div className={`absolute top-3 right-3 px-2 py-1 ${course.badgeColor} text-[8px] font-bold rounded text-white`}>
-                {course.badge}
-              </div>
+              <CourseCover />
               <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg border border-gray-50 shadow-sm flex items-center gap-1">
                 <Star size={10} className="text-yellow-400 fill-yellow-400" />
                 <span className="text-[9px] font-bold text-gray-700">{course.rating}</span>
@@ -951,7 +1093,7 @@ const Courses = () => (
               
               <div className="mt-auto pt-3 border-t border-gray-50 flex items-center justify-between">
                 <Link 
-                  to="/course/1"
+                  to={`/course/${i}`}
                   className="flex items-center gap-1.5 bg-brand text-white hover:bg-brand/90 px-3 py-2 rounded-lg transition-all text-[10px] font-bold shadow-md shadow-brand/10"
                 >
                   <Briefcase size={12} />
@@ -1097,33 +1239,12 @@ const Consultation = () => (
 );
 
 const CourseDetailPage = () => {
+  const { id } = useParams();
   const [activeModule, setActiveModule] = useState<number | null>(0);
 
-  const modules = [
-    {
-      title: "الوحدة 1: بداية احترافية على بيهانس",
-      lessons: [
-        { title: "من هو أحمد علي، مدرب الدورة؟", duration: "05:00", isPreview: true },
-        { title: "ماذا سنتعلم في هذه الدورة؟", duration: "08:00", isPreview: true },
-        { title: "كيف تستفيد لأقصى حد من هذه الدورة", duration: "12:00", isPreview: false },
-        { title: "كيفية إنشاء حسابك على بيهانس بشكل صحيح", duration: "15:00", isPreview: false },
-      ]
-    },
-    {
-      title: "الوحدة 2: أمان الحساب وبناء الثقة",
-      lessons: [
-        { title: "تأمين الحساب وربط وسائل التواصل", duration: "10:00", isPreview: false },
-        { title: "بناء الثقة مع العملاء من خلال الملف الشخصي", duration: "20:00", isPreview: false },
-      ]
-    },
-    {
-      title: "الوحدة 3: بناء ملف شخصي مميز",
-      lessons: [
-        { title: "اختيار التخصص والكلمات المفتاحية", duration: "15:00", isPreview: false },
-        { title: "كتابة السيرة الذاتية بشكل احترافي", duration: "12:00", isPreview: false },
-      ]
-    }
-  ];
+  const courseIndex = id ? parseInt(id, 10) : 0;
+  const course = courseDetailsData[courseIndex] || courseDetailsData[0];
+  const modules = course.modules;
 
   return (
     <div className="pt-32 pb-24 bg-gray-50 text-gray-900 min-h-screen font-['IBM_Plex_Sans_Arabic']" dir="rtl">
@@ -1136,17 +1257,17 @@ const CourseDetailPage = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <span className="px-3 py-1 bg-brand/10 text-brand text-[10px] font-bold rounded-full tracking-wide">DESIGN & FREELANCE</span>
+              <span className="px-3 py-1 bg-brand/10 text-brand text-[10px] font-bold rounded-full tracking-wide">{course.category}</span>
               <div className="flex items-center gap-1 text-yellow-400">
                 <Star size={14} fill="currentColor" />
-                <span className="text-xs font-bold text-gray-700">4.9 (120 تقييم)</span>
+                <span className="text-xs font-bold text-gray-700">{course.rating}</span>
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 leading-tight">
-              احتراف منصة بيهانس للمستقلين
+              {course.title}
             </h1>
             <p className="text-gray-500 text-lg max-w-3xl leading-relaxed font-medium">
-              دليلك الشامل لبناء ملف شخصي يجذب العملاء ويحقق مبيعات. تعلم كيف تحول موهبتك إلى مشروع تجاري ناجح على أكبر منصة للمبدعين في العالم.
+              {course.desc}
             </p>
           </motion.div>
         </div>
@@ -1156,12 +1277,7 @@ const CourseDetailPage = () => {
           <div className="lg:col-span-8 space-y-12">
             {/* Video Preview */}
             <div className="relative aspect-video rounded-2xl overflow-hidden border border-gray-100 shadow-2xl shadow-brand/5 group cursor-pointer bg-gray-900">
-              <img 
-                src="https://picsum.photos/seed/course-main/1200/675" 
-                alt="Course Preview" 
-                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
-                referrerPolicy="no-referrer"
-              />
+              <CourseCover />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-20 h-20 bg-brand rounded-full flex items-center justify-center shadow-2xl shadow-brand/40 group-hover:scale-110 transition-transform">
                   <Play size={32} fill="currentColor" className="mr-1 text-white" />
@@ -1182,20 +1298,14 @@ const CourseDetailPage = () => {
                 عن هذه الدورة
               </h2>
               <div className="text-gray-600 space-y-5 leading-relaxed text-xs md:text-sm font-medium">
-                <p>أنت موهوب، وأعمالك تتحدث عنك، لكن ملفك على Behance صامت؟</p>
-                <p>تتصفح المشاريع المميزة وتتساءل: "لماذا لا يُشاهد عملي؟" تنشر، تنتظر، تُحدث الصفحة، لا شيء.</p>
-                <p>وعندما يظهر عميل أخيراً، سعر المشروع يبدو كأنه تخمين. أنت لست وحدك. معظم المبدعين لا يعرفون كيف يقدمون أنفسهم على Behance.</p>
-                <p className="text-brand font-bold italic text-lg border-r-4 border-brand pr-5 py-2 bg-brand/5 rounded-l-xl">هذه الدورة هي طريقك المختصر لإتقان Behance للمستقلين.</p>
+                {course.about.map((paragraph, idx) => (
+                  <p key={idx} className={idx === course.about.length - 1 ? "text-brand font-bold italic text-lg border-r-4 border-brand pr-5 py-2 bg-brand/5 rounded-l-xl" : ""}>
+                    {paragraph}
+                  </p>
+                ))}
                 
                 <div className="grid md:grid-cols-2 gap-3 mt-8">
-                  {[
-                    "بناء ملف شخصي يجذب العملاء تلقائياً",
-                    "استراتيجيات عرض المشاريع بشكل احترافي",
-                    "فهم خوارزميات بيهانس لزيادة الظهور",
-                    "كيفية تسعير خدماتك والتعامل مع العملاء",
-                    "تحليل أعمال المنافسين والتميز عنهم",
-                    "بناء شبكة علاقات مهنية قوية"
-                  ].map((item, i) => (
+                  {course.learnings.map((item, i) => (
                     <div key={i} className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl border border-gray-100 hover:border-brand/20 transition-colors">
                       <div className="w-7 h-7 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0">
                         <Check size={14} className="text-brand" strokeWidth={3} />
@@ -1267,7 +1377,7 @@ const CourseDetailPage = () => {
           {/* Instructor */}
           <section className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row items-center gap-8">
             <div className="w-32 h-32 rounded-2xl overflow-hidden border-4 border-brand/10 flex-shrink-0 shadow-xl">
-              <img src="https://i.pravatar.cc/150?u=ahmed" alt="Instructor" className="w-full h-full object-cover" />
+              <img src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" alt="Instructor" className="w-full h-full object-cover" />
             </div>
             <div className="text-center md:text-right">
               <div className="text-brand font-bold text-[10px] mb-1 uppercase tracking-widest">المدرب المعتمد</div>
@@ -1337,14 +1447,14 @@ const CourseDetailPage = () => {
 
               <div className="mb-8">
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-5xl font-black text-brand">3099</span>
-                  <span className="text-xl font-bold text-gray-400">ج.م</span>
+                  <span className="text-5xl font-black text-brand">{course.price}</span>
+                  {course.price !== "قريباً" && <span className="text-xl font-bold text-gray-400">ج.م</span>}
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-gray-400 text-base line-through font-bold">4500 ج.م</span>
-                  <span className="bg-red-50 text-red-600 text-[9px] font-black px-2 py-0.5 rounded-md">وفر 31%</span>
-                </div>
-                <p className="text-[10px] text-gray-500 mt-3 font-bold leading-relaxed">دفع مرة واحدة - تحديثات مدى الحياة - وفر 1401 جنيه</p>
+                {course.oldPrice && (
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-400 text-base line-through font-bold">{course.oldPrice}</span>
+                  </div>
+                )}
               </div>
 
               <div className="space-y-4 mb-8">
@@ -1352,13 +1462,7 @@ const CourseDetailPage = () => {
                   <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center shadow-sm text-brand">
                     <Layers size={16} />
                   </div>
-                  <span>8 وحدات تعليمية مكثفة</span>
-                </div>
-                <div className="flex items-center gap-3 text-xs font-bold text-gray-700 bg-gray-50 p-3.5 rounded-xl border border-gray-100">
-                  <div className="w-7 h-7 bg-white rounded-lg flex items-center justify-center shadow-sm text-brand">
-                    <FileText size={16} />
-                  </div>
-                  <span>9 أوراق عمل وملفات تطبيقية</span>
+                  <span>{course.modules.length} وحدات تعليمية مكثفة</span>
                 </div>
               </div>
 
@@ -1373,12 +1477,14 @@ const CourseDetailPage = () => {
                 </div>
               </div>
               
-              <div className="mt-6">
-                <a href="#" className="flex items-center justify-center gap-2 py-3.5 bg-[#A435F0] text-white rounded-xl font-bold text-xs hover:opacity-90 transition-opacity shadow-lg shadow-[#A435F0]/20">
-                  <img src="https://www.udemy.com/static/images/v7/logo-udemy.svg" alt="Udemy" className="h-4 invert" />
-                  شراء من Udemy
-                </a>
-              </div>
+              {course.price !== "قريباً" && (
+                <div className="mt-6">
+                  <a href="#" className="flex items-center justify-center gap-2 py-3.5 bg-[#A435F0] text-white rounded-xl font-bold text-xs hover:opacity-90 transition-opacity shadow-lg shadow-[#A435F0]/20">
+                    <img src="https://www.udemy.com/static/images/v7/logo-udemy.svg" alt="Udemy" className="h-4 invert" />
+                    شراء من Udemy
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Support Card */}
@@ -1662,93 +1768,6 @@ const TestimonialsPage = () => {
 };
 
 const CoursesPage = () => {
-  const allCourses = [
-    {
-      title: "كومبو أبيع نفسي - لأول 100 شخص",
-      desc: "في ناس شاطرة جداً في شغلها... لكن محدش عارفهم. وفي ناس أقل مهارة... لكن بيعرفوا يسوقوا لنفسهم فيكسبوا أكتر بكتير. الفرق مش [...]",
-      price: "600 EGP",
-      oldPrice: "3,500 EGP",
-      badge: "SAVE 82.86%",
-      badgeColor: "bg-red-600",
-      category: "COURSE BUNDLE - 3",
-      students: "+96 طالب",
-      duration: "12 ساعة",
-      rating: "4.8",
-      tags: ["تسويق", "مبيعات"],
-      img: "https://picsum.photos/seed/course1/600/400"
-    },
-    {
-      title: "دبلومة التسويق الشاملة - 5 كورسات",
-      desc: "كل محتوى الموقع! عشر ساعات = عبارة عن دبلومة تسويق وبيرسونال براندنج شاملة",
-      price: "1,199 EGP",
-      oldPrice: "6,000 EGP",
-      badge: "SAVE 80.02%",
-      badgeColor: "bg-red-600",
-      category: "COURSE BUNDLE - 5",
-      students: "+5 طالب",
-      duration: "25 ساعة",
-      rating: "4.9",
-      tags: ["تسويق", "براندنج"],
-      img: "https://picsum.photos/seed/course2/600/400"
-    },
-    {
-      title: "استراتيجيات بناء براند شخصي",
-      desc: "في زمن أصبح فيه الظهور الرقمي أساس الفرص المهنية، ومع سباق محموم بين المحترفين لإثبات وجودهم، يبرز سؤال واحد: كيف [...]",
-      price: "299 EGP",
-      oldPrice: "1,000 EGP",
-      badge: "جديد",
-      badgeColor: "bg-brand",
-      category: "BRANDING",
-      students: "+734 طالب",
-      duration: "8 ساعات",
-      rating: "4.9",
-      tags: ["براندنج", "ظهور"],
-      img: "https://picsum.photos/seed/course3/600/400"
-    },
-    {
-      title: "كورس تصميم واجهات المستخدم UI",
-      desc: "تعلم أساسيات تصميم واجهات المستخدم من الصفر حتى الاحتراف مع تطبيق عملي على مشاريع حقيقية.",
-      price: "450 EGP",
-      oldPrice: "1,500 EGP",
-      badge: "الأكثر مبيعاً",
-      badgeColor: "bg-orange-500",
-      category: "DESIGN",
-      students: "+1.2k طالب",
-      duration: "15 ساعة",
-      rating: "5.0",
-      tags: ["تصميم", "UI/UX"],
-      img: "https://picsum.photos/seed/course4/600/400"
-    },
-    {
-      title: "دورة تجربة المستخدم UX Research",
-      desc: "افهم سلوك المستخدمين وكيفية إجراء الأبحاث والاختبارات لضمان تجربة مستخدم مثالية.",
-      price: "350 EGP",
-      oldPrice: "1,200 EGP",
-      badge: "متميز",
-      badgeColor: "bg-blue-600",
-      category: "RESEARCH",
-      students: "+450 طالب",
-      duration: "10 ساعات",
-      rating: "4.7",
-      tags: ["بحث", "UX"],
-      img: "https://picsum.photos/seed/course5/600/400"
-    },
-    {
-      title: "أساسيات الفريلانس والعمل الحر",
-      desc: "دليلك الشامل لدخول عالم العمل الحر، كيفية الحصول على أول عميل، وتسعير خدماتك باحترافية.",
-      price: "199 EGP",
-      oldPrice: "800 EGP",
-      badge: "خصم لفترة محدودة",
-      badgeColor: "bg-green-600",
-      category: "FREELANCE",
-      students: "+2.5k طالب",
-      duration: "6 ساعات",
-      rating: "4.9",
-      tags: ["عمل حر", "بيزنس"],
-      img: "https://picsum.photos/seed/course6/600/400"
-    }
-  ];
-
   return (
     <div className="pt-32 pb-24 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
@@ -1769,7 +1788,7 @@ const CoursesPage = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allCourses.map((course, i) => (
+          {coursesData.map((course, i) => (
             <motion.div 
               key={i} 
               initial={{ opacity: 0, y: 20 }}
@@ -1779,15 +1798,7 @@ const CoursesPage = () => {
               className="bg-white rounded-2xl overflow-hidden flex flex-col group shadow-sm border border-gray-50"
             >
               <div className="relative h-40 overflow-hidden">
-                <img 
-                  src={course.img} 
-                  alt={course.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
-                />
-                <div className={`absolute top-3 right-3 px-2 py-1 ${course.badgeColor} text-[8px] font-bold rounded text-white`}>
-                  {course.badge}
-                </div>
+                <CourseCover />
                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg border border-gray-50 shadow-sm flex items-center gap-1">
                   <Star size={10} className="text-yellow-400 fill-yellow-400" />
                   <span className="text-[9px] font-bold text-gray-700">{course.rating}</span>
@@ -1828,7 +1839,7 @@ const CoursesPage = () => {
                 
                 <div className="mt-auto pt-3 border-t border-gray-50 flex items-center justify-between">
                   <Link 
-                    to="/course/1"
+                    to={`/course/${i}`}
                     className="flex items-center gap-1.5 bg-brand text-white hover:bg-brand/90 px-3 py-2 rounded-lg transition-all text-[10px] font-bold shadow-md shadow-brand/10"
                   >
                     <Briefcase size={12} />
