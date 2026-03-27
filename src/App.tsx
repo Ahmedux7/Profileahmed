@@ -2114,6 +2114,61 @@ const ContactPage = () => {
   );
 };
 
+const ConsultationTestimonials = () => {
+  const marqueeItems = [...testimonials, ...testimonials, ...testimonials, ...testimonials];
+
+  return (
+    <section className="py-24 bg-white overflow-hidden border-y border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-brand/10 text-brand rounded-full font-bold text-sm mb-6">
+          <Star size={16} fill="currentColor" />
+          تجارب حقيقية
+        </div>
+        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">آراء عملاء سابقين وتجارب حقيقية</h2>
+        <p className="text-gray-500 max-w-2xl mx-auto">عملائي هم أفضل من يتحدث عن نتائجي.</p>
+      </div>
+
+      <div className="relative flex overflow-x-hidden group" dir="ltr">
+        <motion.div
+          className="flex gap-6 px-3 whitespace-nowrap"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 40,
+          }}
+        >
+          {marqueeItems.map((item, i) => (
+            <div
+              key={i}
+              className="w-[350px] md:w-[450px] flex-none bg-gray-50 p-8 rounded-3xl border border-gray-100 relative overflow-hidden"
+              dir="rtl"
+            >
+              <div className="absolute -top-4 -left-4 text-brand/5">
+                <Quote size={80} />
+              </div>
+              <div className="relative z-10 whitespace-normal">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-sm">
+                    <img src={item.img} alt={item.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-gray-900 text-lg">{item.name}</div>
+                    <div className="text-brand text-sm font-bold">{item.role}</div>
+                  </div>
+                </div>
+                <p className="text-gray-600 leading-relaxed text-sm">
+                  {item.text}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const ConsultationPage = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{title: string, price: string} | null>(null);
@@ -2306,10 +2361,8 @@ const ConsultationPage = () => {
         </div>
       </section>
 
-      {/* Reuse Testimonials Component */}
-      <div className="py-10">
-        <Testimonials />
-      </div>
+      {/* Animated Testimonials Component */}
+      <ConsultationTestimonials />
 
       {/* FAQ Section specifically for Consultation */}
       <section className="py-24 bg-gray-50">
@@ -2360,6 +2413,17 @@ const ConsultationPage = () => {
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">رقم الواتساب</label>
                   <input type="tel" required dir="ltr" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="+20 100 000 0000" />
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">تاريخ الجلسة</label>
+                    <input type="date" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">الوقت المناسب</label>
+                    <input type="time" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" />
+                  </div>
                 </div>
                 
                 {selectedPlan.price !== 'مجاناً' && (
