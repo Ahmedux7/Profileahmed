@@ -56,6 +56,8 @@ import {
   Unlock,
   PlayCircle,
   ChevronUp,
+  Menu,
+  X,
 } from "lucide-react";
 
 import { useState } from "react";
@@ -70,46 +72,73 @@ const ScrollToTop = () => {
   return null;
 };
 
-const Navbar = () => (
-  <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-    <div className="max-w-7xl mx-auto px-6 h-20 flex items-center">
-      {/* Brand - Right side in RTL */}
-      <div className="flex-1 flex justify-start whitespace-nowrap">
-        <Link to="/" className="hover:scale-105 transition-transform">
-          <img 
-            src="https://cdn-icons-png.flaticon.com/512/3609/3609930.png" 
-            alt="Logo" 
-            className="h-10 w-auto"
-            referrerPolicy="no-referrer"
-          />
-        </Link>
-      </div>
+const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-      {/* Navigation Links - Centered */}
-      <div className="hidden md:flex flex-none justify-center items-center gap-8 text-sm font-medium text-gray-600 whitespace-nowrap">
-        <Link to="/about" className="hover:text-brand transition-colors">معلومات عني</Link>
-        <Link to="/courses" className="hover:text-brand transition-colors">الدورات</Link>
-        <a href="#" className="hover:text-brand transition-colors">القوالب</a>
-        <a href="#" className="hover:text-brand transition-colors">المصادر</a>
-        <a href="#" className="hover:text-brand transition-colors">المدونة</a>
-        <a href="#" className="hover:text-brand transition-colors">تواصل معي</a>
-      </div>
-
-      {/* Actions - Left side in RTL */}
-      <div className="flex-1 flex justify-end items-center gap-6 whitespace-nowrap">
-        <div className="hidden md:flex items-center gap-2 text-sm font-medium text-gray-600">
-          <Globe size={16} />
-          <span>العربية</span>
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Brand */}
+        <div className="flex justify-start whitespace-nowrap">
+          <Link to="/" className="hover:scale-105 transition-transform">
+            <img 
+              src="https://cdn-icons-png.flaticon.com/512/3609/3609930.png" 
+              alt="Logo" 
+              className="h-10 w-auto"
+              referrerPolicy="no-referrer"
+            />
+          </Link>
         </div>
-        <button className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
-          <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
-          <FileText size={14} />
-          تحميل CV
+
+        {/* Hamburger Menu */}
+        <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+
+        {/* Navigation Links - Desktop */}
+        <div className="hidden md:flex flex-none justify-center items-center gap-8 text-sm font-medium text-gray-600 whitespace-nowrap">
+          <Link to="/about" className="hover:text-brand transition-colors">معلومات عني</Link>
+          <Link to="/testimonials" className="hover:text-brand transition-colors">اثروا فيا</Link>
+          <Link to="/courses" className="hover:text-brand transition-colors">الدورات</Link>
+          <a href="#" className="hover:text-brand transition-colors">القوالب</a>
+          <a href="#" className="hover:text-brand transition-colors">المصادر</a>
+          <a href="#" className="hover:text-brand transition-colors">المدونة</a>
+          <a href="#" className="hover:text-brand transition-colors">تواصل معي</a>
+        </div>
+
+        {/* Actions - Desktop */}
+        <div className="hidden md:flex justify-end items-center gap-6 whitespace-nowrap">
+          <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
+            <Globe size={16} />
+            <span>العربية</span>
+          </div>
+          <button className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
+            <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
+            <FileText size={14} />
+            تحميل CV
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
-);
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <motion.div 
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          className="md:hidden bg-white border-b p-6 flex flex-col gap-4 text-sm font-medium text-gray-600"
+        >
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>معلومات عني</Link>
+          <Link to="/testimonials" onClick={() => setIsMenuOpen(false)}>اثروا فيا</Link>
+          <Link to="/courses" onClick={() => setIsMenuOpen(false)}>الدورات</Link>
+          <a href="#" onClick={() => setIsMenuOpen(false)}>القوالب</a>
+          <a href="#" onClick={() => setIsMenuOpen(false)}>المصادر</a>
+          <a href="#" onClick={() => setIsMenuOpen(false)}>المدونة</a>
+          <a href="#" onClick={() => setIsMenuOpen(false)}>تواصل معي</a>
+        </motion.div>
+      )}
+    </nav>
+  );
+};
 
 const Hero = () => (
   <section className="relative pt-32 pb-20 overflow-hidden">
@@ -174,6 +203,9 @@ const Hero = () => (
           className="absolute w-[110%] h-[110%] border-2 border-dashed border-brand/30 rounded-full -z-10"
         ></motion.div>
 
+        {/* Cheerful Orange Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-orange-50 rounded-[3rem] -z-10"></div>
+
         {/* Glassmorphism Background Card */}
         <motion.div 
           initial={{ opacity: 0, x: 20, y: 20 }}
@@ -183,40 +215,29 @@ const Hero = () => (
         ></motion.div>
 
         {/* Main Image Container */}
-        <div className="relative z-10 aspect-square w-full max-w-[450px] rounded-2xl overflow-hidden bg-gray-100 border-4 border-white shadow-2xl group">
+        <div className="relative z-10 aspect-[4/5] w-full max-w-md rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group border-4 border-transparent group-hover:border-orange-500/30 transition-all duration-500">
+          <div className="absolute inset-0 bg-brand/10 group-hover:opacity-0 transition-opacity duration-700"></div>
           <img 
             src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" 
             alt="Ahmed Ali" 
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
             referrerPolicy="no-referrer"
           />
           
-          {/* Overlay Gradient on Hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-brand/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Info Block */}
+          <div className="absolute bottom-8 right-8 left-8 p-6 bg-white/90 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl">
+            <div className="flex justify-between items-center">
+              <div>
+                <p className="text-[10px] font-black text-brand uppercase tracking-widest mb-1">الدور الحالي</p>
+                <p className="text-sm font-black text-gray-900">مصمم تجربة مستخدم أول</p>
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">المقر</p>
+                <p className="text-sm font-black text-gray-900">القاهرة، مصر</p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        {/* Floating UI Badges */}
-        <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-6 -right-6 z-20 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg border border-white/50 flex items-center gap-3"
-        >
-          <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white">
-            <Code size={16} />
-          </div>
-          <span className="font-bold text-gray-800 text-sm">Developer</span>
-        </motion.div>
-
-        <motion.div
-          animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-          className="absolute -bottom-6 -left-6 z-20 bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg border border-white/50 flex items-center gap-3"
-        >
-          <div className="w-8 h-8 bg-brand rounded-full flex items-center justify-center text-white">
-            <Palette size={16} />
-          </div>
-          <span className="font-bold text-gray-800 text-sm">UI/UX Designer</span>
-        </motion.div>
 
         {/* Animated Tech Stack Icons */}
         <motion.div
@@ -300,35 +321,69 @@ const TrustedBy = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-16">
-          {companies.map((company, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              whileHover={{ y: -5, backgroundColor: "#fff" }}
-              className="h-28 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
-            >
-              <img 
-                src={`https://logo.clearbit.com/${company.domain}`} 
-                alt={company.name}
-                className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                  const parent = (e.target as HTMLImageElement).parentElement;
-                  if (parent) {
-                    const span = document.createElement('span');
-                    span.className = 'text-gray-300 font-bold text-sm';
-                    span.innerText = company.name;
-                    parent.appendChild(span);
-                  }
-                }}
-              />
-            </motion.div>
-          ))}
+        <div className="overflow-hidden space-y-8">
+          {/* Row 1 */}
+          <motion.div 
+            className="flex gap-4"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+          >
+            {[...companies.slice(0, 6), ...companies.slice(0, 6)].map((company, index) => (
+              <div
+                key={index}
+                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 border border-gray-100"
+              >
+                <img 
+                  src={`https://logo.clearbit.com/${company.domain}`} 
+                  alt={company.name}
+                  className="max-h-full max-w-full object-contain grayscale opacity-40"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Row 2 */}
+          <motion.div 
+            className="flex gap-4"
+            animate={{ x: ["-50%", "0%"] }}
+            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+          >
+            {[...companies.slice(6), ...companies.slice(6)].map((company, index) => (
+              <div
+                key={index}
+                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 border border-gray-100"
+              >
+                <img 
+                  src={`https://logo.clearbit.com/${company.domain}`} 
+                  alt={company.name}
+                  className="max-h-full max-w-full object-contain grayscale opacity-40"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
+
+      {/* Courses Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-4xl font-black text-gray-900 mb-16 text-center">الكورسات القادمة</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "احتراف البيتش ديك وجلب الاستثمار", desc: "تعلم كيف تصمم عرضاً تقديمياً مقنعاً وتجذب المستثمرين لمشروعك." },
+              { title: "تعلم الفايب كوديتنج (Vibe Coding)", desc: "اكتشف أسرار البرمجة الحديثة باستخدام أدوات الذكاء الاصطناعي." },
+              { title: "أتمتة العمليات باستخدام n8n", desc: "حول مهامك المتكررة إلى عمليات مؤتمتة بالكامل." }
+            ].map((course, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all">
+                <h3 className="text-2xl font-bold mb-4">{course.title}</h3>
+                <p className="text-gray-500 mb-8">{course.desc}</p>
+                <span className="inline-block px-4 py-2 bg-brand/10 text-brand font-bold rounded-full">قريباً (Soon)</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
         <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 pt-12 border-t border-gray-50">
           {stats.map((stat, index) => (
@@ -339,7 +394,7 @@ const TrustedBy = () => {
               transition={{ delay: index * 0.1 }}
               className="flex items-center gap-3"
             >
-              <span className="text-xl font-black text-brand">{stat.value}</span>
+              <span className="text-4xl font-black text-brand">{stat.value}</span>
               <span className="text-gray-400 font-bold text-[10px] uppercase tracking-wider">{stat.label}</span>
             </motion.div>
           ))}
@@ -509,7 +564,7 @@ const Testimonials = () => {
                   </div>
                   <div className="text-right">
                     <div className="font-bold text-gray-900 text-base">{item.name}</div>
-                    <div className="text-xs text-brand font-bold">{item.role}</div>
+                    <div className="text-brand text-xs font-bold">{item.role}</div>
                   </div>
                 </div>
                 <p className="text-gray-500 text-xs leading-relaxed text-right mb-3">
@@ -548,26 +603,10 @@ const Testimonials = () => {
 const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
-    { 
-      q: "ما الفرق بين المعسكرات والدورات المتاحة؟ وأيها الأنسب لي؟", 
-      a: "المعسكرات هي برامج مكثفة تستمر 2-4 أشهر وتشمل تدريباً عملياً شاملاً مع مشاريع حقيقية وفرص توظيف وتتطلب حضور الجلسات المباشرة. أما الدورات فهي برامج قصيرة مسجلة للمشاهدة في أي وقت وتركز على مهارات محددة. المعسكرات مناسبة للراغبين في تغيير مسارهم المهني بالكامل، بينما الدورات مثالية لتطوير مهارات معينة أو التعرف على المجال." 
-    },
-    { 
-      q: "هل أحتاج خبرة مسبقة في التصميم للانضمام؟ وما هي المتطلبات؟", 
-      a: "لا تحتاج لخبرة مسبقة، برامجنا مصممة لتبدأ معك من الصفر. المتطلبات الوحيدة هي جهاز كمبيوتر، اتصال بالإنترنت، والرغبة الحقيقية في التعلم والالتزام." 
-    },
-    { 
-      q: "هل تضمنون الحصول على وظيفة بعد التخرج؟ وما معدل توظيف الخريجين؟", 
-      a: "نحن نوفر لك كل الأدوات اللازمة من بناء معرض أعمال قوي وتدريب على المقابلات، ولدينا شبكة شركاء توظيف واسعة. معدل توظيف خريجينا يتجاوز 85% خلال أول 6 أشهر." 
-    },
-    { 
-      q: "كيف تتم الدراسة؟ وما هو الجدول الزمني للمعسكرات؟", 
-      a: "الدراسة تتم عبر الإنترنت من خلال محاضرات مباشرة وتفاعل مستمر. الجدول الزمني مرن ليناسب الموظفين والطلاب، عادة ما تكون الجلسات في المساء." 
-    },
-    { 
-      q: "في سؤال اخير ايه الفرق بين المعسكرات والمنح؟ والاجابه هتكون في اتجاه ان:", 
-      a: "المنح تكون مدعومة بالكامل أو جزئياً وتخضع لشروط قبول معينة، بينما المعسكرات هي برامج تدريبية مدفوعة متاحة للجميع مع خيارات تقسيط مريحة." 
-    }
+    { q: "كيف يمكننا البدء في العمل معاً؟", a: "يمكنك التواصل معي مباشرة عبر زر 'تواصل معي' وسنحدد موعداً لمناقشة تفاصيل مشروعك وأهدافك." },
+    { q: "ما هي الخدمات التي تقدمها؟", a: "أقدم خدمات تصميم واجهات المستخدم (UI/UX)، تطوير هوية بصرية، وتصميم تطبيقات الويب والموبايل." },
+    { q: "كم تستغرق المشاريع عادةً؟", a: "يعتمد ذلك على حجم وتعقيد المشروع، وسأقوم بتزويدك بجدول زمني دقيق بعد مناقشة المتطلبات." },
+    { q: "هل تقدم خدمات ما بعد التسليم؟", a: "نعم، أقدم دعماً فنياً وتحديثات للمشاريع لضمان استمرار نجاحها وتطورها." }
   ];
 
   return (
@@ -577,10 +616,9 @@ const FAQ = () => {
           {/* FAQ Content - Right Side in RTL */}
           <div className="text-right order-2 lg:order-1">
             <div className="mb-12">
-              <h2 className="text-4xl font-black text-gray-900 mb-4">الأسئلة الشائعة</h2>
               <h3 className="text-5xl font-black text-gray-900 mb-6 leading-tight">
-                الأسئلة التي تدور ببالك؟ <br />
-                <span className="text-brand">إليك ردودها</span>
+                أسئلة تدور في بالك؟ <br />
+                <span className="text-brand">إليك الإجابات</span>
               </h3>
               <div className="w-24 h-1.5 bg-brand rounded-full"></div>
             </div>
@@ -1400,20 +1438,19 @@ const AboutPage = () => {
                   متاح لتحديات جديدة
                 </div>
                 
-                <h1 className="text-[12vw] lg:text-[8vw] font-display leading-[0.85] uppercase tracking-tighter mb-8 text-gray-900">
-                  أحمد <br/>
-                  <span className="text-brand">علي</span>
+                <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[1.1] tracking-tight text-gray-900">
+                  أحمد <span className="text-brand">علي</span>
                 </h1>
                 
                 <div className="flex items-start gap-8 mb-12">
                   <div className="w-1 h-24 bg-brand/20 rounded-full hidden md:block"></div>
                   <p className="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed max-w-xl">
-                    مصمم تجربة مستخدم (UX) يركز على الإنسان، يمزج بين علم النفس والجماليات لإنشاء منتجات رقمية تبدو طبيعية وبديهية.
+                    فنان في عالم التكنولوجيا، أستكشف أعماق النفس البشرية لأصمم مساحات رقمية تشعرك بالألفة والراحة، حيث يمتزج علم النفس بالجمال لتصبح التكنولوجيا امتداداً طبيعياً لإحساسك.
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-6 items-center">
-                  <button className="px-12 py-6 bg-gray-900 text-white rounded-full font-black text-lg hover:bg-brand transition-all shadow-2xl shadow-gray-900/20 hover:scale-105 active:scale-95">
+                  <button className="px-12 py-6 bg-brand text-white rounded-full font-black text-lg hover:bg-brand/90 transition-all shadow-2xl shadow-brand/20 hover:scale-105 active:scale-95">
                     تواصل معي
                   </button>
                   <div className="flex items-center gap-4">
@@ -1441,25 +1478,13 @@ const AboutPage = () => {
                 <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group">
                   <div className="absolute inset-0 bg-brand/10 group-hover:opacity-0 transition-opacity duration-700"></div>
                   <img 
-                    src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" 
+                    src="https://i.ibb.co/7tZwf6FS/547438725-805625648822430-8229388273858976577-n.jpg" 
                     alt="Ahmed Ali" 
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
                     referrerPolicy="no-referrer"
                   />
                   
-                  {/* Floating Micro-labels */}
-                  <div className="absolute bottom-8 right-8 left-8 p-6 bg-white/90 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <p className="text-[10px] font-black text-brand uppercase tracking-widest mb-1">الدور الحالي</p>
-                        <p className="text-sm font-black text-gray-900">مصمم تجربة مستخدم أول</p>
-                      </div>
-                      <div className="text-left">
-                        <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">المقر</p>
-                        <p className="text-sm font-black text-gray-900">القاهرة، مصر</p>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Floating Bento-Grid Style Info removed */}
                 </div>
 
                 {/* Decorative Elements */}
@@ -1499,14 +1524,20 @@ const AboutPage = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-20 border-y border-gray-100 bg-white">
+      <section className="py-20 border-y border-gray-100 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.4em] text-center md:text-right">موثوق به من قبل علامات تجارية عالمية</p>
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-              {["Kimabox", "Taji", "Ridez", "Raskoda", "Tard"].map((brand, i) => (
-                <div key={i} className="text-xl font-black text-gray-900 tracking-tighter">{brand}</div>
-              ))}
+            <p className="text-sm font-black text-gray-400 uppercase tracking-[0.2em] text-center md:text-right mb-8 md:mb-0">موثوق به من قبل علامات تجارية عالمية</p>
+            <div className="flex-1 overflow-hidden">
+              <motion.div 
+                className="flex items-center gap-12 md:gap-16 opacity-30 grayscale"
+                animate={{ x: ["0%", "-50%"] }}
+                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+              >
+                {["Kimabox", "Taji", "Ridez", "Raskoda", "Tard", "Kimabox", "Taji", "Ridez", "Raskoda", "Tard"].map((brand, i) => (
+                  <div key={i} className="text-xl font-black text-gray-900 tracking-tighter whitespace-nowrap">{brand}</div>
+                ))}
+              </motion.div>
             </div>
           </div>
         </div>
@@ -1592,7 +1623,7 @@ const TestimonialsPage = () => {
                   </div>
                   <div className="text-right">
                     <div className="font-bold text-gray-900 text-lg mb-1">{item.name}</div>
-                    <div className="text-xs text-brand font-bold bg-brand/5 px-3 py-1 rounded-lg inline-block">{item.role}</div>
+                    <div className="text-brand text-xs font-bold">{item.role}</div>
                   </div>
                 </div>
                 
