@@ -58,6 +58,14 @@ import {
   ChevronUp,
   Menu,
   X,
+  CheckSquare,
+  Square,
+  Zap,
+  HeartHandshake,
+  Target,
+  CalendarCheck,
+  CreditCard,
+  MonitorPlay,
 } from "lucide-react";
 
 import { useState } from "react";
@@ -100,10 +108,11 @@ const Navbar = () => {
           <Link to="/about" className="hover:text-brand transition-colors">معلومات عني</Link>
           <Link to="/testimonials" className="hover:text-brand transition-colors">اثروا فيا</Link>
           <Link to="/courses" className="hover:text-brand transition-colors">الدورات</Link>
+          <Link to="/consultation" className="hover:text-brand transition-colors">الاستشارات</Link>
           <a href="#" className="hover:text-brand transition-colors">القوالب</a>
           <a href="#" className="hover:text-brand transition-colors">المصادر</a>
           <a href="#" className="hover:text-brand transition-colors">المدونة</a>
-          <a href="#" className="hover:text-brand transition-colors">تواصل معي</a>
+          <Link to="/contact" className="hover:text-brand transition-colors">تواصل معي</Link>
         </div>
 
         {/* Actions - Desktop */}
@@ -130,10 +139,11 @@ const Navbar = () => {
           <Link to="/about" onClick={() => setIsMenuOpen(false)}>معلومات عني</Link>
           <Link to="/testimonials" onClick={() => setIsMenuOpen(false)}>اثروا فيا</Link>
           <Link to="/courses" onClick={() => setIsMenuOpen(false)}>الدورات</Link>
+          <Link to="/consultation" onClick={() => setIsMenuOpen(false)}>الاستشارات</Link>
           <a href="#" onClick={() => setIsMenuOpen(false)}>القوالب</a>
           <a href="#" onClick={() => setIsMenuOpen(false)}>المصادر</a>
           <a href="#" onClick={() => setIsMenuOpen(false)}>المدونة</a>
-          <a href="#" onClick={() => setIsMenuOpen(false)}>تواصل معي</a>
+          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>تواصل معي</Link>
         </motion.div>
       )}
     </nav>
@@ -157,14 +167,14 @@ const Hero = () => (
           أنا مصمم واجهات المستخدم (UI) وتجربة المستخدم (UX) مع خبرة تزيد عن 5 سنوات. أسعى لتحقيق التوازن بين الوظائف والجماليات في تصاميمي، أؤمن أن التصميم الجيد يجب أن يكون بسيطاً وسهل الاستخدام.
         </p>
         <div className="flex flex-wrap items-center gap-8 mb-10">
-          <button className="px-8 py-4 orange-gradient text-white rounded-2xl font-bold flex items-center gap-3 hover:scale-105 transition-all shadow-xl shadow-brand/20">
+          <Link to="/contact" className="px-8 py-4 orange-gradient text-white rounded-2xl font-bold flex items-center gap-3 hover:scale-105 transition-all shadow-xl shadow-brand/20">
             تواصل معى
             <Phone size={20} />
-          </button>
-          <button className="flex items-center gap-2 text-gray-900 font-bold hover:text-brand transition-colors group">
+          </Link>
+          <Link to="/consultation" className="flex items-center gap-2 text-gray-900 font-bold hover:text-brand transition-colors group">
             <MessageSquare size={20} className="text-gray-900 group-hover:text-brand" />
             <span className="border-b-2 border-gray-900 group-hover:border-brand pb-0.5">حجز استشارة</span>
-          </button>
+          </Link>
         </div>
 
         {/* Social Proof / Student Count */}
@@ -492,10 +502,10 @@ const Portfolio = () => {
 
 
         <div className="flex justify-center">
-          <button className="px-10 py-4 bg-white border border-gray-200 rounded-2xl font-bold text-gray-700 hover:bg-gray-50 transition-all flex items-center gap-3">
+          <Link to="/contact" className="px-10 py-4 bg-white border border-gray-200 rounded-2xl font-bold text-gray-700 hover:bg-gray-50 transition-all flex items-center gap-3">
             تواصل معي لمشروعك القادم
             <Phone size={20} />
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -765,7 +775,7 @@ const Footer = () => (
               <Link to="/testimonials" className="block hover:text-brand transition-colors">أثروا في مسيرتي</Link>
               <a href="#" className="block hover:text-brand transition-colors">عن أحمد</a>
               <Link to="/courses" className="block hover:text-brand transition-colors">الدورات</Link>
-              <a href="#" className="block hover:text-brand transition-colors">الاستشارات</a>
+              <Link to="/consultation" className="block hover:text-brand transition-colors">الاستشارات</Link>
             </div>
           </div>
           {/* Contact Info */}
@@ -1072,14 +1082,14 @@ const Consultation = () => (
         </p>
         
         <div className="flex flex-wrap justify-center gap-6">
-          <button className="px-10 py-5 orange-gradient text-white rounded-2xl font-bold text-xl shadow-2xl shadow-brand/30 hover:scale-105 transition-all flex items-center gap-3">
+          <Link to="/consultation" className="px-10 py-5 orange-gradient text-white rounded-2xl font-bold text-xl shadow-2xl shadow-brand/30 hover:scale-105 transition-all flex items-center gap-3">
             احجز جلستك الآن
             <Calendar size={24} />
-          </button>
-          <button className="px-10 py-5 bg-gray-50 text-gray-900 rounded-2xl font-bold text-xl hover:bg-gray-100 transition-all border border-gray-200 flex items-center gap-3">
+          </Link>
+          <Link to="/projects" className="px-10 py-5 bg-gray-50 text-gray-900 rounded-2xl font-bold text-xl hover:bg-gray-100 transition-all border border-gray-200 flex items-center gap-3">
             تصفح أعمالي
             <ArrowLeft size={24} />
-          </button>
+          </Link>
         </div>
       </motion.div>
     </div>
@@ -1452,9 +1462,9 @@ const AboutPage = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-6 items-center">
-                  <button className="px-12 py-6 bg-brand text-white rounded-full font-black text-lg hover:bg-brand/90 transition-all shadow-2xl shadow-brand/20 hover:scale-105 active:scale-95">
+                  <Link to="/contact" className="px-12 py-6 bg-brand text-white rounded-full font-black text-lg hover:bg-brand/90 transition-all shadow-2xl shadow-brand/20 hover:scale-105 active:scale-95 inline-block">
                     تواصل معي
-                  </button>
+                  </Link>
                   <div className="flex items-center gap-4">
                     {[
                       { icon: <Linkedin size={22} />, link: "#" },
@@ -1948,6 +1958,441 @@ const ProjectsPage = () => {
   );
 };
 
+const ContactPage = () => {
+  const [workType, setWorkType] = useState<'personal' | 'commercial'>('personal');
+
+  return (
+    <div className="min-h-screen bg-[#F8F9FA] text-gray-900 pt-32 pb-20 font-sans relative overflow-hidden" dir="rtl">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+      
+      <div className="max-w-3xl mx-auto px-6 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p className="text-brand font-bold mb-4 text-sm tracking-wide">لديك مشروع وتريد تنفيذه؟</p>
+          <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-8">لنتواصل معًا الآن</h1>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 bg-white shadow-sm">
+              <span className="text-sm font-bold text-gray-700">تقييم عالي من العملاء</span>
+              <div className="flex text-brand">
+                {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-current" />)}
+              </div>
+            </div>
+            <div className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 bg-white shadow-sm">
+              <span className="text-sm font-bold text-gray-700">اتفاقية عدم إفصاح</span>
+              <CheckCircle size={16} className="text-green-500" />
+            </div>
+          </div>
+        </div>
+
+        {/* Form Card */}
+        <div className="bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 p-8 md:p-12 border border-gray-100">
+          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            {/* Work Type */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-4 text-right">نوع العمل</label>
+              <div className="grid grid-cols-2 gap-4">
+                <button
+                  type="button"
+                  onClick={() => setWorkType('personal')}
+                  className={`flex items-center justify-between p-4 rounded-2xl border-2 transition-all ${
+                    workType === 'personal' 
+                    ? 'border-brand bg-brand/5 text-brand' 
+                    : 'border-gray-100 text-gray-500 hover:border-brand/30 hover:bg-gray-50'
+                  }`}
+                >
+                  <span className="font-bold">شخصي</span>
+                  {workType === 'personal' ? (
+                    <CheckSquare className="text-brand" size={20} />
+                  ) : (
+                    <Square className="text-gray-400" size={20} />
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setWorkType('commercial')}
+                  className={`flex items-center justify-between p-4 rounded-2xl border-2 transition-all ${
+                    workType === 'commercial' 
+                    ? 'border-brand bg-brand/5 text-brand' 
+                    : 'border-gray-100 text-gray-500 hover:border-brand/30 hover:bg-gray-50'
+                  }`}
+                >
+                  <span className="font-bold">تجاري</span>
+                  {workType === 'commercial' ? (
+                    <CheckSquare className="text-brand" size={20} />
+                  ) : (
+                    <Square className="text-gray-400" size={20} />
+                  )}
+                </button>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Full Name */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-3 text-right">الاسم الكامل</label>
+                <input 
+                  type="text" 
+                  placeholder="جون دو" 
+                  className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all text-right"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-bold text-gray-700 mb-3 text-right">البريد الإلكتروني</label>
+                <input 
+                  type="email" 
+                  placeholder="john@doe.com" 
+                  className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all text-right"
+                  dir="ltr"
+                />
+              </div>
+            </div>
+
+            {/* WhatsApp */}
+            <div>
+              <label className="block text-sm font-bold text-gray-700 mb-3 text-right">رقم الواتساب</label>
+              <input 
+                type="tel" 
+                placeholder="+965-123-456" 
+                className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all text-right"
+                dir="ltr"
+              />
+            </div>
+
+            {/* reCAPTCHA Placeholder */}
+            <div className="flex justify-end pt-2">
+              <div className="bg-gray-50 rounded-xl p-3 flex items-center justify-between gap-8 border border-gray-200 w-fit">
+                <div className="flex items-center gap-3">
+                  <input type="checkbox" className="w-6 h-6 rounded border-gray-300 text-brand focus:ring-brand" />
+                  <span className="text-sm text-gray-700 font-sans font-medium" dir="ltr">I'm not a robot</span>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-8 opacity-80" />
+                  <span className="text-[8px] text-gray-500 mt-1">reCAPTCHA</span>
+                  <div className="text-[8px] text-gray-400 flex gap-1">
+                    <span>Privacy</span> - <span>Terms</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <button 
+              type="submit"
+              className="w-full bg-brand text-white font-bold text-lg py-5 rounded-2xl hover:bg-brand/90 transition-all shadow-xl shadow-brand/20 hover:scale-[1.02] active:scale-[0.98] mt-4"
+            >
+              إرسال الرسالة
+            </button>
+          </form>
+        </div>
+
+        {/* Social Links */}
+        <div className="mt-16 flex flex-wrap justify-center gap-4">
+          {[
+            { name: 'Behance', icon: <span className="font-black text-lg leading-none">Bē</span> },
+            { name: 'Facebook', icon: <Facebook size={18} className="fill-current" /> },
+            { name: 'LinkedIn', icon: <Linkedin size={18} className="fill-current" /> },
+            { name: 'Twitter', icon: <Twitter size={18} className="fill-current" /> },
+            { name: 'Dribbble', icon: <Dribbble size={18} /> },
+          ].map((social, i) => (
+            <a 
+              key={i} 
+              href="#" 
+              className="flex items-center gap-3 px-6 py-3 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-brand/30 hover:text-brand transition-all text-gray-600 shadow-sm"
+            >
+              <span className="font-bold text-sm">{social.name}</span>
+              {social.icon}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ConsultationPage = () => {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<{title: string, price: string} | null>(null);
+
+  const handleBook = (title: string, price: string) => {
+    setSelectedPlan({ title, price });
+    setIsBookingModalOpen(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-white font-sans" dir="rtl">
+      {/* Hero Section */}
+      <section className="pt-40 pb-20 bg-gray-50 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-brand font-bold bg-brand/10 px-4 py-2 rounded-full text-sm inline-block mb-6">الاستشارات</span>
+              <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+                استثمر في مسارك المهني... <br />
+                <span className="text-brand">بخبرة وتوجيه مخصص.</span>
+              </h1>
+              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                اختر باقة الاستشارة المناسبة لك، وابدأ رحلة تطوير مبنية على خبرة عملية في تصميم واجهات وتجربة المستخدم.
+              </p>
+              <button onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="bg-brand text-white px-8 py-4 rounded-xl font-bold hover:bg-brand/90 transition-all flex items-center gap-3 shadow-lg shadow-brand/20 hover:scale-105 active:scale-95">
+                احجز استشارتك الآن
+                <CalendarCheck size={20} />
+              </button>
+            </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-tr from-brand/20 to-transparent rounded-[3rem] transform rotate-3 scale-105"></div>
+              <img 
+                src="https://i.ibb.co/WNZZ1nMW/492554153-714896711228658-704044520897984266-n.jpg" 
+                alt="Consultation" 
+                className="rounded-[3rem] relative z-10 w-full object-cover aspect-square shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Me Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">لماذا تختار جلسات التوجيه معي؟</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">سواء كنت مصمماً مبتدئاً أو محترفاً، جلسات التوجيه مصممة لتلبية احتياجاتك.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Zap size={32} className="text-brand" />,
+                title: "تطبيق عملي",
+                desc: "جلسات عملية قابلة للتطبيق فوراً في مشاريعك الحالية والمستقبلية."
+              },
+              {
+                icon: <HeartHandshake size={32} className="text-brand" />,
+                title: "دعم مستمر",
+                desc: "دعم شخصي مباشر لتجاوز التحديات التقنية والمهنية التي تواجهك."
+              },
+              {
+                icon: <Target size={32} className="text-brand" />,
+                title: "إنجاز أهدافك",
+                desc: "خطة واضحة ومدروسة لتحقيق أهدافك المهنية بسرعة ووضوح."
+              }
+            ].map((feature, i) => (
+              <div key={i} className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1">
+                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Plans */}
+      <section id="pricing" className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">خطط تناسب وقتك واحتياجاتك</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">اختيارك للباقة هو خطوتك الأولى للنجاح.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            {/* Plan 1 */}
+            <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all">
+              <div className="inline-block px-4 py-1.5 bg-gray-100 text-gray-600 font-bold rounded-full text-sm mb-6">30 دقيقة</div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">استشارة سريعة</h3>
+              <p className="text-gray-500 mb-8 text-sm leading-relaxed">مناسبة للاستشارات السريعة أو حل مشكلة محددة تواجهك في مشروعك.</p>
+              <div className="text-4xl font-black text-gray-900 mb-8">مجاناً</div>
+              <button onClick={() => handleBook("استشارة سريعة", "مجاناً")} className="w-full py-4 rounded-xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
+                احجز الآن <ArrowLeft size={18} />
+              </button>
+            </div>
+
+            {/* Plan 2 (Highlighted) */}
+            <div className="bg-brand rounded-[2rem] p-8 shadow-2xl shadow-brand/20 transform md:-translate-y-4 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
+              <div className="inline-block px-4 py-1.5 bg-white/20 text-white font-bold rounded-full text-sm mb-6 backdrop-blur-sm">60 دقيقة</div>
+              <h3 className="text-2xl font-black text-white mb-4">جلسة متعمقة</h3>
+              <p className="text-white/80 mb-8 text-sm leading-relaxed">مثالية للمواضيع العميقة أو مراجعة وتقييم المشاريع (Portfolio Review) في جلسة واحدة.</p>
+              <div className="text-4xl font-black text-white mb-8">200 جنيه</div>
+              <button onClick={() => handleBook("جلسة متعمقة", "200 جنيه")} className="w-full py-4 rounded-xl bg-white text-brand font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg">
+                احجز الآن <ArrowLeft size={18} />
+              </button>
+            </div>
+
+            {/* Plan 3 */}
+            <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all">
+              <div className="inline-block px-4 py-1.5 bg-gray-100 text-gray-600 font-bold rounded-full text-sm mb-6">4 جلسات (شهر)</div>
+              <h3 className="text-2xl font-black text-gray-900 mb-4">توجيه مستمر</h3>
+              <p className="text-gray-500 mb-8 text-sm leading-relaxed">متابعة مستمرة وتوجيه مخصص لتطوير مسارك المهني بالكامل (Mentorship).</p>
+              <div className="text-4xl font-black text-gray-900 mb-8">400 جنيه</div>
+              <button onClick={() => handleBook("توجيه مستمر", "400 جنيه")} className="w-full py-4 rounded-xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
+                احجز الآن <ArrowLeft size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-24 bg-[#0A0A0A] text-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black mb-4">ابدأ جلستك بخطوات واضحة</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">اختار، احجز، ادفع، وابدأ... ببساطة كده.</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 relative">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-1/2 right-0 left-0 h-0.5 bg-gray-800 -translate-y-1/2 z-0"></div>
+            
+            {[
+              { step: "الخطوة الأولى", title: "اختر الباقة", desc: "اختيار الخطة الأنسب لوقتك واحتياجاتك.", icon: <Target size={24} /> },
+              { step: "الخطوة الثانية", title: "حدد الموعد", desc: "اختر اليوم والوقت اللي يناسب جدولك.", icon: <CalendarCheck size={24} /> },
+              { step: "الخطوة الثالثة", title: "أكمل الدفع", desc: "عملية دفع آمنة وسهلة عبر الإنترنت.", icon: <CreditCard size={24} /> },
+              { step: "الخطوة الرابعة", title: "ابدأ استشارتك", desc: "خوض تجربة Coaching عملية وملهمة.", icon: <MonitorPlay size={24} /> }
+            ].map((item, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center group">
+                <div className="w-16 h-16 bg-gray-900 border-2 border-gray-800 rounded-2xl flex items-center justify-center text-brand mb-6 group-hover:border-brand group-hover:bg-brand/10 transition-all shadow-xl">
+                  {item.icon}
+                </div>
+                <span className="text-brand text-sm font-bold mb-2">{item.step}</span>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-16 text-center">
+             <button onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="bg-brand text-white px-8 py-4 rounded-xl font-bold hover:bg-brand/90 transition-all inline-flex items-center gap-3 shadow-lg shadow-brand/20">
+                احجز استشارتك الآن
+                <ArrowLeft size={20} />
+              </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900">رحلة عملية بتجمع بين الخبرة، التطبيق الفوري، والدعم الشخصي</h2>
+            <p className="text-gray-500 mt-4">علشان توصلك لأهدافك أسرع.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-x-reverse divide-gray-100">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">+10</div>
+              <div className="text-gray-500 font-bold">سنوات خبرة</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">+100</div>
+              <div className="text-gray-500 font-bold">رائد أعمال</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">1:1</div>
+              <div className="text-gray-500 font-bold">دعم شخصي</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">+50</div>
+              <div className="text-gray-500 font-bold">مشروع ناجح</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reuse Testimonials Component */}
+      <div className="py-10">
+        <Testimonials />
+      </div>
+
+      {/* FAQ Section specifically for Consultation */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-3xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">أسئلة قد تراودك</h2>
+            <p className="text-gray-500">إجابات لأكثر الأسئلة شيوعاً حول الاستشارات.</p>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "هل ممكن إعادة جدولة الجلسة بعد الحجز؟", a: "نعم، يمكنك إعادة جدولة الجلسة قبل موعدها بـ 24 ساعة على الأقل من خلال الرابط الموجود في بريد التأكيد." },
+              { q: "هل الجلسة مسجلة علشان أقدر أرجع لها بعدين؟", a: "نعم، يتم تسجيل الجلسة (بناءً على موافقتك) وإرسال رابط التسجيل لك بعد الانتهاء للرجوع إليها في أي وقت." },
+              { q: "هل الجلسات متاحة أونلاين فقط أم أوفلاين؟", a: "حالياً جميع الجلسات تقدم أونلاين عبر Google Meet أو Zoom لضمان المرونة وسهولة التواصل من أي مكان." },
+              { q: "كيف يمكنني الدفع؟", a: "نوفر طرق دفع متعددة وآمنة عبر الإنترنت تشمل البطاقات الائتمانية وبوابات الدفع الإلكترونية المعتمدة." }
+            ].map((faq, i) => (
+              <details key={i} className="group bg-white rounded-2xl border border-gray-200 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between p-6 cursor-pointer font-bold text-gray-900">
+                  {faq.q}
+                  <span className="transition group-open:rotate-180 bg-gray-50 p-2 rounded-full text-brand">
+                    <ChevronDown size={20} />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-gray-600 leading-relaxed">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Booking Modal */}
+      {isBookingModalOpen && selectedPlan && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" dir="rtl">
+          <div className="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl">
+            <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+              <h3 className="text-xl font-bold text-gray-900">حجز {selectedPlan.title}</h3>
+              <button onClick={() => setIsBookingModalOpen(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+                <X size={24} />
+              </button>
+            </div>
+            <div className="p-6 max-h-[75vh] overflow-y-auto">
+              <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert('تم استلام طلبك بنجاح! سيتم التواصل معك قريباً.'); setIsBookingModalOpen(false); }}>
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">الاسم الكامل</label>
+                  <input type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" placeholder="أدخل اسمك الكامل" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-700 mb-2">رقم الواتساب</label>
+                  <input type="tel" required dir="ltr" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="+20 100 000 0000" />
+                </div>
+                
+                {selectedPlan.price !== 'مجاناً' && (
+                  <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-5 mt-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <img src="https://instapay.eg/assets/images/logo.png" alt="Instapay" className="h-6" />
+                      <span className="font-bold text-blue-900">الدفع عبر إنستاباي</span>
+                    </div>
+                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                      برجاء تحويل مبلغ <span className="font-bold text-brand">{selectedPlan.price}</span> إلى الرقم التالي لتأكيد الحجز:
+                    </p>
+                    <div className="bg-white border border-blue-200 rounded-xl p-4 text-center mb-5 shadow-sm">
+                      <span className="text-2xl font-black text-gray-900 tracking-wider" dir="ltr">01554295388</span>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-2">رقم الموبايل المحول منه</label>
+                      <input type="tel" required dir="ltr" className="w-full bg-white border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="أدخل الرقم الذي قمت بالتحويل منه" />
+                    </div>
+                  </div>
+                )}
+
+                <button type="submit" className="w-full bg-brand text-white font-bold text-lg py-4 rounded-xl hover:bg-brand/90 transition-all shadow-lg shadow-brand/20 mt-4">
+                  تأكيد الحجز
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const HomePage = () => (
   <>
     <Hero />
@@ -1975,6 +2420,8 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/course/:id" element={<CourseDetailPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/consultation" element={<ConsultationPage />} />
         </Routes>
         <Footer />
         
