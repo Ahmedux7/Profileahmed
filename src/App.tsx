@@ -57,6 +57,7 @@ import {
   Unlock,
   PlayCircle,
   ChevronUp,
+  ChevronsLeft,
   Menu,
   X,
   CheckSquare,
@@ -67,10 +68,15 @@ import {
   CalendarCheck,
   CreditCard,
   MonitorPlay,
+  Rocket,
+  BarChart,
+  Lightbulb,
+  TrendingUp,
+  Shield,
 } from "lucide-react";
 
 import { useState } from "react";
-import { influencers, testimonials, projects } from "./data";
+import { homeInfluencers, influencers, testimonials, projects, experience, blogPosts } from "./data";
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -299,12 +305,11 @@ const Navbar = () => {
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex flex-none justify-center items-center gap-8 text-sm font-medium text-gray-600 whitespace-nowrap">
           <Link to="/about" className="hover:text-brand transition-colors">معلومات عني</Link>
+          <Link to="/gallery" className="hover:text-brand transition-colors">الجاليري</Link>
           <Link to="/testimonials" className="hover:text-brand transition-colors">اثروا فيا</Link>
           <Link to="/courses" className="hover:text-brand transition-colors">الدورات</Link>
           <Link to="/consultation" className="hover:text-brand transition-colors">الاستشارات</Link>
-          <a href="#" className="hover:text-brand transition-colors">القوالب</a>
-          <a href="#" className="hover:text-brand transition-colors">المصادر</a>
-          <a href="#" className="hover:text-brand transition-colors">المدونة</a>
+          <Link to="/blog" className="hover:text-brand transition-colors">المدونة</Link>
           <Link to="/contact" className="hover:text-brand transition-colors">تواصل معي</Link>
         </div>
 
@@ -330,12 +335,11 @@ const Navbar = () => {
           className="md:hidden bg-white border-b p-6 flex flex-col gap-4 text-sm font-medium text-gray-600"
         >
           <Link to="/about" onClick={() => setIsMenuOpen(false)}>معلومات عني</Link>
+          <Link to="/gallery" onClick={() => setIsMenuOpen(false)}>الجاليري</Link>
           <Link to="/testimonials" onClick={() => setIsMenuOpen(false)}>اثروا فيا</Link>
           <Link to="/courses" onClick={() => setIsMenuOpen(false)}>الدورات</Link>
           <Link to="/consultation" onClick={() => setIsMenuOpen(false)}>الاستشارات</Link>
-          <a href="#" onClick={() => setIsMenuOpen(false)}>القوالب</a>
-          <a href="#" onClick={() => setIsMenuOpen(false)}>المصادر</a>
-          <a href="#" onClick={() => setIsMenuOpen(false)}>المدونة</a>
+          <Link to="/blog" onClick={() => setIsMenuOpen(false)}>المدونة</Link>
           <Link to="/contact" onClick={() => setIsMenuOpen(false)}>تواصل معي</Link>
         </motion.div>
       )}
@@ -353,11 +357,11 @@ const Hero = () => (
       >
         <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand/5 text-brand/80 rounded-lg font-medium text-xs mb-6 border border-brand/10">
           <span className="w-1.5 h-1.5 rounded-full bg-brand/60"></span>
-          نحول الأفكار إلى واجهات رقمية ملهمة وسهلة الاستخدام
+          مدير منتجات ومؤسس شركات ناشئة
         </div>
         <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[1.1] tracking-tight text-gray-900">أحمد علي</h1>
         <p className="text-gray-600 text-lg mb-12 max-w-lg leading-relaxed font-medium">
-          أنا مصمم واجهات المستخدم (UI) وتجربة المستخدم (UX) مع خبرة تزيد عن 5 سنوات. أسعى لتحقيق التوازن بين الوظائف والجماليات في تصاميمي، أؤمن أن التصميم الجيد يجب أن يكون بسيطاً وسهل الاستخدام.
+          أنا مدير منتجات (Mid Product Manager) ومؤسس لشركتين ناشئتين. أجمع بين الرؤية الاستراتيجية وتصميم تجربة المستخدم (UI/UX) لتحويل الأفكار إلى منتجات رقمية ناجحة وشركات قابلة للنمو.
         </p>
         <div className="flex flex-wrap items-center gap-8 mb-10">
           <Link to="/contact" className="px-8 py-4 orange-gradient text-white rounded-2xl font-bold flex items-center gap-3 hover:scale-105 transition-all shadow-xl shadow-brand/20">
@@ -419,6 +423,8 @@ const Hero = () => (
 
         {/* Main Image Container */}
         <div className="relative z-10 aspect-[4/5] w-full max-w-md rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group border-4 border-transparent group-hover:border-orange-500/30 transition-all duration-500">
+          {/* Available for Work Badge Removed */}
+
           <div className="absolute inset-0 bg-brand/10 group-hover:opacity-0 transition-opacity duration-700"></div>
           <img 
             src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" 
@@ -432,7 +438,7 @@ const Hero = () => (
             <div className="flex justify-between items-center">
               <div>
                 <p className="text-[10px] font-black text-brand uppercase tracking-widest mb-1">الدور الحالي</p>
-                <p className="text-sm font-black text-gray-900">مصمم تجربة مستخدم أول</p>
+                <p className="text-sm font-black text-gray-900">مدير منتجات</p>
               </div>
               <div className="text-left">
                 <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">المقر</p>
@@ -466,16 +472,16 @@ const Services = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4 text-gray-900">أستطيع مساعدتك في</h2>
-        <p className="text-gray-500">مجموعة واسعة من الخدمات المتكاملة</p>
+        <p className="text-gray-500">مجموعة واسعة من الخدمات المتكاملة لبناء منتجات ناجحة</p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
         {[
-          { title: "البحث", desc: "نساعدك على فهم السوق والمستخدمين من خلال رؤى قيمة على البيانات لدعم اتخاذ قرارات أكثر ذكاءً.", icon: <Search /> },
-          { title: "التصميم", desc: "نصمم واجهات جذابة وعملية تضمن تجربة مستخدم سلسة بفضل الوصول.", icon: <Layout /> },
-          { title: "البرمجة", desc: "نحول الأفكار إلى واقع من خلال كود نظيف وفعال يضمن الأداء وقابلية التوسع.", icon: <Code /> },
-          { title: "مونتاج الفيديو", desc: "نعد محتوى بصري احترافي يعكس علامتك التجارية ويجذب الانتباه.", icon: <Video /> },
-          { title: "وسائل التواصل الاجتماعي", desc: "نصمم محتوى جذاباً مخصصاً للمنصات الاجتماعية لزيادة التفاعل والوصول.", icon: <Share2 /> },
-          { title: "إدارة المشاريع", desc: "ندير المشاريع بكفاءة من التخطيط حتى التسليم لضمان تنفيذ سلس ونتائج واضحة.", icon: <Briefcase /> },
+          { title: "إدارة المنتجات (Product Management)", desc: "التخطيط الاستراتيجي، بناء خارطة الطريق، وإدارة دورة حياة المنتج من الفكرة حتى الإطلاق والنمو.", icon: <Briefcase /> },
+          { title: "تصميم تجربة المستخدم (UI/UX)", desc: "تصميم واجهات جذابة وتجارب مستخدم سلسة تزيد من التفاعل وتحقق أهداف العمل.", icon: <Layout /> },
+          { title: "استشارات الشركات الناشئة", desc: "مساعدة المؤسسين في بناء الـ MVP، وتجهيز الـ Pitch Deck لجلب الاستثمارات.", icon: <Search /> },
+          { title: "الأتمتة (Automation)", desc: "بناء مسارات عمل ذكية باستخدام n8n لتوفير الوقت وتقليل الأخطاء البشرية.", icon: <Code /> },
+          { title: "تحليل البيانات", desc: "فهم سلوك المستخدمين من خلال رؤى قيمة على البيانات لدعم اتخاذ قرارات أكثر ذكاءً.", icon: <Share2 /> },
+          { title: "تطوير المنتجات بالذكاء الاصطناعي", desc: "استخدام أدوات الـ Vibe Coding والذكاء الاصطناعي لتسريع عملية بناء وتطوير المنتجات.", icon: <Video /> },
         ].map((service, i) => (
           <div key={i} className="bg-white border border-gray-100 shadow-sm rounded-2xl p-10 hover:shadow-md hover:border-brand/30 transition-all duration-300 group">
             <div className="text-brand mb-6 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
@@ -490,25 +496,16 @@ const Services = () => (
 
 const TrustedBy = () => {
   const stats = [
-    { label: "مشروع مكتمل", value: "+150" },
+    { label: "شركات ناشئة أسستها", value: "2" },
+    { label: "منتج رقمي أطلقته", value: "+20" },
+    { label: "سنوات خبرة", value: "5" },
     { label: "عميل سعيد", value: "+80" },
-    { label: "سنوات خبرة", value: "+6" },
-    { label: "جوائز عالمية", value: "+12" },
   ];
 
   const companies = [
-    { name: "Shell", domain: "shell.com" },
-    { name: "Sega", domain: "sega.com" },
-    { name: "Virgin", domain: "virgin.com" },
-    { name: "Lebara", domain: "lebara.com" },
-    { name: "Panda", domain: "panda.com.sa" },
-    { name: "Yassir", domain: "yassir.com" },
-    { name: "Breadfast", domain: "breadfast.com" },
-    { name: "Danube", domain: "danubehome.com" },
-    { name: "Lendo", domain: "lendo.com" },
-    { name: "9Round", domain: "9round.com" },
-    { name: "Gourmet", domain: "gourmetegypt.com" },
-    { name: "Styli", domain: "stylishop.com" },
+    { name: "Partner 1", logo: "https://i.ibb.co/SDqsHZzJ/468788849-501985789552422-54133115533631103-n.jpg" },
+    { name: "Partner 2", logo: "https://i.ibb.co/xtxqB1G9/490261387-1058367519670463-2966296700854741634-n.jpg" },
+    { name: "Partner 3", logo: "https://i.ibb.co/gFTQWQsJ/527197715-4202471453357667-4828324456619388377-n-1.jpg" },
   ];
 
   return (
@@ -529,16 +526,16 @@ const TrustedBy = () => {
           <motion.div 
             className="flex gap-4"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           >
-            {[...companies.slice(0, 6), ...companies.slice(0, 6)].map((company, index) => (
+            {[...companies, ...companies, ...companies, ...companies, ...companies, ...companies].map((company, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -5, backgroundColor: "#fff" }}
                 className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
               >
                 <img 
-                  src={`https://logo.clearbit.com/${company.domain}`} 
+                  src={company.logo} 
                   alt={company.name}
                   className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   referrerPolicy="no-referrer"
@@ -561,16 +558,16 @@ const TrustedBy = () => {
           <motion.div 
             className="flex gap-4"
             animate={{ x: ["-50%", "0%"] }}
-            transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
           >
-            {[...companies.slice(6), ...companies.slice(6)].map((company, index) => (
+            {[...companies, ...companies, ...companies, ...companies, ...companies, ...companies].map((company, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -5, backgroundColor: "#fff" }}
                 className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
               >
                 <img 
-                  src={`https://logo.clearbit.com/${company.domain}`} 
+                  src={company.logo} 
                   alt={company.name}
                   className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                   referrerPolicy="no-referrer"
@@ -724,7 +721,7 @@ const Testimonials = () => {
         <div className="columns-2 md:columns-3 lg:columns-6 gap-4 space-y-4 mb-16">
           <div className="h-20 bg-gray-50 rounded-xl hidden lg:block"></div>
           
-          {influencers.map((item, i) => (
+          {homeInfluencers.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -735,7 +732,7 @@ const Testimonials = () => {
               <img
                 src={item.src}
                 alt={`Influencer ${i}`}
-                className={`w-full ${item.height} object-cover rounded-xl shadow-sm border border-gray-100`}
+                className={`w-full ${item.height} object-cover rounded-xl shadow-sm border border-gray-100/50`}
                 referrerPolicy="no-referrer"
               />
             </motion.div>
@@ -752,12 +749,12 @@ const Testimonials = () => {
         </div>
 
         {/* Testimonial Cards */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.slice(0, 3).map((item, i) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {testimonials.slice(0, 4).map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -5 }}
-              className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md relative overflow-hidden group transition-all duration-300"
+              className="bg-white p-6 rounded-xl border border-gray-100/50 shadow-sm hover:shadow-md relative overflow-hidden group transition-all duration-300"
             >
               <div className="absolute -top-4 -left-4 text-brand/5 group-hover:text-brand/10 transition-colors">
                 <Quote size={80} />
@@ -809,7 +806,7 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
   const faqs = [
     { q: "كيف يمكننا البدء في العمل معاً؟", a: "يمكنك التواصل معي مباشرة عبر زر 'تواصل معي' وسنحدد موعداً لمناقشة تفاصيل مشروعك وأهدافك." },
-    { q: "ما هي الخدمات التي تقدمها؟", a: "أقدم خدمات تصميم واجهات المستخدم (UI/UX)، تطوير هوية بصرية، وتصميم تطبيقات الويب والموبايل." },
+    { q: "ما هي الخدمات التي تقدمها؟", a: "أقدم خدمات إدارة المنتجات (Product Management)، استشارات الشركات الناشئة، وتصميم تجربة المستخدم (UI/UX)." },
     { q: "كم تستغرق المشاريع عادةً؟", a: "يعتمد ذلك على حجم وتعقيد المشروع، وسأقوم بتزويدك بجدول زمني دقيق بعد مناقشة المتطلبات." },
     { q: "هل تقدم خدمات ما بعد التسليم؟", a: "نعم، أقدم دعماً فنياً وتحديثات للمشاريع لضمان استمرار نجاحها وتطورها." }
   ];
@@ -933,24 +930,30 @@ const Footer = () => (
         {/* Brand & Social & Description - Right Side */}
         <div className="text-center md:text-right md:col-span-4 flex flex-col items-center md:items-start">
           <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
-            <div className="text-3xl font-black text-brand tracking-tighter leading-none">
-              أحمد<br/>علي
-            </div>
+            <Link to="/" className="hover:scale-105 transition-transform">
+              <img 
+                src="https://cdn-icons-png.flaticon.com/512/3609/3609930.png" 
+                alt="Logo" 
+                className="h-10 w-auto"
+                referrerPolicy="no-referrer"
+              />
+            </Link>
           </div>
           <p className="text-gray-600 text-sm leading-relaxed mb-8 font-medium max-w-sm">
-            أنا أحمد علي، مصمم واجهات مستخدم وتجربة مستخدم أسعى لتحقيق التوازن بين الوظيفة والجمال في تصاميمي.
+            أنا أحمد علي، مدير منتجات ومؤسس لشركتين ناشئتين. أجمع بين الرؤية الاستراتيجية وتصميم تجربة المستخدم لبناء منتجات رقمية ناجحة.
           </p>
           <div className="flex justify-center md:justify-start gap-3">
             {[
-              { icon: <Facebook size={18} />, link: "#" },
-              { icon: <Instagram size={18} />, link: "#" },
-              { icon: <Linkedin size={18} />, link: "#" },
-              { icon: <Twitter size={18} />, link: "#" },
-              { icon: <MessageCircle size={18} />, link: "#" },
+              { icon: <Facebook size={18} />, link: "https://www.facebook.com/ahmed.ali.137893/" },
+              { icon: <Linkedin size={18} />, link: "https://www.linkedin.com/in/ahmed-ali-%F0%9F%A6%84-1353a3200/" },
+              { icon: <span className="font-black text-sm leading-none">Bē</span>, link: "https://www.behance.net/ahmedali4f006" },
+              { icon: <MessageCircle size={18} />, link: "https://wa.me/201554295388" },
             ].map((social, i) => (
               <a 
                 key={i} 
                 href={social.link} 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand shadow-sm hover:bg-brand hover:text-white transition-all duration-300 border border-gray-100"
               >
                 {social.icon}
@@ -966,7 +969,7 @@ const Footer = () => (
             <h4 className="text-gray-900 font-bold mb-6">روابط سريعة</h4>
             <div className="space-y-4 font-bold text-gray-600">
               <Link to="/testimonials" className="block hover:text-brand transition-colors">أثروا في مسيرتي</Link>
-              <a href="#" className="block hover:text-brand transition-colors">عن أحمد</a>
+              <Link to="/about" className="block hover:text-brand transition-colors">عن أحمد</Link>
               <Link to="/courses" className="block hover:text-brand transition-colors">الدورات</Link>
               <Link to="/consultation" className="block hover:text-brand transition-colors">الاستشارات</Link>
             </div>
@@ -979,13 +982,13 @@ const Footer = () => (
                 <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand shadow-sm border border-gray-100 group-hover:bg-brand group-hover:text-white transition-all">
                   <Phone size={14} />
                 </div>
-                <span className="text-gray-600 font-bold text-sm group-hover:text-brand transition-colors" dir="ltr">+20 108 004 4424</span>
+                <span className="text-gray-600 font-bold text-sm group-hover:text-brand transition-colors" dir="ltr">+20 155 429 5388</span>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3 group cursor-pointer">
                 <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand shadow-sm border border-gray-100 group-hover:bg-brand group-hover:text-white transition-all">
                   <Mail size={14} />
                 </div>
-                <span className="text-gray-600 font-bold text-sm group-hover:text-brand transition-colors">hi@ahmedali.com</span>
+                <span className="text-gray-600 font-bold text-sm group-hover:text-brand transition-colors">ahmeduiux7@gmail.com</span>
               </div>
               <div className="flex items-center justify-center md:justify-start gap-3 group cursor-pointer">
                 <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-brand shadow-sm border border-gray-100 group-hover:bg-brand group-hover:text-white transition-all">
@@ -997,16 +1000,18 @@ const Footer = () => (
           </div>
         </div>
 
-        {/* Newsletter Section - Left Side */}
+        {/* Call to Action - Left Side */}
         <div className="text-center md:text-right md:col-span-3">
-          <h3 className="text-xl font-bold text-gray-900 mb-2">اشترك في النشرة</h3>
-          <p className="text-brand font-bold mb-8">احصل على أفكار ونصائح تسويقية عملية أسبوعيًا.</p>
-          <div className="relative w-full">
-            <input 
-              type="email" 
-              placeholder="البريد الإلكتروني" 
-              className="w-full py-4 pr-6 pl-6 rounded-2xl bg-white border border-gray-100 shadow-sm focus:ring-2 focus:ring-brand outline-none text-right font-medium"
-            />
+          <div className="bg-brand/5 p-8 rounded-[2rem] border border-brand/10">
+            <h3 className="text-xl font-black text-gray-900 mb-4">هل لديك مشروع؟</h3>
+            <p className="text-gray-600 text-sm mb-6 leading-relaxed">أنا متاح دائماً لمناقشة الأفكار الجديدة والمشاريع الطموحة.</p>
+            <Link 
+              to="/contact" 
+              className="inline-flex items-center gap-2 text-brand font-black text-sm group"
+            >
+              ابدأ الآن
+              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
       </div>
@@ -1116,76 +1121,100 @@ const Awards = () => {
   const awards = [
     {
       id: 1,
-      tag: "Gridliners Awards",
-      title: "هبّ | Audience Award",
-      description: "حاصل على جائزة الجمهور بمسابقة Gridliners عن مشروع هبّ",
-      image: "https://picsum.photos/seed/award1/600/400"
+      tag: "Startup Power Competition",
+      title: "🇪🇬Top Winners Startup Power Competition 🏆",
+      description: "التكريم كأحد الفائزين الأوائل للتميز في حلول إدارة النفايات المدعومة تقنياً.",
+      image: "https://i.ibb.co/HDbnHJ7c/4-25.png",
+      icon: <Trophy className="text-yellow-500" size={20} />
     },
     {
       id: 2,
-      tag: "Gridliners Awards",
-      title: "هبّ | Silver Winner",
-      description: "المركز الثاني بمسابقة Gridliners فئة الهويات البصرية",
-      image: "https://picsum.photos/seed/award2/600/400"
+      tag: "Greenish Egypt",
+      title: "🇫🇷 Greenish Egypt - 3rd Place 🏆",
+      description: "تقدير على المستوى الوطني للأثر المستدام في برنامج مدعوم من جهات دولية فرنسية.",
+      image: "https://i.ibb.co/4nBvSw2s/5-5.png",
+      icon: <Flame className="text-brand" size={20} />
     },
     {
       id: 3,
-      tag: "GDA Awards",
-      title: "هبّ | Golden Winner",
-      description: "المركز الأول بمسابقة GDA كأفضل مشروع لعام 2025",
-      image: "https://picsum.photos/seed/award3/600/400"
+      tag: "Creativity Competition",
+      title: "Second Place in the Creativity Competition 🏆",
+      description: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
+      image: "https://i.ibb.co/fKVbrdn/5-556.png",
+      icon: <Trophy className="text-yellow-600" size={20} />
     },
     {
       id: 4,
-      tag: "Design Awards",
-      title: "Best UI Design",
-      description: "جائزة أفضل تصميم واجهة مستخدم لتطبيق هبّ",
-      image: "https://picsum.photos/seed/award4/600/400"
+      tag: "Gen Z Competition",
+      title: "Gen Z National Competition Winner (DMC TV) 🏆 📺",
+      description: "الفوز بالمركز الأول في المسابقة الوطنية Gen Z المذاعة على قناة DMC.",
+      image: "https://i.ibb.co/JFKDKxcL/2-2.png",
+      icon: <Award className="text-brand" size={20} />
     }
   ];
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-32 bg-[#F8F9FA] relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand/5 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="text-right">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">جوائز وإنجازات</h2>
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">جوائز وإنجازات</h2>
             <p className="text-gray-500 max-w-md font-medium">
-              تقدير عالمي لأعمالي من كبرى منظمات التصميم.
+              تقدير عالمي لأعمالي من كبرى منظمات التصميم والابتكار الرقمي.
             </p>
           </div>
-          <button className="px-8 py-3 orange-gradient text-white rounded-xl font-bold flex items-center gap-2 transition-colors shadow-lg shadow-brand/20 whitespace-nowrap">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-3 orange-gradient text-white rounded-xl font-bold flex items-center gap-2 transition-colors shadow-lg shadow-brand/20 whitespace-nowrap"
+          >
             <Send size={18} className="rotate-180" />
             مشاهدة المزيد من الجوائز
-          </button>
+          </motion.button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {awards.map((award) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {awards.map((award, i) => (
             <motion.div
               key={award.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: award.id * 0.1 }}
-              className="group"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group h-full"
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 h-full flex flex-col">
-                <div className="aspect-video overflow-hidden relative">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-50 h-full flex flex-col relative">
+                {/* Icon Badge */}
+                <div className="absolute top-3 right-3 z-20 w-8 h-8 bg-white/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center border border-white/50">
+                  {award.icon}
+                </div>
+
+                <div className="h-40 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-brand/5 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                   <img 
                     src={award.image} 
                     alt={award.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                 </div>
-                <div className="p-5 flex flex-col flex-grow text-right">
-                  <span className="inline-block self-end px-3 py-1 bg-gray-50 text-gray-400 rounded-md text-[10px] font-bold mb-3">
-                    {award.tag}
-                  </span>
-                  <h3 className="text-base font-bold text-gray-900 mb-2 line-clamp-1">
+                
+                <div className="p-4 flex flex-col flex-grow text-right">
+                  <div className="flex items-center justify-end gap-1.5 mb-2">
+                    <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">
+                      {award.tag}
+                    </span>
+                    <div className="w-1 h-1 bg-brand rounded-full"></div>
+                  </div>
+                  
+                  <h3 className="text-base font-bold mb-1 leading-tight group-hover:text-brand transition-colors line-clamp-1 text-gray-900">
                     {award.title}
                   </h3>
-                  <p className="text-gray-500 text-xs leading-relaxed line-clamp-2">
+                  
+                  <p className="text-gray-500 text-[10px] leading-relaxed font-medium line-clamp-2">
                     {award.description}
                   </p>
                 </div>
@@ -1383,7 +1412,7 @@ const CourseDetailPage = () => {
               <div className="text-brand font-bold text-[10px] mb-1 uppercase tracking-widest">المدرب المعتمد</div>
               <h3 className="text-2xl font-black mb-3 text-gray-900">أحمد علي</h3>
               <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-medium">
-                مصمم منتجات رقمية بخبرة تزيد عن 4 سنوات في إنشاء تطبيقات ومواقع تتوافق تحقق التوازن بين الجمال وسهولة الاستخدام. لا أصمم واجهات فقط، بل أحول أفكارك إلى حلول رقمية يحبها المستخدمون ويثق بها المستثمرون.
+                مدير منتجات (Mid Product Manager) ومؤسس لشركتين ناشئتين. أجمع بين خبرتي في إدارة المنتجات وتصميم تجربة المستخدم (UI/UX) لمساعدتك في تحويل أفكارك إلى منتجات ناجحة وشركات قابلة للنمو وجذب الاستثمارات.
               </p>
             </div>
           </section>
@@ -1479,7 +1508,7 @@ const CourseDetailPage = () => {
               
               {course.price !== "قريباً" && (
                 <div className="mt-6">
-                  <a href="#" className="flex items-center justify-center gap-2 py-3.5 bg-[#A435F0] text-white rounded-xl font-bold text-xs hover:opacity-90 transition-opacity shadow-lg shadow-[#A435F0]/20">
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3.5 bg-[#A435F0] text-white rounded-xl font-bold text-xs hover:opacity-90 transition-opacity shadow-lg shadow-[#A435F0]/20">
                     <img src="https://www.udemy.com/static/images/v7/logo-udemy.svg" alt="Udemy" className="h-4 invert" />
                     شراء من Udemy
                   </a>
@@ -1494,7 +1523,14 @@ const CourseDetailPage = () => {
               </div>
               <h4 className="font-bold text-base mb-2 text-gray-900">هل لديك استفسار؟</h4>
               <p className="text-gray-500 text-xs mb-5 leading-relaxed font-medium">فريقنا متاح للرد على جميع تساؤلاتك حول الدورة ومحتواها.</p>
-              <button className="text-brand font-bold text-sm hover:underline underline-offset-8">تحدث معنا الآن</button>
+              <a 
+                href="https://wa.me/201554295388" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-brand font-bold text-sm hover:underline underline-offset-8"
+              >
+                تحدث معنا الآن
+              </a>
             </div>
           </div>
         </div>
@@ -1505,79 +1541,247 @@ const CourseDetailPage = () => {
 };
 
 const AboutPage = () => {
+  const [showAllCerts, setShowAllCerts] = useState(false);
+  const [showAllAwards, setShowAllAwards] = useState(false);
+
+  const certifications = [
+    {
+      title: "Agile Product Owner Role: Techniques",
+      issuer: "Project Management Institute",
+      date: "2024",
+      desc: "شهادة متخصصة في تقنيات دور مالك المنتج في بيئة Agile.",
+      icon: <Award className="text-brand" size={24} />
+    },
+    {
+      title: "Manus For Product Manager",
+      issuer: "Manus AI",
+      date: "2023",
+      desc: "برنامج مكثف لمديري المنتجات يركز على الأدوات والمنهجيات الحديثة.",
+      icon: <Layers className="text-brand" size={24} />
+    },
+    {
+      title: "Sprints x Microsoft Summer Camp - Product Management",
+      issuer: "Sprints",
+      date: "2023",
+      desc: "معسكر تدريبي مكثف بالتعاون مع مايكروسوفت في إدارة المنتجات.",
+      icon: <Zap className="text-brand" size={24} />
+    },
+    {
+      title: "Product Vision, Strategy, and Objectives",
+      issuer: "The Product Compass",
+      date: "2023",
+      desc: "دورة متقدمة في بناء رؤية المنتج واستراتيجيته وتحديد الأهداف.",
+      icon: <Target className="text-brand" size={24} />
+    },
+    {
+      title: "Continuous Product Discovery",
+      issuer: "The Product Compass",
+      date: "2023",
+      desc: "تعلم منهجيات اكتشاف المنتج المستمر لضمان تقديم قيمة حقيقية للمستخدمين.",
+      icon: <Search className="text-brand" size={24} />
+    },
+    {
+      title: "Radical Product Thinking: Vision Setting",
+      issuer: "Pendo.io",
+      date: "2024",
+      desc: "منهجية التفكير الجذري في بناء رؤية المنتجات الرقمية.",
+      icon: <Flame className="text-brand" size={24} />
+    },
+    {
+      title: "Product Management Basics Certification",
+      issuer: "Pendo.io",
+      date: "2024",
+      desc: "أساسيات إدارة المنتجات والتعامل مع البيانات والتحليلات.",
+      icon: <CheckCircle className="text-brand" size={24} />
+    },
+    {
+      title: "AI For Startups",
+      issuer: "Udemy",
+      date: "2024",
+      desc: "كيفية دمج تقنيات الذكاء الاصطناعي في الشركات الناشئة.",
+      icon: <Cpu className="text-brand" size={24} />
+    },
+    {
+      title: "Investments Hacks: The Art of Fund",
+      issuer: "Yanfaa.com",
+      date: "2024",
+      desc: "فهم أساسيات الاستثمار وجمع التمويل للشركات الناشئة.",
+      icon: <CreditCard className="text-brand" size={24} />
+    },
+    {
+      title: "Climate Finance",
+      issuer: "Micromentor",
+      date: "2024",
+      desc: "أساسيات التمويل المناخي والمشاريع المستدامة.",
+      icon: <Globe className="text-brand" size={24} />
+    },
+    {
+      title: "Mitigating and Adapting to Climate Change for Businesses",
+      issuer: "Micromentor",
+      date: "2024",
+      desc: "استراتيجيات التكيف مع التغير المناخي في بيئة الأعمال.",
+      icon: <Globe className="text-brand" size={24} />
+    },
+    {
+      title: "Introduction to Climate Action for Entrepreneurs",
+      issuer: "Micromentor",
+      date: "2024",
+      desc: "مقدمة في العمل المناخي لرواد الأعمال في منطقة الشرق الأوسط.",
+      icon: <Globe className="text-brand" size={24} />
+    }
+  ];
+
+  const awards = [
+    {
+      title: "🇪🇬Top Winners Startup Power Competition 🏆",
+      issuer: "Startup Power Competition",
+      date: "2025",
+      desc: "التكريم كأحد الفائزين الأوائل للتميز في حلول إدارة النفايات المدعومة تقنياً.",
+      icon: <Trophy className="text-brand" size={24} />
+    },
+    {
+      title: "🇫🇷 Greenish Egypt - 3rd Place 🏆",
+      issuer: "Greenish Egypt",
+      date: "2024",
+      desc: "تقدير على المستوى الوطني للأثر المستدام في برنامج مدعوم من جهات دولية فرنسية.",
+      icon: <Flame className="text-brand" size={24} />
+    },
+    {
+      title: "Second Place in the Creativity Competition 🏆",
+      issuer: "Creativity Competition",
+      date: "2024",
+      desc: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
+      icon: <Award className="text-brand" size={24} />
+    },
+    {
+      title: "Gen Z National Competition Winner (DMC TV) 🏆 📺",
+      issuer: "DMC TV",
+      date: "2024",
+      desc: "تأمين تمويل من خلال برنامج ريادة الأعمال الأول في مصر على قناة DMC.",
+      icon: <Star className="text-brand" size={24} />
+    },
+    {
+      title: "Yied Alex Support",
+      issuer: "Yied-Rally",
+      date: "2024",
+      desc: "المركز الأول والحصول على تمويل ودعم استراتيجي من مبادرة مدعومة من الدنمارك.",
+      icon: <Zap className="text-brand" size={24} />
+    },
+    {
+      title: "Namaa Incubation",
+      issuer: "Nema",
+      date: "2024",
+      desc: "القبول في حاضنة الأعمال المرموقة مع تمويل ودعم استراتيجي.",
+      icon: <Layers className="text-brand" size={24} />
+    },
+    {
+      title: "Accepted in Fintekrs Programs",
+      issuer: "Rebekia",
+      date: "2023",
+      desc: "برنامج ما قبل الاحتضان مصمم لدعم رواد الأعمال والشركات الناشئة ذات الإمكانات العالية.",
+      icon: <CheckCircle className="text-brand" size={24} />
+    },
+    {
+      title: "Second Place in the Creativity Competition",
+      issuer: "Rebekia",
+      date: "2023",
+      desc: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
+      icon: <Palette className="text-brand" size={24} />
+    },
+    {
+      title: "First place in Gharbia Governorate in green projects",
+      issuer: "Government",
+      date: "2023",
+      desc: "الممثل الرسمي لـ COP27: تم اختياره لتمثيل مصر (الغربية) في مسار المشاريع الخضراء بالأمم المتحدة.",
+      icon: <Globe className="text-brand" size={24} />
+    },
+    {
+      title: "First Place in Ibn Sina Academy",
+      issuer: "Ibn Sina Academy",
+      date: "2023",
+      desc: "أفضل أداء في مسابقة مرموقة بين ألمع العقول في المنطقة.",
+      icon: <Trophy className="text-brand" size={24} />
+    },
+    {
+      title: "First Place in Az-sences",
+      issuer: "Rebekia",
+      date: "2022",
+      desc: "جائزة أفضل فكرة تطبيق موبايل على مستوى الجامعة لحل مشكلة التلوث البيئي.",
+      icon: <Cpu className="text-brand" size={24} />
+    },
+    {
+      title: "The Third place in Hackathon mansoura",
+      issuer: "Rebekia",
+      date: "2022",
+      desc: "الحصول على المركز الثالث بين عدد كبير من الفرق المتنافسة في أول هاكاثون بالمنصورة.",
+      icon: <Zap className="text-brand" size={24} />
+    }
+  ];
+
   const storySteps = [
     {
-      title: "البداية",
-      desc: "منذ حوالي خمس سنوات، كانت مجرد شغف شغوف بالتصميم. بدأت كخلق كمصمم جرافيك بسيط أعمل على إنشاء منشورات لصفحات فيسبوك مثل الأهلي نجوم مصرية وغيرها من الصفحات العامة. كان كل تصميم لا يتجاوز سعره 5 جنيهات، لكن هدفي لم يكن المال، بل دعم دراستي ودفع فواتير الإنترنت في أيام السرعات البطيئة."
+      title: "البداية والشغف",
+      desc: "بدأت رحلتي بشغف عميق بالتكنولوجيا والبرمجة، حيث كنت أعمل كمطور برمجيات (Developer) في بداياتي. لم يكن هدفي المال، بل كان الفضول هو المحرك الأساسي لفهم كيف تُبنى الأدوات الرقمية وكيف تتحول الأكواد إلى واقع ملموس."
     },
     {
-      title: "الفضول",
-      desc: "قضيت ساعات طويلة في منتديات التقنية والتصميم بدافع فضول لا ينتهي - كنت أريد أن أفهم كيف يعمل المطورون، وكيف أصنع البرامج، وكيف تتحول الأفكار إلى أدوات. هذا الفضول قادني للتعرف على محترف مبرمج من الإسكندرية كان يسعى لبناء أداة تسويقية."
+      title: "اكتشاف تجربة المستخدم",
+      desc: "قادني الفضول للتعرف على عالم تجربة المستخدم (UX)، وبدأت أدرك أن التصميم ليس مجرد شكل جمالي، بل هو حل لمشكلات حقيقية تواجه الناس. هذا الإدراك كان الشرارة الأولى لدخولي عالم بناء المنتجات المتكاملة."
     },
     {
-      title: "الشرارة الأولى",
-      desc: "جلسنا معاً وناقشنا رؤيته وبدأت في رسم وكتابة الأفكار - دون أن أعرف حتى معنى 'تجربة المستخدم' أو 'تصميم الواجهات'. كنت أتبع حدسي فقط. وبفضل الله، خرج المشروع للنور - مصمماً بالكامل باستخدام Photoshop - وحقق أكثر من 80,000 جنيه في الأسبوع الأول. كان نجاحاً كبيراً، لكن أعظم ما فيه هو اكتشاف لشيء جديد داخلي."
+      title: "تأسيس الشركات الناشئة",
+      desc: "لم أكتفِ بالبرمجة فقط، بل أردت بناء رؤية كاملة للمنتج. أسست شركتي الناشئة الأولى، حيث تعلمت دروساً قاسية وممتعة في استراتيجية الأعمال، والنمو، وقيادة الفرق التقنية، وكيفية تحويل الفكرة إلى شركة قائمة."
     },
     {
-      title: "نقطة التحول",
-      desc: "بعد بضعة أسابيع، كنت أحكي لصديق من المدرسة عن المشروع. ابتسم وقال جملة غيرت كل شيء: 'اللي بتعمله ده اسمه Design UX'. تلك اللحظة كانت نقطة التحول الحقيقية. عدت إلى المنزل وبدأت البحث، واكتشفت عالماً جديداً ينتظرني."
+      title: "إدارة المنتجات الاستراتيجية",
+      desc: "مع مرور الوقت، صقلت مهاراتي كمدير منتجات (Mid Product Manager). أصبحت أركز على الربط بين احتياجات المستخدم، وأهداف العمل، والقدرات التقنية لبناء منتجات رقمية ذات أثر حقيقي وقابلة للتوسع."
     },
     {
-      title: "الرحلة",
-      desc: "منذ ذلك اليوم، بدأت أدرس التصميم بجدية - تابعت دورات أونلاين (معظمها بالإنجليزية) وتعمقت في تجربة المستخدم. وتعلمت كيف يشكل علم النفس طريقة تفكير وشعور وتفاعل المستخدم. كانت رحلة غيرت طريقة تفكيري بالكامل."
-    },
-    {
-      title: "أين أنا الآن",
-      desc: "واليوم... أشارك قصتي هنا على موقعي. لأنني أؤمن أن رحلة أي مصمم تبدأ بالفضول وليس بالإمكانيات. وأن فكرة قيمتها 5 جنيه قد تتحول إلى شيء أعظم بكثير."
+      title: "الرؤية والرسالة الحالية",
+      desc: "اليوم، أجمع بين خبرتي كمؤسس ومدير منتجات لمساعدة الشركات الناشئة والمنتجات الرقمية على النمو والنجاح. أؤمن أن المنتج الناجح هو الذي يجمع بين التصميم المبدع، الاستراتيجية الذكية، والفهم العميق للسوق."
     }
   ];
 
   return (
     <div className="pt-20 bg-white text-gray-900 overflow-hidden" dir="rtl">
       {/* Editorial Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
-        {/* Background Text - Editorial Style */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full select-none pointer-events-none opacity-[0.02] z-0">
-          <h2 className="text-[30vw] font-display leading-none whitespace-nowrap uppercase tracking-tighter text-center">
-            أحمد علي
-          </h2>
-        </div>
-
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 text-right">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-7 text-right order-2 lg:order-1">
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-brand/5 border border-brand/10 text-brand rounded-full text-xs font-black uppercase tracking-widest mb-8">
+                <div className="inline-flex items-center gap-3 px-5 py-2 bg-brand/5 border border-brand/10 text-brand rounded-full text-[10px] font-black uppercase tracking-widest mb-10">
                   <span className="w-2 h-2 bg-brand rounded-full animate-pulse"></span>
-                  متاح لتحديات جديدة
+                  رؤية استراتيجية • تنفيذ إبداعي
                 </div>
                 
-                <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-[1.1] tracking-tight text-gray-900">
-                  أحمد <span className="text-brand">علي</span>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 leading-[1.1] tracking-tight text-gray-900">
+                  من <span className="text-brand">الفكرة</span> إلى <span className="text-brand italic serif">النمو</span>: بناء منتجات رقمية استثنائية
                 </h1>
                 
                 <div className="flex items-start gap-8 mb-12">
-                  <div className="w-1 h-24 bg-brand/20 rounded-full hidden md:block"></div>
-                  <p className="text-xl md:text-2xl text-gray-500 font-medium leading-relaxed max-w-xl">
-                    فنان في عالم التكنولوجيا، أستكشف أعماق النفس البشرية لأصمم مساحات رقمية تشعرك بالألفة والراحة، حيث يمتزج علم النفس بالجمال لتصبح التكنولوجيا امتداداً طبيعياً لإحساسك.
+                  <div className="w-1.5 h-24 bg-brand rounded-full hidden md:block shrink-0"></div>
+                  <p className="text-lg md:text-xl text-gray-500 font-medium leading-relaxed max-w-2xl">
+                    مدير منتجات ومؤسس لشركتين ناشئتين. أجمع بين الرؤية الاستراتيجية وتصميم تجربة المستخدم لتحويل الأفكار إلى منتجات رقمية ناجحة وشركات قابلة للنمو.
                   </p>
                 </div>
 
                 <div className="flex flex-wrap gap-6 items-center">
-                  <Link to="/contact" className="px-12 py-6 bg-brand text-white rounded-full font-black text-lg hover:bg-brand/90 transition-all shadow-2xl shadow-brand/20 hover:scale-105 active:scale-95 inline-block">
-                    تواصل معي
+                  <Link to="/contact" className="px-10 py-5 orange-gradient text-white rounded-2xl font-black flex items-center gap-4 hover:scale-105 transition-all shadow-2xl shadow-brand/30 group">
+                    ابدأ مشروعك الآن
+                    <ArrowRight size={22} className="group-hover:translate-x-2 transition-transform" />
                   </Link>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     {[
-                      { icon: <Linkedin size={22} />, link: "#" },
-                      { icon: <Dribbble size={22} />, link: "#" },
-                      { icon: <Twitter size={22} />, link: "#" }
+                      { icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/ahmed-ali-%F0%9F%A6%84-1353a3200/" },
+                      { icon: <Facebook size={20} />, link: "https://www.facebook.com/ahmed.ali.137893/" },
+                      { icon: <span className="font-black text-lg leading-none">Bē</span>, link: "https://www.behance.net/ahmedali4f006" },
+                      { icon: <MessageCircle size={20} />, link: "https://wa.me/201554295388" }
                     ].map((social, i) => (
-                      <a key={i} href={social.link} className="w-14 h-14 border border-gray-100 rounded-full flex items-center justify-center text-gray-400 hover:text-brand hover:border-brand hover:bg-brand/5 transition-all">
+                      <a key={i} href={social.link} target="_blank" rel="noopener noreferrer" className="w-14 h-14 border border-gray-100 rounded-2xl flex items-center justify-center text-gray-400 hover:text-brand hover:border-brand hover:bg-brand/5 transition-all">
                         {social.icon}
                       </a>
                     ))}
@@ -1586,28 +1790,28 @@ const AboutPage = () => {
               </motion.div>
             </div>
 
-            <div className="lg:col-span-5 relative">
+            <div className="lg:col-span-5 relative order-1 lg:order-2">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="relative z-10"
+                className="relative"
               >
-                <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group">
-                  <div className="absolute inset-0 bg-brand/10 group-hover:opacity-0 transition-opacity duration-700"></div>
+                <div className="relative aspect-[4/5] w-full max-w-md mx-auto rounded-[3rem] overflow-hidden shadow-[0_80px_120px_-30px_rgba(0,0,0,0.2)] group">
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
                   <img 
                     src="https://i.ibb.co/7tZwf6FS/547438725-805625648822430-8229388273858976577-n.jpg" 
-                    alt="Ahmed Ali" 
-                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
+                    alt="Product Visionary" 
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                     referrerPolicy="no-referrer"
                   />
-                  
-                  {/* Floating Bento-Grid Style Info removed */}
                 </div>
 
-                {/* Decorative Elements */}
-                <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand/5 rounded-full blur-3xl -z-10"></div>
-                <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-brand/10 rounded-full blur-3xl -z-10"></div>
+                {/* Abstract Shapes */}
+                <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-brand/5 rounded-full blur-3xl -z-10"></div>
+                
+                {/* Floating Badge Removed */}
               </motion.div>
             </div>
           </div>
@@ -1632,10 +1836,10 @@ const AboutPage = () => {
           >
             <Quote size={60} className="text-brand/20 mx-auto mb-12" />
             <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-12 leading-[1.1] tracking-tight">
-              "امزج علم النفس بالتصميم لخلق تجارب <span className="text-brand">تبدو إنسانية</span>"
+              "طموحي هو قيادة وإدارة الشركات الناشئة وتحويل الرؤى الطموحة إلى <span className="text-brand">واقع ملموس</span>"
             </h2>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-medium">
-              أنا مصمم مصري مع أكثر من 5 سنوات من الخبرة في التصميم، وأعشق تجربة المستخدم - وليس فقط إرضاءهم. شغفي يكمن في استكشاف كيفية تفكير الناس والشعور، ثم تحويل هذه الرؤية إلى تصاميم ذات مغزى وتركز على الإنسان. أستمتع بإنشاء الحلول التي تحل المشاكل، وتعليم الآخرين، وتقديم ورش عمل تلهم الفرق للتفكير بعمق أكبر والتصميم بذكاء أكثر. التواصل والوضوح هما جوهر كل ما أفعله.
+              أنا مدير منتجات ومؤسس لشركتين ناشئتين، مع أكثر من 5 سنوات من الخبرة في بناء المنتجات الرقمية. شغفي يكمن في استكشاف كيفية تفكير الناس، ثم تحويل هذه الرؤية إلى منتجات ذات مغزى تحل مشاكل حقيقية. أستمتع بإنشاء الحلول، قيادة الفرق، بناء نماذج العمل، وتقديم ورش عمل تلهم الفرق للتفكير بعمق أكبر والعمل بذكاء أكثر. التواصل والوضوح هما جوهر كل ما أفعله.
             </p>
           </motion.div>
         </div>
@@ -1696,31 +1900,345 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Certifications and Awards Section */}
+      <section className="py-32 bg-gray-50 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-brand font-bold mb-4 text-sm tracking-widest uppercase">الإنجازات والتقدير</p>
+              <h2 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 tracking-tighter">الشهادات والجوائز</h2>
+              <div className="w-24 h-1.5 bg-brand mx-auto rounded-full"></div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Certifications */}
+            <div className="w-full">
+              <div className="flex items-center gap-6 mb-12">
+                <div className="w-12 h-1 bg-brand rounded-full"></div>
+                <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">الشهادات</h2>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {certifications.slice(0, showAllCerts ? certifications.length : 4).map((cert, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    className="bg-white p-5 rounded-2xl border border-gray-50 shadow-sm hover:shadow-md transition-all group flex gap-4 items-start"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-brand/5 flex items-center justify-center group-hover:bg-brand group-hover:text-white transition-all shrink-0">
+                      {cert.icon}
+                    </div>
+                    <div className="text-right">
+                      <h3 className="text-xs font-black text-gray-900 mb-1 leading-tight">{cert.title}</h3>
+                      <p className="text-gray-400 text-[10px] font-bold mb-2">{cert.issuer}</p>
+                      <span className="text-[9px] font-black text-brand bg-brand/5 px-2 py-0.5 rounded-full uppercase tracking-widest">{cert.date}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {certifications.length > 4 && (
+                <div className="mt-8 text-center">
+                  <button 
+                    onClick={() => setShowAllCerts(!showAllCerts)}
+                    className="px-8 py-3 border-2 border-brand text-brand rounded-xl font-black text-xs hover:bg-brand hover:text-white transition-all uppercase tracking-widest"
+                  >
+                    {showAllCerts ? 'عرض أقل' : 'عرض جميع الشهادات'}
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Awards */}
+            <div className="w-full">
+              <div className="flex items-center gap-6 mb-12">
+                <div className="w-12 h-1 bg-brand rounded-full"></div>
+                <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">الجوائز</h2>
+              </div>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {awards.slice(0, showAllAwards ? awards.length : 4).map((award, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: i * 0.05 }}
+                    className="bg-white p-5 rounded-2xl border border-gray-50 shadow-sm hover:shadow-md transition-all group flex gap-4 items-start"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-brand/5 flex items-center justify-center group-hover:bg-brand group-hover:text-white transition-all shrink-0">
+                      {award.icon}
+                    </div>
+                    <div className="text-right">
+                      <h3 className="text-xs font-black text-gray-900 mb-1 leading-tight">{award.title}</h3>
+                      <p className="text-gray-400 text-[10px] font-bold mb-2">{award.issuer}</p>
+                      <span className="text-[9px] font-black text-brand bg-brand/5 px-2 py-0.5 rounded-full uppercase tracking-widest">{award.date}</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {awards.length > 4 && (
+                <div className="mt-8 text-center">
+                  <button 
+                    onClick={() => setShowAllAwards(!showAllAwards)}
+                    className="px-8 py-3 border-2 border-brand text-brand rounded-xl font-black text-xs hover:bg-brand hover:text-white transition-all uppercase tracking-widest"
+                  >
+                    {showAllAwards ? 'عرض أقل' : 'عرض جميع الجوائز'}
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Experience Section */}
+          <div className="mt-32">
+            <div className="flex items-center gap-6 mb-16">
+              <div className="w-12 h-1 bg-brand rounded-full"></div>
+              <h2 className="text-4xl font-black text-gray-900 uppercase tracking-tighter">الخبرات</h2>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
+              {experience.map((exp, i) => (
+                <motion.div
+                  key={exp.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white p-3 md:p-5 rounded-xl md:rounded-2xl border border-gray-50 shadow-sm hover:shadow-xl transition-all group"
+                >
+                  <div className="flex flex-col justify-between gap-1 md:gap-2 mb-3">
+                    <div>
+                      <h3 className="text-[11px] md:text-base font-black text-gray-900 group-hover:text-brand transition-colors leading-tight">{exp.role}</h3>
+                      <p className="text-brand font-bold text-[9px] md:text-sm">{exp.company}</p>
+                    </div>
+                    <span className="text-[7px] md:text-[9px] font-black text-gray-400 bg-gray-50 px-2 py-0.5 rounded-full w-fit">{exp.period}</span>
+                  </div>
+                  <p className="text-gray-500 text-[9px] md:text-xs leading-relaxed mb-3 font-medium">{exp.desc}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {exp.tags.map((tag, j) => (
+                      <span key={j} className="text-[6px] md:text-[8px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded-md">{tag}</span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Skills Section */}
+          <div className="mt-32">
+            <div className="flex items-center gap-6 mb-16">
+              <div className="w-12 h-1 bg-brand rounded-full"></div>
+              <h2 className="text-4xl font-black text-gray-900 uppercase tracking-tighter">المهارات</h2>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {[
+                { name: 'إدارة المنتجات', icon: <Briefcase size={18} /> },
+                { name: 'تصميم واجهة المستخدم', icon: <Palette size={18} /> },
+                { name: 'تجربة المستخدم', icon: <Users size={18} /> },
+                { name: 'إدارة الفرق', icon: <Users size={18} /> },
+                { name: 'استراتيجية الأعمال', icon: <Target size={18} /> },
+                { name: 'الشركات الناشئة', icon: <Rocket size={18} /> },
+                { name: 'تحليل البيانات', icon: <BarChart size={18} /> },
+                { name: 'التفكير التصميمي', icon: <Lightbulb size={18} /> },
+                { name: 'منهجية Agile', icon: <Zap size={18} /> },
+                { name: 'تطوير الأعمال', icon: <TrendingUp size={18} /> },
+                { name: 'القيادة', icon: <Shield size={18} /> },
+                { name: 'التواصل', icon: <MessageSquare size={18} /> },
+              ].map((skill, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  whileHover={{ scale: 1.05, backgroundColor: '#f9fafb' }}
+                  className="flex items-center gap-3 p-4 rounded-2xl border border-gray-100 bg-white text-gray-700 shadow-sm transition-all hover:border-brand/20 hover:text-brand"
+                >
+                  <div className="shrink-0 text-brand/70 group-hover:text-brand">
+                    {skill.icon}
+                  </div>
+                  <span className="text-sm font-bold">{skill.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const BlogPage = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 9;
+
+  const filteredPosts = blogPosts.filter(post => 
+    post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    post.category.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+
+  return (
+    <div className="pt-32 pb-24 bg-white min-h-screen" dir="rtl">
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="mb-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-brand font-bold mb-4 text-lg">المدونة</p>
+            <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight tracking-tighter">
+              أؤمن أن مشاركة المعرفة تحدث تأثيراً
+            </h1>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+              الكتابة هي طريقي لترك الأثر ومشاركة الخبرات في عالم التصميم والمنتجات الرقمية.
+            </p>
+          </motion.div>
+
+          {/* Search Bar */}
+          <div className="relative w-full md:w-96 mx-auto mt-12">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 text-gray-400">
+              <ChevronsLeft size={20} className="hover:text-brand cursor-pointer transition-colors" />
+              <div className="w-px h-6 bg-gray-200 mx-1"></div>
+              <Search size={20} />
+            </div>
+            <input 
+              type="text" 
+              placeholder="ابحث في المدونة..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full h-14 bg-gray-50 border border-gray-100 rounded-2xl pr-6 pl-24 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right"
+            />
+          </div>
+        </div>
+
+        {/* Blog Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {currentPosts.map((post, index) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group cursor-pointer"
+            >
+              <div className="relative h-56 rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-xl group-hover:shadow-brand/5 transition-all duration-500 border border-gray-100/50">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+                {/* Overlay text "قريباً" */}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                  <span className="text-white text-3xl font-black tracking-widest drop-shadow-lg">قريباً</span>
+                </div>
+                <div className="absolute top-4 right-4 px-4 py-1.5 bg-[#064e3b] text-[#10b981] text-[10px] font-black rounded-full shadow-lg border border-[#10b981]/20">
+                  عرض
+                </div>
+              </div>
+              
+              <div className="text-right px-2">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug group-hover:text-brand transition-colors">
+                  {post.title}
+                </h3>
+                <div className="flex items-center justify-end gap-4 text-gray-400 text-[10px] font-bold">
+                  <div className="flex items-center gap-1.5">
+                    <span>{post.readTime}</span>
+                    <Clock size={12} />
+                  </div>
+                  <div className="w-1 h-1 bg-gray-300 rounded-full"></div>
+                  <div className="flex items-center gap-1.5">
+                    <span>{post.date}</span>
+                    <Calendar size={12} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-20 flex justify-center items-center gap-3">
+            <button 
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:border-brand hover:text-brand transition-all disabled:opacity-30 disabled:hover:border-gray-100 disabled:hover:text-gray-400"
+            >
+              <ArrowRight size={20} />
+            </button>
+            
+            {[...Array(totalPages)].map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`w-12 h-12 rounded-full font-bold text-sm transition-all ${
+                  currentPage === i + 1 
+                  ? 'bg-brand text-white shadow-lg shadow-brand/20' 
+                  : 'bg-white border border-gray-100 text-gray-400 hover:border-brand hover:text-brand'
+                }`}
+              >
+                {i + 1}
+              </button>
+            ))}
+
+            <button 
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-gray-400 hover:border-brand hover:text-brand transition-all disabled:opacity-30 disabled:hover:border-gray-100 disabled:hover:text-gray-400"
+            >
+              <ArrowLeft size={20} />
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 const TestimonialsPage = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className="pt-32 pb-24 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-16 text-center">
+        <div className="mb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
             <p className="text-brand font-bold mb-4 text-lg">أشخاص أثروا في مسيرتي</p>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight tracking-tighter">
               نخبة من الخبراء والمنتورز الملهمين
             </h1>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed font-medium">
               هؤلاء هم الأشخاص الذين تعلمت منهم وعملت معهم خلال رحلتي في عالم التصميم والابتكار الرقمي.
             </p>
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {testimonials.map((item, i) => (
             <motion.div
               key={i}
@@ -1728,37 +2246,44 @@ const TestimonialsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white p-6 rounded-[2rem] border border-gray-50 shadow-sm hover:shadow-xl hover:shadow-brand/5 transition-all duration-500 relative overflow-hidden group"
+              className="group"
             >
-              <div className="absolute -top-6 -left-6 text-brand/5 group-hover:text-brand/10 transition-colors">
-                <Quote size={100} />
+              <div className="bg-[#F8F9FA] rounded-xl overflow-hidden relative aspect-[4/5] shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100/30">
+                {/* Share Button */}
+                <button className="absolute top-3 left-3 z-20 w-7 h-7 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-brand border border-white/40 shadow-sm hover:bg-brand hover:text-white transition-all">
+                  <Share2 size={12} />
+                </button>
+
+                {/* Portrait Image */}
+                <div className="w-full h-full relative">
+                  <img 
+                    src={item.img} 
+                    alt={item.name} 
+                    className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-700" 
+                    referrerPolicy="no-referrer" 
+                  />
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
               </div>
               
-              <div className="relative z-10">
-                <div className="flex items-center gap-5 mb-6">
-                  <div className="w-20 h-20 rounded-2xl overflow-hidden border-4 border-white shadow-md flex-shrink-0">
-                    <img src={item.img} alt={item.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                  </div>
-                  <div className="text-right">
-                    <div className="font-bold text-gray-900 text-lg mb-1">{item.name}</div>
-                    <div className="text-brand text-xs font-bold">{item.role}</div>
-                  </div>
-                </div>
-                
-                <p className="text-gray-600 text-sm leading-relaxed text-right italic">
-                  "{item.text}"
+              {/* Info below card */}
+              <div className="mt-6 text-center">
+                <h3 className="text-lg font-black text-gray-900 mb-1 group-hover:text-brand transition-colors">{item.name}</h3>
+                <p className="text-gray-400 text-[10px] font-bold leading-relaxed max-w-[200px] mx-auto">
+                  {item.role}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-24 text-center">
           <Link 
             to="/" 
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-brand transition-all group"
+            className="inline-flex items-center gap-3 px-10 py-5 bg-gray-900 text-white rounded-2xl font-bold hover:bg-brand transition-all group shadow-xl shadow-gray-200"
           >
-            <ArrowRight size={20} className="group-hover:-translate-x-1 transition-transform" />
+            <ArrowRight size={22} className="group-hover:-translate-x-1 transition-transform" />
             العودة للرئيسية
           </Link>
         </div>
@@ -1782,7 +2307,7 @@ const CoursesPage = () => {
               استثمر في نفسك وتعلم مهارات المستقبل
             </h1>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
-              دورات تعليمية عملية مصممة لتأهيلك لسوق العمل وتطوير مهاراتك في التصميم، التسويق، والعمل الحر.
+              دورات تعليمية عملية مصممة لتأهيلك لسوق العمل وتطوير مهاراتك في إدارة المنتجات، التصميم، والعمل الحر.
             </p>
           </motion.div>
         </div>
@@ -1970,155 +2495,166 @@ const ProjectsPage = () => {
 };
 
 const ContactPage = () => {
-  const [workType, setWorkType] = useState<'personal' | 'commercial'>('personal');
-
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-gray-900 pt-32 pb-20 font-sans relative overflow-hidden" dir="rtl">
-      {/* Decorative Background Elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+    <div className="min-h-screen bg-white text-gray-900 pt-32 pb-20 font-sans relative overflow-hidden" dir="rtl">
+      {/* Subtle Background Accents */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 opacity-50"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] translate-y-1/3 -translate-x-1/3 opacity-50"></div>
       
-      <div className="max-w-3xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-brand font-bold mb-4 text-sm tracking-wide">لديك مشروع وتريد تنفيذه؟</p>
-          <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-8">لنتواصل معًا الآن</h1>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <div className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 bg-white shadow-sm">
-              <span className="text-sm font-bold text-gray-700">تقييم عالي من العملاء</span>
-              <div className="flex text-brand">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-current" />)}
-              </div>
-            </div>
-            <div className="flex items-center gap-2 px-6 py-3 rounded-full border border-gray-200 bg-white shadow-sm">
-              <span className="text-sm font-bold text-gray-700">اتفاقية عدم إفصاح</span>
-              <CheckCircle size={16} className="text-green-500" />
-            </div>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Header Section */}
+        <div className="max-w-3xl mx-auto text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-brand font-bold mb-4 text-sm uppercase tracking-[0.2em]">تواصل معي</p>
+            <h1 className="text-5xl md:text-7xl font-black text-gray-900 mb-8 tracking-tighter leading-[1.1]">
+              لنبني شيئاً <span className="text-brand">استثنائياً</span> معاً
+            </h1>
+            <p className="text-gray-500 text-xl leading-relaxed font-medium">
+              سواء كنت تبحث عن استشارة لتطوير منتجك أو ترغب في بناء تجربة مستخدم فريدة، أنا هنا لمساعدتك في تحويل رؤيتك إلى واقع ملموس.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Form Card */}
-        <div className="bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 p-8 md:p-12 border border-gray-100">
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-            {/* Work Type */}
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-4 text-right">نوع العمل</label>
-              <div className="grid grid-cols-2 gap-4">
-                <button
-                  type="button"
-                  onClick={() => setWorkType('personal')}
-                  className={`flex items-center justify-between p-4 rounded-2xl border-2 transition-all ${
-                    workType === 'personal' 
-                    ? 'border-brand bg-brand/5 text-brand' 
-                    : 'border-gray-100 text-gray-500 hover:border-brand/30 hover:bg-gray-50'
-                  }`}
-                >
-                  <span className="font-bold">شخصي</span>
-                  {workType === 'personal' ? (
-                    <CheckSquare className="text-brand" size={20} />
-                  ) : (
-                    <Square className="text-gray-400" size={20} />
-                  )}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setWorkType('commercial')}
-                  className={`flex items-center justify-between p-4 rounded-2xl border-2 transition-all ${
-                    workType === 'commercial' 
-                    ? 'border-brand bg-brand/5 text-brand' 
-                    : 'border-gray-100 text-gray-500 hover:border-brand/30 hover:bg-gray-50'
-                  }`}
-                >
-                  <span className="font-bold">تجاري</span>
-                  {workType === 'commercial' ? (
-                    <CheckSquare className="text-brand" size={20} />
-                  ) : (
-                    <Square className="text-gray-400" size={20} />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {/* Full Name */}
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          {/* Contact Info - Right Column */}
+          <div className="lg:col-span-5 space-y-8">
+            <div className="space-y-12">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3 text-right">الاسم الكامل</label>
-                <input 
-                  type="text" 
-                  placeholder="جون دو" 
-                  className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all text-right"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="block text-sm font-bold text-gray-700 mb-3 text-right">البريد الإلكتروني</label>
-                <input 
-                  type="email" 
-                  placeholder="john@doe.com" 
-                  className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all text-right"
-                  dir="ltr"
-                />
-              </div>
-            </div>
-
-            {/* WhatsApp */}
-            <div>
-              <label className="block text-sm font-bold text-gray-700 mb-3 text-right">رقم الواتساب</label>
-              <input 
-                type="tel" 
-                placeholder="+965-123-456" 
-                className="w-full bg-gray-50 border border-gray-200 rounded-2xl p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-brand focus:ring-4 focus:ring-brand/10 transition-all text-right"
-                dir="ltr"
-              />
-            </div>
-
-            {/* reCAPTCHA Placeholder */}
-            <div className="flex justify-end pt-2">
-              <div className="bg-gray-50 rounded-xl p-3 flex items-center justify-between gap-8 border border-gray-200 w-fit">
-                <div className="flex items-center gap-3">
-                  <input type="checkbox" className="w-6 h-6 rounded border-gray-300 text-brand focus:ring-brand" />
-                  <span className="text-sm text-gray-700 font-sans font-medium" dir="ltr">I'm not a robot</span>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" className="w-8 opacity-80" />
-                  <span className="text-[8px] text-gray-500 mt-1">reCAPTCHA</span>
-                  <div className="text-[8px] text-gray-400 flex gap-1">
-                    <span>Privacy</span> - <span>Terms</span>
+                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">معلومات التواصل</h3>
+                <div className="space-y-8">
+                  <div className="group flex items-start gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                      <MessageSquare size={24} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-400 mb-1">البريد الإلكتروني</p>
+                      <a href="mailto:ahmeduiux7@gmail.com" className="text-xl text-gray-900 font-bold hover:text-brand transition-colors" dir="ltr">ahmeduiux7@gmail.com</a>
+                    </div>
+                  </div>
+                  
+                  <div className="group flex items-start gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-brand group-hover:text-white transition-all duration-300 shadow-sm">
+                      <Phone size={24} />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-400 mb-1">رقم الهاتف / واتساب</p>
+                      <a href="https://wa.me/201554295388" target="_blank" rel="noopener noreferrer" className="text-xl text-gray-900 font-bold hover:text-brand transition-colors" dir="ltr">+20 155 429 5388</a>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <div>
+                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">التواجد الرقمي</h3>
+                <div className="flex flex-wrap gap-4">
+                  {[
+                    { name: 'Behance', icon: <span className="font-black text-lg leading-none">Bē</span>, link: "https://www.behance.net/ahmedali4f006" },
+                    { name: 'LinkedIn', icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/ahmed-ali-%F0%9F%A6%84-1353a3200/" },
+                    { name: 'Facebook', icon: <Facebook size={20} />, link: "https://www.facebook.com/ahmed.ali.137893/" },
+                    { name: 'WhatsApp', icon: <MessageCircle size={20} />, link: "https://wa.me/201554295388" },
+                  ].map((social, i) => (
+                    <a 
+                      key={i} 
+                      href={social.link} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-14 h-14 rounded-2xl border border-gray-100 bg-white flex items-center justify-center hover:bg-brand hover:border-brand hover:text-white transition-all text-gray-400 shadow-sm hover:shadow-lg hover:shadow-brand/20"
+                      title={social.name}
+                    >
+                      {social.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="p-8 bg-gray-50 rounded-3xl border border-gray-100">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="flex -space-x-2 space-x-reverse">
+                    {[1, 2, 3].map(i => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="Client" className="w-full h-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex text-brand">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-current" />)}
+                  </div>
+                </div>
+                <p className="text-sm font-bold text-gray-900 mb-1">انضم لـ +50 عميل سعيد</p>
+                <p className="text-xs text-gray-500 font-medium">نحن نضمن لك جودة استثنائية والتزاماً تاماً بالمواعيد.</p>
+              </div>
             </div>
+          </div>
 
-            {/* Submit Button */}
-            <button 
-              type="submit"
-              className="w-full bg-brand text-white font-bold text-lg py-5 rounded-2xl hover:bg-brand/90 transition-all shadow-xl shadow-brand/20 hover:scale-[1.02] active:scale-[0.98] mt-4"
-            >
-              إرسال الرسالة
-            </button>
-          </form>
-        </div>
+          {/* Form Card - Left Column */}
+          <div className="lg:col-span-7">
+            <div className="bg-white rounded-[2.5rem] shadow-2xl shadow-gray-200/40 p-8 md:p-12 border border-gray-50 relative overflow-hidden">
+              {/* Subtle pattern overlay */}
+              <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+              
+              <form className="space-y-8 relative z-10" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">الاسم بالكامل</label>
+                    <input 
+                      type="text" 
+                      placeholder="أحمد محمد..."
+                      className="w-full h-14 bg-gray-50 border border-transparent rounded-2xl px-6 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">البريد الإلكتروني</label>
+                    <input 
+                      type="email" 
+                      placeholder="example@mail.com"
+                      className="w-full h-14 bg-gray-50 border border-transparent rounded-2xl px-6 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right"
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
 
-        {/* Social Links */}
-        <div className="mt-16 flex flex-wrap justify-center gap-4">
-          {[
-            { name: 'Behance', icon: <span className="font-black text-lg leading-none">Bē</span> },
-            { name: 'Facebook', icon: <Facebook size={18} className="fill-current" /> },
-            { name: 'LinkedIn', icon: <Linkedin size={18} className="fill-current" /> },
-            { name: 'Twitter', icon: <Twitter size={18} className="fill-current" /> },
-            { name: 'Dribbble', icon: <Dribbble size={18} /> },
-          ].map((social, i) => (
-            <a 
-              key={i} 
-              href="#" 
-              className="flex items-center gap-3 px-6 py-3 rounded-full border border-gray-200 bg-white hover:bg-gray-50 hover:border-brand/30 hover:text-brand transition-all text-gray-600 shadow-sm"
-            >
-              <span className="font-bold text-sm">{social.name}</span>
-              {social.icon}
-            </a>
-          ))}
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">نوع المشروع</label>
+                  <div className="flex flex-wrap gap-3">
+                    {['تصميم تطبيق', 'موقع إلكتروني', 'هوية بصرية', 'استشارة', 'أخرى'].map((type) => (
+                      <button
+                        key={type}
+                        type="button"
+                        className="px-6 py-3 rounded-xl border border-gray-100 bg-gray-50 text-sm font-bold text-gray-500 hover:border-brand hover:text-brand hover:bg-brand/5 transition-all"
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">تفاصيل المشروع</label>
+                  <textarea 
+                    rows={5}
+                    placeholder="أخبرني المزيد عن فكرتك وأهدافك..."
+                    className="w-full bg-gray-50 border border-transparent rounded-2xl p-6 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right resize-none"
+                  ></textarea>
+                </div>
+
+                <button 
+                  type="submit"
+                  className="w-full h-16 bg-brand text-white rounded-2xl font-black text-lg shadow-xl shadow-brand/20 hover:shadow-2xl hover:shadow-brand/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
+                >
+                  <span>إرسال الرسالة</span>
+                  <ArrowLeft size={20} />
+                </button>
+                
+                <p className="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+                  عادة ما يتم الرد خلال أقل من 24 ساعة
+                </p>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2228,7 +2764,7 @@ const ConsultationPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">لماذا تختار جلسات التوجيه معي؟</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">سواء كنت مصمماً مبتدئاً أو محترفاً، جلسات التوجيه مصممة لتلبية احتياجاتك.</p>
+            <p className="text-gray-500 max-w-2xl mx-auto">سواء كنت مؤسس شركة ناشئة، مدير منتجات، أو مصمم، جلسات التوجيه مصممة لتلبية احتياجاتك ومساعدتك على بناء منتجات ناجحة.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -2275,7 +2811,7 @@ const ConsultationPage = () => {
               <h3 className="text-2xl font-black text-gray-900 mb-4">استشارة سريعة</h3>
               <p className="text-gray-500 mb-8 text-sm leading-relaxed">مناسبة للاستشارات السريعة أو حل مشكلة محددة تواجهك في مشروعك.</p>
               <div className="text-4xl font-black text-gray-900 mb-8">مجاناً</div>
-              <button onClick={() => handleBook("استشارة سريعة", "مجاناً")} className="w-full py-4 rounded-xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
+              <button onClick={() => handleBook("استشارة سريعة", "مجاناً")} className="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
                 احجز الآن <ArrowLeft size={18} />
               </button>
             </div>
@@ -2287,7 +2823,7 @@ const ConsultationPage = () => {
               <h3 className="text-2xl font-black text-white mb-4">جلسة متعمقة</h3>
               <p className="text-white/80 mb-8 text-sm leading-relaxed">مثالية للمواضيع العميقة أو مراجعة وتقييم المشاريع (Portfolio Review) في جلسة واحدة.</p>
               <div className="text-4xl font-black text-white mb-8">200 جنيه</div>
-              <button onClick={() => handleBook("جلسة متعمقة", "200 جنيه")} className="w-full py-4 rounded-xl bg-white text-brand font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg">
+              <button onClick={() => handleBook("جلسة متعمقة", "200 جنيه")} className="w-full py-4 rounded-2xl bg-white text-brand font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg">
                 احجز الآن <ArrowLeft size={18} />
               </button>
             </div>
@@ -2298,7 +2834,7 @@ const ConsultationPage = () => {
               <h3 className="text-2xl font-black text-gray-900 mb-4">توجيه مستمر</h3>
               <p className="text-gray-500 mb-8 text-sm leading-relaxed">متابعة مستمرة وتوجيه مخصص لتطوير مسارك المهني بالكامل (Mentorship).</p>
               <div className="text-4xl font-black text-gray-900 mb-8">400 جنيه</div>
-              <button onClick={() => handleBook("توجيه مستمر", "400 جنيه")} className="w-full py-4 rounded-xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
+              <button onClick={() => handleBook("توجيه مستمر", "400 جنيه")} className="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
                 احجز الآن <ArrowLeft size={18} />
               </button>
             </div>
@@ -2353,7 +2889,7 @@ const ConsultationPage = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-x-reverse divide-gray-100">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">+10</div>
+              <div className="text-4xl md:text-5xl font-black text-gray-900 mb-2">5</div>
               <div className="text-gray-500 font-bold">سنوات خبرة</div>
             </div>
             <div className="text-center">
@@ -2423,7 +2959,7 @@ const ConsultationPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">رقم الواتساب</label>
-                  <input type="tel" required dir="ltr" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="+20 100 000 0000" />
+                  <input type="tel" required dir="ltr" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="+20 155 429 5388" />
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
@@ -2468,6 +3004,151 @@ const ConsultationPage = () => {
   );
 };
 
+const GalleryPage = () => {
+  const photos = [
+    "https://i.ibb.co/R51r8D5/483507975-660098550041808-8906287664672726605-n.jpg",
+    "https://i.ibb.co/LX4RThDy/481276697-654659803919016-878014977383527915-n.jpg",
+    "https://i.ibb.co/HD5ZGqv6/514281524-740596305325365-4563407309523343497-n.jpg",
+    "https://i.ibb.co/rfsc2c2S/502582396-738896518828677-6022866438440007991-n.jpg",
+    "https://i.ibb.co/1YnsHtb3/537405537-786080484110280-4600725529574332829-n.jpg",
+    "https://i.ibb.co/JWkJmPVx/603809582-883843694333958-8745771455446034800-n.jpg",
+    "https://i.ibb.co/Q734WnvW/492739487-705858515465811-4044069649912565972-n.jpg",
+    "https://i.ibb.co/XfGshspG/645984839-937604882291172-7552805595953355215-n.jpg",
+    "https://i.ibb.co/5gFXJrPk/561355685-830375476347447-3662253565111961623-n.jpg",
+    "https://i.ibb.co/v6nqFpMf/594434257-871324205585907-5194412690624102312-n.jpg",
+    "https://i.ibb.co/JwKBv8WV/565668035-830372853014376-3143679823146890357-n.jpg",
+    "https://i.ibb.co/3mN5Jff2/547438725-805625648822430-8229388273858976577-n-1.jpg",
+    "https://i.ibb.co/6Jqd3S43/530908285-775074875210841-618597458420532128-n.jpg",
+    "https://i.ibb.co/1fGBFD85/528365075-771619555556373-6457129229031896751-n.jpg",
+    "https://i.ibb.co/QFmRHHb0/504271467-736594535725542-775774139809467500-n.jpg",
+    "https://i.ibb.co/8ScVMx6/484082137-660194716698858-8955928335804861432-n.jpg",
+    "https://i.ibb.co/gbWrLMjT/482222059-659553583429638-6966815646128069236-n.jpg",
+    "https://i.ibb.co/GQW66Fc6/482057041-659475363437460-4378852166573113117-n.jpg",
+    "https://i.ibb.co/60rj33GR/475688361-627502066634790-4353574490553891465-n.jpg",
+    "https://i.ibb.co/svPFxsFG/475679780-627502093301454-2582446549540519541-n.jpg",
+    "https://i.ibb.co/6ctLkShz/475511461-627502103301453-1984574279683694173-n.jpg",
+    "https://i.ibb.co/xKPS04Gj/475309139-627502389968091-5948488706351835547-n.jpg",
+    "https://i.ibb.co/5WHb7cbn/475352609-627502509968079-2909568468988716310-n.jpg",
+    "https://i.ibb.co/whPkSCbP/475868079-630482233003440-5717652480990043080-n.jpg",
+    "https://i.ibb.co/GQrhs6xp/475897900-630489033002760-2899963353177440145-n.jpg",
+    "https://i.ibb.co/YTWfxZSN/475787238-630501929668137-2866337661666281269-n.jpg",
+    "https://i.ibb.co/nMQ8S398/476229650-631033319614998-6501818742680978412-n.jpg",
+    "https://i.ibb.co/D6Rfc6f/475991769-631032962948367-622621270404185831-n.jpg",
+    "https://i.ibb.co/G3JXNdB1/476231184-631033059615024-7905681614511992539-n.jpg",
+    "https://i.ibb.co/Ps33QCZv/476161050-632386649479665-2921020539570493781-n.jpg",
+    "https://i.ibb.co/gZZTBsXG/480095653-639436995441297-8252586186768912671-n.jpg",
+    "https://i.ibb.co/mVZBgZ4Z/480565391-641364858581844-1309556586925984935-n.jpg",
+    "https://i.ibb.co/ZpsNmmt4/480662956-646310841420579-2142367282074139130-n.jpg",
+    "https://i.ibb.co/Lhqbq9C9/482807996-656753923709604-4518852287232369934-n.jpg",
+    "https://i.ibb.co/0VrYxHGJ/484188415-658505053534491-1944934006229647518-n.jpg",
+    "https://i.ibb.co/FkkW3XjC/482354406-658509676867362-6839435539038925086-n.jpg",
+    "https://i.ibb.co/gM2LPW9F/484416821-658539086864421-3271672790025835428-n.jpg",
+    "https://i.ibb.co/q3kDyfkq/484258296-658538986864431-3850532482455260464-n.jpg",
+    "https://i.ibb.co/dsgZV7Tn/483944060-658539126864417-8795652587989874432-n.jpg",
+    "https://i.ibb.co/7xVF01hv/482347484-658539186864411-7846524868694391504-n.jpg",
+    "https://i.ibb.co/QvdNmCRz/483065864-658668000184863-9172891483625909104-n.jpg",
+    "https://i.ibb.co/VcYng2NZ/482251272-658907470160916-2718661998912541135-n.jpg",
+    "https://i.ibb.co/zHnbxnb6/483488528-658907536827576-5912453217411590428-n.jpg",
+    "https://i.ibb.co/zhG4Zq0s/482235069-659536950097968-6378525796196593502-n.jpg",
+    "https://i.ibb.co/TM7M0Txk/482223042-659536910097972-438365726675816579-n.jpg",
+    "https://i.ibb.co/ZCPDJZv/482219324-659536906764639-4178151301692821543-n.jpg",
+    "https://i.ibb.co/R51r8D5/483507975-660098550041808-8906287664672726605-n.jpg",
+    "https://i.ibb.co/BVGWsbL5/484105294-660194723365524-5462991604884603740-n.jpg",
+    "https://i.ibb.co/BKdr9QY9/484069397-660295823355414-1719468263999309449-n.jpg",
+    "https://i.ibb.co/LX4RThDy/481276697-654659803919016-878014977383527915-n.jpg",
+    "https://i.ibb.co/HD5ZGqv6/514281524-740596305325365-4563407309523343497-n.jpg",
+    "https://i.ibb.co/GQvgppqN/502587447-738896605495335-4679280357224692378-n.jpg",
+    "https://i.ibb.co/YBrj24td/506614304-738896565495339-6809180825074903693-n.jpg",
+    "https://i.ibb.co/rfsc2c2S/502582396-738896518828677-6022866438440007991-n.jpg",
+    "https://i.ibb.co/1YnsHtb3/537405537-786080484110280-4600725529574332829-n.jpg",
+    "https://i.ibb.co/JWkJmPVx/603809582-883843694333958-8745771455446034800-n.jpg",
+    "https://i.ibb.co/Q734WnvW/492739487-705858515465811-4044069649912565972-n.jpg",
+    "https://i.ibb.co/JFKDKxcL/2-2.png",
+    "https://i.ibb.co/fKVbrdn/5-556.png"
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#FDFCFB] pt-40 pb-32 relative overflow-hidden">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-brand/5 rounded-full blur-[120px]"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-500/5 rounded-full blur-[120px]"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-flex items-center gap-3 px-5 py-2 bg-brand/5 border border-brand/10 text-brand rounded-full text-[10px] font-black uppercase tracking-widest mb-10"
+          >
+            <span className="w-2 h-2 bg-brand rounded-full animate-pulse"></span>
+            معرض الصور • My Life & Work
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight"
+          >
+            لحظات لا تُنسى <br />
+            <span className="text-brand">في رحلتي المهنية والشخصية</span>
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-500 text-xl max-w-2xl mx-auto font-medium"
+          >
+            توثيق لبعض اللحظات المميزة مع العائلة والزملاء، حيث يتقاطع الإبداع مع السعادة.
+          </motion.p>
+        </div>
+
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          {photos.map((photo, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9, y: 30 }}
+              whileInView={{ 
+                opacity: 1, 
+                scale: 1, 
+                y: 0,
+                x: [0, 3, -3, 0] // Subtle side-to-side movement
+              }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              transition={{ 
+                opacity: { duration: 0.5, delay: (i % 3) * 0.1 },
+                scale: { duration: 0.5, delay: (i % 3) * 0.1 },
+                y: { duration: 0.5, delay: (i % 3) * 0.1 },
+                x: { 
+                  duration: 4 + (i % 3), 
+                  repeat: Infinity, 
+                  ease: "easeInOut",
+                  delay: i * 0.2
+                }
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-500 border border-gray-100"
+            >
+              <img
+                src={photo}
+                alt={`Gallery ${i}`}
+                className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-brand/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-brand shadow-xl transform scale-0 group-hover:scale-100 transition-transform duration-500">
+                  <Search size={24} />
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const HomePage = () => (
   <>
     <Hero />
@@ -2491,29 +3172,16 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/courses" element={<CoursesPage />} />
           <Route path="/course/:id" element={<CourseDetailPage />} />
+          <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/consultation" element={<ConsultationPage />} />
         </Routes>
         <Footer />
-        
-        {/* WhatsApp Floating Button */}
-        <a 
-          href="https://wa.me/201080044424" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="fixed bottom-24 right-8 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform z-50"
-        >
-          <MessageCircle size={32} />
-        </a>
-
-        {/* Scroll to top button */}
-        <button className="fixed bottom-8 right-8 w-12 h-12 bg-[#6344E3] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50">
-          <ChevronDown className="rotate-180" />
-        </button>
       </div>
     </BrowserRouter>
   );
