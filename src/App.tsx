@@ -499,7 +499,8 @@ const TrustedBy = () => {
     { label: "شركات ناشئة أسستها", value: "2" },
     { label: "منتج رقمي أطلقته", value: "+20" },
     { label: "سنوات خبرة", value: "5" },
-    { label: "عميل سعيد", value: "+80" },
+    { label: "عميل سعيد", value: "+30" },
+    { label: "متابع على سوشال ميديا", value: "+15K" },
   ];
 
   const partners = ["Ghadwa", "Ibn Sina", "Kidihow", "Rebekia", "Weautopilot", "Fasila"];
@@ -3062,10 +3063,70 @@ const GalleryPage = () => {
   );
 };
 
+const ImpactSection = () => {
+  const projects = [
+    {
+      name: "غدوة",
+      category: "تكنولوجيا الأغذية",
+      metrics: [
+        { label: "الطلبات", value: "1,500+" },
+        { label: "الإيرادات", value: "500 ألف+ جنيه" },
+        { label: "أتمتة العمليات", value: "70%" },
+      ]
+    },
+    {
+      name: "ربيكية",
+      category: "تكنولوجيا خضراء",
+      metrics: [
+        { label: "الطلبات", value: "15,000+" },
+        { label: "الإيرادات", value: "3 مليون+ جنيه" },
+        { label: "المنح", value: "2 مليون+ جنيه" },
+        { label: "المسابقات", value: "30+" },
+      ]
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-black text-gray-900 mb-4 tracking-tighter">أثر شركتي الناشئة</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto font-medium">
+            فخور بما حققته من أثر ملموس من خلال شركتي الناشئة، حيث نسعى دائماً للابتكار وتقديم حلول تقنية تحدث فرقاً حقيقياً.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {projects.map((project, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              className="bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <h3 className="text-2xl font-black text-gray-900 mb-1">{project.name}</h3>
+              <p className="text-brand font-bold text-sm mb-6">{project.category}</p>
+              <div className="grid grid-cols-2 gap-4">
+                {project.metrics.map((metric, j) => (
+                  <div key={j} className="border-r-2 border-brand/20 pr-3">
+                    <div className="text-2xl font-black text-gray-900 mb-0.5">{metric.value}</div>
+                    <div className="text-xs text-gray-500 font-bold uppercase tracking-wider">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const HomePage = () => (
   <>
     <Hero />
     <TrustedBy />
+    <ImpactSection />
     <Services />
     <Portfolio />
     <Courses />
