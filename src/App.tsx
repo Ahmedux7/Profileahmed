@@ -576,46 +576,46 @@ const Portfolio = () => {
             <motion.div 
               key={index}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-2xl overflow-hidden flex flex-col group shadow-sm border border-gray-50"
+              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col group"
             >
-              <div className="relative h-40 overflow-hidden">
+              <div className="relative mb-4 h-48 rounded-lg overflow-hidden shrink-0">
                 <img 
                   src={project.image} 
                   alt={project.name} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md text-[8px] font-bold rounded text-white">
+                <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md text-[10px] font-bold rounded text-white">
                   {project.type}
                 </div>
               </div>
               
-              <div className="p-4 flex flex-col flex-grow text-right">
-                <div className="flex flex-wrap justify-end gap-1 mb-2">
+              <div className="flex flex-col flex-grow text-right">
+                <div className="flex flex-wrap justify-end gap-1.5 mb-3">
                   {project.roles.map((role, i) => (
-                    <span key={i} className={`px-2 py-0.5 text-[8px] font-bold rounded-full border flex items-center gap-1 ${getRoleColor(role)}`}>
+                    <span key={i} className={`px-2 py-1 text-[10px] font-bold rounded-full border flex items-center gap-1 ${getRoleColor(role)}`}>
                       {role}
-                      <Briefcase size={8} />
+                      <Briefcase size={10} />
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="text-base font-bold mb-1 line-clamp-1 text-gray-900">{project.name}</h3>
-                <p className="text-gray-500 text-[10px] mb-2 line-clamp-2 leading-relaxed font-medium">
+                <h3 className="text-lg font-bold mb-2 line-clamp-1 text-gray-900 group-hover:text-brand transition-colors">{project.name}</h3>
+                <p className="text-gray-500 text-sm mb-4 line-clamp-2 leading-relaxed font-medium flex-grow">
                   {project.desc}
                 </p>
 
-                <div className="flex flex-wrap justify-end gap-1 mb-3">
+                <div className="flex flex-wrap justify-end gap-1.5 mb-4">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="text-[8px] font-bold text-gray-400 bg-gray-50 px-1.5 py-0.5 rounded border border-gray-100">
+                    <span key={i} className="text-[10px] font-bold text-gray-400 bg-gray-50 px-2 py-1 rounded border border-gray-100">
                       #{tag}
                     </span>
                   ))}
                 </div>
                 
                 <div className="mt-auto">
-                  <button className="flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-3 py-2 rounded-lg transition-all text-[10px] font-bold w-full justify-center shadow-md shadow-brand/10">
-                    <ExternalLink size={12} />
+                  <button className="flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-4 py-2.5 rounded-xl transition-all text-xs font-bold w-full justify-center shadow-md shadow-brand/10">
+                    <ExternalLink size={14} />
                     تفاصيل المشروع
                   </button>
                 </div>
@@ -988,9 +988,9 @@ const Courses = () => (
           <motion.div 
             key={i} 
             whileHover={{ y: -8 }}
-            className="bg-white rounded-2xl overflow-hidden flex flex-col group shadow-sm border border-gray-50"
+            className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col group"
           >
-            <div className="relative h-40 overflow-hidden">
+            <div className="relative mb-6 h-48 rounded-lg overflow-hidden shrink-0">
               <CourseCover />
               <div className="absolute top-3 left-3 bg-white/90 backdrop-blur px-2 py-1 rounded-lg border border-gray-50 shadow-sm flex items-center gap-1">
                 <Star size={10} className="text-yellow-400 fill-yellow-400" />
@@ -1006,8 +1006,8 @@ const Courses = () => (
               </div>
             </div>
             
-            <div className="p-4 pt-6 flex flex-col flex-grow text-right">
-              <div className="flex justify-between items-center mb-2">
+            <div className="flex flex-col flex-grow text-right">
+              <div className="flex justify-between items-center mb-3">
                 <div className="flex items-center gap-1.5 text-gray-400">
                   <Clock size={12} />
                   <span className="text-[9px] font-bold">{course.duration}</span>
@@ -1017,29 +1017,29 @@ const Courses = () => (
                   <Layers size={12} />
                 </span>
               </div>
-              <h3 className="text-base font-bold mb-1 line-clamp-1 leading-snug text-gray-900">{course.title}</h3>
-              <p className="text-gray-500 text-[10px] mb-3 line-clamp-2 leading-relaxed font-medium">
+              <h3 className="text-lg font-bold mb-2 line-clamp-1 leading-snug text-gray-900 group-hover:text-brand transition-colors">{course.title}</h3>
+              <p className="text-gray-500 text-sm mb-4 line-clamp-2 leading-relaxed font-medium flex-grow">
                 {course.desc}
               </p>
 
-              <div className="flex flex-wrap justify-end gap-1 mb-4">
+              <div className="flex flex-wrap justify-end gap-1.5 mb-6">
                 {course.tags.map((tag, idx) => (
-                  <span key={idx} className="px-2 py-0.5 bg-gray-50 text-gray-400 text-[8px] font-bold rounded border border-gray-100">
+                  <span key={idx} className="px-2 py-1 bg-gray-50 text-gray-400 text-[9px] font-bold rounded border border-gray-100">
                     #{tag}
                   </span>
                 ))}
               </div>
               
-              <div className="mt-auto pt-3 border-t border-gray-50 flex items-center justify-between">
+              <div className="mt-auto pt-4 border-t border-gray-50 flex items-center justify-between">
                 <Link 
                   to={`/course/${i}`}
-                  className="flex items-center gap-1.5 bg-brand text-white hover:bg-brand/90 px-3 py-2 rounded-lg transition-all text-[10px] font-bold shadow-md shadow-brand/10"
+                  className="flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-4 py-2.5 rounded-xl transition-all text-xs font-bold shadow-md shadow-brand/10"
                 >
-                  <Briefcase size={12} />
+                  <Briefcase size={14} />
                   عرض الكورس
                 </Link>
                 <div className="text-left">
-                  <div className="text-gray-400 text-[9px] line-through">{course.oldPrice}</div>
+                  <div className="text-gray-400 text-[10px] line-through">{course.oldPrice}</div>
                   <div className="text-brand font-bold text-sm">{course.price}</div>
                 </div>
               </div>
@@ -1051,41 +1051,42 @@ const Courses = () => (
   </section>
 );
 
+const awards = [
+  {
+    id: 1,
+    tag: "Startup Power Competition",
+    title: "🇪🇬Top Winners Startup Power Competition 🏆",
+    description: "التكريم كأحد الفائزين الأوائل للتميز في حلول إدارة النفايات المدعومة تقنياً.",
+    image: "https://i.ibb.co/HDbnHJ7c/4-25.png",
+    icon: <Trophy className="text-yellow-500" size={20} />
+  },
+  {
+    id: 2,
+    tag: "Greenish Egypt",
+    title: "🇫🇷 Greenish Egypt - 3rd Place 🏆",
+    description: "تقدير على المستوى الوطني للأثر المستدام في برنامج مدعوم من جهات دولية فرنسية.",
+    image: "https://i.ibb.co/4nBvSw2s/5-5.png",
+    icon: <Flame className="text-brand" size={20} />
+  },
+  {
+    id: 3,
+    tag: "Creativity Competition",
+    title: "Second Place in the Creativity Competition 🏆",
+    description: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
+    image: "https://i.ibb.co/fKVbrdn/5-556.png",
+    icon: <Trophy className="text-yellow-600" size={20} />
+  },
+  {
+    id: 4,
+    tag: "Gen Z Competition",
+    title: "Gen Z National Competition Winner (DMC TV) 🏆 📺",
+    description: "الفوز بالمركز الأول في المسابقة الوطنية Gen Z المذاعة على قناة DMC.",
+    image: "https://i.ibb.co/JFKDKxcL/2-2.png",
+    icon: <Award className="text-brand" size={20} />
+  }
+];
+
 const Awards = () => {
-  const awards = [
-    {
-      id: 1,
-      tag: "Startup Power Competition",
-      title: "🇪🇬Top Winners Startup Power Competition 🏆",
-      description: "التكريم كأحد الفائزين الأوائل للتميز في حلول إدارة النفايات المدعومة تقنياً.",
-      image: "https://i.ibb.co/HDbnHJ7c/4-25.png",
-      icon: <Trophy className="text-yellow-500" size={20} />
-    },
-    {
-      id: 2,
-      tag: "Greenish Egypt",
-      title: "🇫🇷 Greenish Egypt - 3rd Place 🏆",
-      description: "تقدير على المستوى الوطني للأثر المستدام في برنامج مدعوم من جهات دولية فرنسية.",
-      image: "https://i.ibb.co/4nBvSw2s/5-5.png",
-      icon: <Flame className="text-brand" size={20} />
-    },
-    {
-      id: 3,
-      tag: "Creativity Competition",
-      title: "Second Place in the Creativity Competition 🏆",
-      description: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
-      image: "https://i.ibb.co/fKVbrdn/5-556.png",
-      icon: <Trophy className="text-yellow-600" size={20} />
-    },
-    {
-      id: 4,
-      tag: "Gen Z Competition",
-      title: "Gen Z National Competition Winner (DMC TV) 🏆 📺",
-      description: "الفوز بالمركز الأول في المسابقة الوطنية Gen Z المذاعة على قناة DMC.",
-      image: "https://i.ibb.co/JFKDKxcL/2-2.png",
-      icon: <Award className="text-brand" size={20} />
-    }
-  ];
 
   return (
     <section className="py-32 bg-[#F8F9FA] relative overflow-hidden">
@@ -1101,14 +1102,13 @@ const Awards = () => {
               تقدير عالمي لأعمالي من كبرى منظمات التصميم والابتكار الرقمي.
             </p>
           </div>
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Link 
+            to="/awards"
             className="px-8 py-3 orange-gradient text-white rounded-xl font-bold flex items-center gap-2 transition-colors shadow-lg shadow-brand/20 whitespace-nowrap"
           >
             <Send size={18} className="rotate-180" />
             مشاهدة المزيد من الجوائز
-          </motion.button>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -1120,38 +1120,14 @@ const Awards = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="group h-full"
             >
-              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-50 h-full flex flex-col relative">
-                {/* Icon Badge */}
-                <div className="absolute top-3 right-3 z-20 w-8 h-8 bg-white/90 backdrop-blur-md rounded-lg shadow-md flex items-center justify-center border border-white/50">
+              <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col">
+                <img src={award.image} alt={award.title} className="w-full h-48 object-cover rounded-lg mb-4" referrerPolicy="no-referrer" />
+                <div className="w-12 h-12 rounded-xl bg-brand/5 flex items-center justify-center mb-4">
                   {award.icon}
                 </div>
-
-                <div className="h-40 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-brand/5 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                  <img 
-                    src={award.image} 
-                    alt={award.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                
-                <div className="p-4 flex flex-col flex-grow text-right">
-                  <div className="flex items-center justify-end gap-1.5 mb-2">
-                    <span className="text-[8px] font-bold text-gray-400 uppercase tracking-widest">
-                      {award.tag}
-                    </span>
-                    <div className="w-1 h-1 bg-brand rounded-full"></div>
-                  </div>
-                  
-                  <h3 className="text-base font-bold mb-1 leading-tight group-hover:text-brand transition-colors line-clamp-1 text-gray-900">
-                    {award.title}
-                  </h3>
-                  
-                  <p className="text-gray-500 text-[10px] leading-relaxed font-medium line-clamp-2">
-                    {award.description}
-                  </p>
-                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{award.title}</h3>
+                <p className="text-gray-500 text-sm mb-4 flex-grow">{award.description}</p>
+                <span className="text-xs font-bold text-brand bg-brand/5 px-3 py-1 rounded-full self-start">{award.tag}</span>
               </div>
             </motion.div>
           ))}
@@ -1739,6 +1715,17 @@ const AboutPage = () => {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                     referrerPolicy="no-referrer"
                   />
+                  
+                  {/* Available for Work Badge */}
+                  <div className="absolute bottom-8 right-8 z-20">
+                    <div className="text-green-600 text-sm font-bold flex items-center gap-2 bg-green-50/95 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-green-200 shadow-xl">
+                      <span className="relative flex h-3 w-3">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                      </span>
+                      متاح للعمل
+                    </div>
+                  </div>
                 </div>
 
                 {/* Abstract Shapes */}
@@ -2053,29 +2040,30 @@ const BlogPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group cursor-pointer"
+              whileHover={{ y: -8 }}
+              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col group cursor-pointer"
             >
-              <div className="relative h-56 rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-xl group-hover:shadow-brand/5 transition-all duration-500 border border-gray-100/50">
+              <div className="relative h-56 rounded-lg overflow-hidden mb-6 shrink-0">
                 <img 
                   src={post.image} 
                   alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
                 {/* Overlay text "قريباً" */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                   <span className="text-white text-3xl font-black tracking-widest drop-shadow-lg">قريباً</span>
                 </div>
-                <div className="absolute top-4 right-4 px-4 py-1.5 bg-[#064e3b] text-[#10b981] text-[10px] font-black rounded-full shadow-lg border border-[#10b981]/20">
+                <div className="absolute top-4 right-4 px-3 py-1.5 bg-[#064e3b] text-[#10b981] text-[10px] font-black rounded-lg shadow-lg border border-[#10b981]/20">
                   عرض
                 </div>
               </div>
               
-              <div className="text-right px-2">
-                <h3 className="text-lg font-bold text-gray-900 mb-3 leading-snug group-hover:text-brand transition-colors">
+              <div className="flex flex-col flex-grow text-right">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 leading-snug group-hover:text-brand transition-colors flex-grow">
                   {post.title}
                 </h3>
-                <div className="flex items-center justify-end gap-4 text-gray-400 text-[10px] font-bold">
+                <div className="flex items-center justify-end gap-4 text-gray-400 text-[10px] font-bold mt-auto pt-4 border-t border-gray-50">
                   <div className="flex items-center gap-1.5">
                     <span>{post.readTime}</span>
                     <Clock size={12} />
@@ -2346,21 +2334,21 @@ const ProjectsPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white rounded-3xl overflow-hidden flex flex-col group shadow-sm hover:shadow-2xl hover:shadow-brand/5 transition-all duration-500 border border-gray-50"
+              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col group"
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative mb-6 h-56 rounded-lg overflow-hidden shrink-0">
                 <img 
                   src={project.image} 
                   alt={project.name} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-5 right-5 px-3 py-1.5 bg-white/90 backdrop-blur-md text-[10px] font-bold rounded-lg text-gray-900 shadow-lg">
+                <div className="absolute top-4 right-4 px-3 py-1.5 bg-black/60 backdrop-blur-md text-[10px] font-bold rounded-lg text-white shadow-lg">
                   {project.type}
                 </div>
               </div>
               
-              <div className="p-6 flex flex-col flex-grow text-right">
+              <div className="flex flex-col flex-grow text-right">
                 <div className="flex flex-wrap justify-end gap-2 mb-3">
                   {project.roles.map((role, i) => (
                     <span key={i} className={`px-2.5 py-1 text-[9px] font-bold rounded-full border flex items-center gap-1.5 ${getRoleColor(role)}`}>
@@ -2371,7 +2359,7 @@ const ProjectsPage = () => {
                 </div>
                 
                 <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-brand transition-colors">{project.name}</h3>
-                <p className="text-gray-500 text-xs mb-4 leading-relaxed font-medium">
+                <p className="text-gray-500 text-xs mb-4 leading-relaxed font-medium flex-grow">
                   {project.desc}
                 </p>
 
@@ -2409,6 +2397,40 @@ const ProjectsPage = () => {
 };
 
 const ContactPage = () => {
+  const [selectedType, setSelectedType] = useState<string>('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/ahmeduiux7@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setShowSuccessPopup(true);
+        form.reset();
+        setSelectedType('');
+      } else {
+        alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.");
+      }
+    } catch (error) {
+      alert("حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white text-gray-900 pt-32 pb-20 font-sans relative overflow-hidden" dir="rtl">
       {/* Subtle Background Accents */}
@@ -2510,21 +2532,33 @@ const ContactPage = () => {
               {/* Subtle pattern overlay */}
               <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
               
-              <form className="space-y-8 relative z-10" onSubmit={(e) => e.preventDefault()}>
+              <form 
+                onSubmit={handleSubmit}
+                className="space-y-8 relative z-10"
+              >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_subject" value="رسالة جديدة من موقعك الشخصي" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">الاسم بالكامل</label>
                     <input 
                       type="text" 
+                      name="الاسم"
+                      required
                       placeholder="أحمد محمد..."
                       className="w-full h-14 bg-gray-50 border border-transparent rounded-2xl px-6 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">البريد الإلكتروني</label>
+                    <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">رقم الهاتف</label>
                     <input 
-                      type="email" 
-                      placeholder="example@mail.com"
+                      type="tel" 
+                      name="رقم الهاتف"
+                      required
+                      placeholder="+20 155 429 5388"
                       className="w-full h-14 bg-gray-50 border border-transparent rounded-2xl px-6 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right"
                       dir="ltr"
                     />
@@ -2533,12 +2567,18 @@ const ContactPage = () => {
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">نوع المشروع</label>
+                  <input type="hidden" name="نوع المشروع" value={selectedType} />
                   <div className="flex flex-wrap gap-3">
-                    {['تصميم تطبيق', 'موقع إلكتروني', 'هوية بصرية', 'استشارة', 'أخرى'].map((type) => (
+                    {['تجهيز الشركة للاستثمار', 'إدارة منتجات (Product Manager)', 'أتمتة', 'تصميم تطبيق', 'موقع إلكتروني', 'أخرى'].map((type) => (
                       <button
                         key={type}
                         type="button"
-                        className="px-6 py-3 rounded-xl border border-gray-100 bg-gray-50 text-sm font-bold text-gray-500 hover:border-brand hover:text-brand hover:bg-brand/5 transition-all"
+                        onClick={() => setSelectedType(type)}
+                        className={`px-6 py-3 rounded-xl border text-sm font-bold transition-all ${
+                          selectedType === type 
+                            ? 'border-brand bg-brand text-white shadow-md shadow-brand/20' 
+                            : 'border-gray-100 bg-gray-50 text-gray-500 hover:border-brand hover:text-brand hover:bg-brand/5'
+                        }`}
                       >
                         {type}
                       </button>
@@ -2549,6 +2589,8 @@ const ContactPage = () => {
                 <div className="space-y-2">
                   <label className="text-xs font-bold text-gray-400 uppercase tracking-widest block mr-1">تفاصيل المشروع</label>
                   <textarea 
+                    name="التفاصيل"
+                    required
                     rows={5}
                     placeholder="أخبرني المزيد عن فكرتك وأهدافك..."
                     className="w-full bg-gray-50 border border-transparent rounded-2xl p-6 text-gray-900 focus:outline-none focus:border-brand/30 focus:bg-white transition-all font-medium text-right resize-none"
@@ -2557,10 +2599,11 @@ const ContactPage = () => {
 
                 <button 
                   type="submit"
-                  className="w-full h-16 bg-brand text-white rounded-2xl font-black text-lg shadow-xl shadow-brand/20 hover:shadow-2xl hover:shadow-brand/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-3"
+                  disabled={isSubmitting}
+                  className="w-full h-16 bg-brand text-white rounded-2xl font-black text-lg shadow-xl shadow-brand/20 hover:shadow-2xl hover:shadow-brand/30 hover:-translate-y-1 transition-all flex items-center justify-center gap-3 disabled:opacity-70 disabled:hover:translate-y-0"
                 >
-                  <span>إرسال الرسالة</span>
-                  <ArrowLeft size={20} />
+                  <span>{isSubmitting ? 'جاري الإرسال...' : 'إرسال الرسالة'}</span>
+                  {!isSubmitting && <ArrowLeft size={20} />}
                 </button>
                 
                 <p className="text-center text-[10px] text-gray-400 font-bold uppercase tracking-widest">
@@ -2571,6 +2614,37 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl relative"
+          >
+            <button 
+              onClick={() => setShowSuccessPopup(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            <div className="w-20 h-20 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle size={40} />
+            </div>
+            <h3 className="text-2xl font-black text-gray-900 mb-2">تم الإرسال بنجاح!</h3>
+            <p className="text-gray-500 font-medium mb-8">
+              شكراً لتواصلك معي. سأقوم بالرد عليك في أقرب وقت ممكن.
+            </p>
+            <button
+              onClick={() => setShowSuccessPopup(false)}
+              className="w-full py-4 bg-gray-900 text-white rounded-xl font-bold hover:bg-brand transition-colors"
+            >
+              حسناً
+            </button>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
@@ -2633,10 +2707,39 @@ const ConsultationTestimonials = () => {
 const ConsultationPage = () => {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<{title: string, price: string} | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   const handleBook = (title: string, price: string) => {
     setSelectedPlan({ title, price });
     setIsBookingModalOpen(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/ahmeduiux7@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+      
+      if (response.ok) {
+        setShowSuccessPopup(true);
+        setIsBookingModalOpen(false);
+        form.reset();
+      } else {
+        alert("حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.");
+      }
+    } catch (error) {
+      alert("حدث خطأ في الاتصال. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -2736,8 +2839,8 @@ const ConsultationPage = () => {
               <div className="inline-block px-4 py-1.5 bg-white/20 text-white font-bold rounded-full text-sm mb-6 backdrop-blur-sm">60 دقيقة</div>
               <h3 className="text-2xl font-black text-white mb-4">جلسة متعمقة</h3>
               <p className="text-white/80 mb-8 text-sm leading-relaxed">مثالية للمواضيع العميقة أو مراجعة وتقييم المشاريع (Portfolio Review) في جلسة واحدة.</p>
-              <div className="text-4xl font-black text-white mb-8">200 جنيه</div>
-              <button onClick={() => handleBook("جلسة متعمقة", "200 جنيه")} className="w-full py-4 rounded-2xl bg-white text-brand font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg">
+              <div className="text-4xl font-black text-white mb-8">1000 جنيه</div>
+              <button onClick={() => handleBook("جلسة متعمقة", "1000 جنيه")} className="w-full py-4 rounded-2xl bg-white text-brand font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg">
                 احجز الآن <ArrowLeft size={18} />
               </button>
             </div>
@@ -2747,8 +2850,8 @@ const ConsultationPage = () => {
               <div className="inline-block px-4 py-1.5 bg-gray-100 text-gray-600 font-bold rounded-full text-sm mb-6">4 جلسات (شهر)</div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">توجيه مستمر</h3>
               <p className="text-gray-500 mb-8 text-sm leading-relaxed">متابعة مستمرة وتوجيه مخصص لتطوير مسارك المهني بالكامل (Mentorship).</p>
-              <div className="text-4xl font-black text-gray-900 mb-8">400 جنيه</div>
-              <button onClick={() => handleBook("توجيه مستمر", "400 جنيه")} className="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
+              <div className="text-4xl font-black text-gray-900 mb-8">4000 جنيه</div>
+              <button onClick={() => handleBook("توجيه مستمر", "4000 جنيه")} className="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
                 احجز الآن <ArrowLeft size={18} />
               </button>
             </div>
@@ -2866,24 +2969,30 @@ const ConsultationPage = () => {
               </button>
             </div>
             <div className="p-6 max-h-[75vh] overflow-y-auto">
-              <form className="space-y-5" onSubmit={(e) => { e.preventDefault(); alert('تم استلام طلبك بنجاح! سيتم التواصل معك قريباً.'); setIsBookingModalOpen(false); }}>
+              <form className="space-y-5" onSubmit={handleSubmit}>
+                <input type="hidden" name="_subject" value="طلب حجز استشارة جديد" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="نوع الباقة" value={selectedPlan.title} />
+                <input type="hidden" name="سعر الباقة" value={selectedPlan.price} />
+                
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">الاسم الكامل</label>
-                  <input type="text" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" placeholder="أدخل اسمك الكامل" />
+                  <input type="text" name="الاسم الكامل" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" placeholder="أدخل اسمك الكامل" />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">رقم الواتساب</label>
-                  <input type="tel" required dir="ltr" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="+20 155 429 5388" />
+                  <input type="tel" name="رقم الواتساب" required dir="ltr" className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="+20 155 429 5388" />
                 </div>
                 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">تاريخ الجلسة</label>
-                    <input type="date" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" />
+                    <input type="date" name="تاريخ الجلسة" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" />
                   </div>
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">الوقت المناسب</label>
-                    <input type="time" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" />
+                    <input type="time" name="الوقت المناسب" required className="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors" />
                   </div>
                 </div>
                 
@@ -2901,17 +3010,58 @@ const ConsultationPage = () => {
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-gray-700 mb-2">رقم الموبايل المحول منه</label>
-                      <input type="tel" required dir="ltr" className="w-full bg-white border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="أدخل الرقم الذي قمت بالتحويل منه" />
+                      <input type="tel" name="رقم الموبايل المحول منه" required dir="ltr" className="w-full bg-white border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:border-brand transition-colors text-right" placeholder="أدخل الرقم الذي قمت بالتحويل منه" />
                     </div>
                   </div>
                 )}
 
-                <button type="submit" className="w-full bg-brand text-white font-bold text-lg py-4 rounded-xl hover:bg-brand/90 transition-all shadow-lg shadow-brand/20 mt-4">
-                  تأكيد الحجز
+                <button type="submit" disabled={isSubmitting} className="w-full bg-brand text-white font-bold text-lg py-4 rounded-xl hover:bg-brand/90 transition-all shadow-lg shadow-brand/20 mt-4 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                      جاري تأكيد الحجز...
+                    </>
+                  ) : (
+                    "تأكيد الحجز"
+                  )}
                 </button>
               </form>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Success Popup */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" dir="rtl">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-3xl w-full max-w-md overflow-hidden shadow-2xl p-8 text-center relative"
+          >
+            <button 
+              onClick={() => setShowSuccessPopup(false)} 
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={24} />
+            </button>
+            
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle size={40} className="text-green-500" />
+            </div>
+            
+            <h3 className="text-2xl font-black text-gray-900 mb-4">تم استلام طلبك بنجاح!</h3>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              شكراً لك على حجز الاستشارة. سيتم التواصل معك قريباً لتأكيد الموعد والتفاصيل.
+            </p>
+            
+            <button 
+              onClick={() => setShowSuccessPopup(false)}
+              className="w-full bg-gray-100 text-gray-900 font-bold py-4 rounded-xl hover:bg-gray-200 transition-all"
+            >
+              إغلاق
+            </button>
+          </motion.div>
         </div>
       )}
     </div>
@@ -3118,11 +3268,12 @@ const ImpactSection = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="bg-green-100 text-green-800 text-[10px] font-black px-2 py-1 rounded-md uppercase">
-                    جاهزة للاستثمار
+                  <span className="text-green-600 text-[9px] font-bold flex items-center gap-1 bg-green-50 px-2 py-1 rounded-md border border-green-100">
+                    <CheckCircle size={10} />
+                    الشركة جاهزة للاستثمار
                   </span>
                   <a href={project.link} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-100 rounded-full hover:bg-brand hover:text-white transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    <ExternalLink size={14} />
                   </a>
                 </div>
               </div>
@@ -3157,6 +3308,58 @@ const HomePage = () => (
   </>
 );
 
+const AwardsPage = () => (
+  <div className="pt-32 pb-24 bg-gray-50 min-h-screen">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="mb-16 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-brand font-bold mb-4 text-lg">الجوائز</p>
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            جميع الجوائز والإنجازات
+          </h1>
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            تقدير عالمي لأعمالي من كبرى منظمات التصميم والابتكار الرقمي.
+          </p>
+        </motion.div>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {awards.map((award, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.05 }}
+            className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all h-full flex flex-col group"
+          >
+            <div className="relative mb-4 h-48 rounded-lg overflow-hidden shrink-0">
+              <img src={award.image} alt={award.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+            </div>
+            <div className="w-12 h-12 rounded-xl bg-brand/5 flex items-center justify-center mb-4 shrink-0">
+              {award.icon}
+            </div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-brand transition-colors">{award.title}</h3>
+            <p className="text-gray-500 text-sm mb-4 flex-grow">{award.description}</p>
+            <span className="text-xs font-bold text-brand bg-brand/5 px-3 py-1 rounded-full self-start">{award.tag}</span>
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-20 text-center">
+        <Link 
+          to="/" 
+          className="inline-flex items-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-brand transition-all group"
+        >
+          <ArrowRight size={20} className="group-hover:-translate-x-1 transition-transform" />
+          العودة للرئيسية
+        </Link>
+      </div>
+    </div>
+  </div>
+);
+
 export default function App() {
   return (
     <BrowserRouter>
@@ -3174,6 +3377,7 @@ export default function App() {
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/consultation" element={<ConsultationPage />} />
+          <Route path="/awards" element={<AwardsPage />} />
         </Routes>
         <Footer />
       </div>
