@@ -73,6 +73,8 @@ import {
   Lightbulb,
   TrendingUp,
   Shield,
+  GraduationCap,
+  Building2,
 } from "lucide-react";
 
 
@@ -510,6 +512,7 @@ const TrustedBy = () => {
     { label: "سنوات خبرة", value: "5" },
     { label: "عميل سعيد", value: "+30" },
     { label: "متابع على سوشال ميديا", value: "+15K" },
+    { label: "مسابقة فزت بها", value: "+30" },
   ];
 
   const partners = ["Ghadwa", "Ibn Sina", "Kidihow", "Rebekia", "Weautopilot", "Fasila"];
@@ -1986,6 +1989,9 @@ const AboutPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Startup Programs Section */}
+      <StartupPrograms />
     </div>
   );
 };
@@ -2529,7 +2535,7 @@ const ContactPage = () => {
                     {[...Array(5)].map((_, i) => <Star key={i} size={14} className="fill-current" />)}
                   </div>
                 </div>
-                <p className="text-sm font-bold text-gray-900 mb-1">انضم لـ +50 عميل سعيد</p>
+                <p className="text-sm font-bold text-gray-900 mb-1">انضم لـ +30 عميل سعيد</p>
                 <p className="text-xs text-gray-500 font-medium">نحن نضمن لك جودة استثنائية والتزاماً تاماً بالمواعيد.</p>
               </div>
             </div>
@@ -3312,10 +3318,124 @@ const ImpactSection = () => {
   );
 };
 
+const StartupPrograms = () => {
+  const programs = [
+    {
+      name: "منحة ماكينزي (McKinsey Forward)",
+      desc: "برنامج مكثف في القيادة، استراتيجيات الأعمال، وحل المشكلات المعقدة.",
+      icon: <TrendingUp className="text-brand" size={28} />,
+      color: "bg-blue-50 border-blue-100",
+      textColor: "text-blue-600"
+    },
+    {
+      name: "AUC Venture Lab",
+      desc: "أكبر مسرعة أعمال جامعية في إفريقيا، تدريب مكثف على نمو الشركات الناشئة.",
+      icon: <Building2 className="text-brand" size={28} />,
+      color: "bg-yellow-50 border-yellow-100",
+      textColor: "text-yellow-600"
+    },
+    {
+      name: "أورانج كورنرز (Orange Corners)",
+      desc: "مبادرة هولندية لدعم رواد الأعمال الشباب وتطوير الأفكار المبتكرة.",
+      icon: <Lightbulb className="text-brand" size={28} />,
+      color: "bg-orange-50 border-orange-100",
+      textColor: "text-orange-600"
+    },
+    {
+      name: "مسرعة أعمال Fintkers",
+      desc: "مسرعة متخصصة في التكنولوجيا المالية (Fintech) وتطوير المنتجات.",
+      icon: <Briefcase className="text-brand" size={28} />,
+      color: "bg-purple-50 border-purple-100",
+      textColor: "text-purple-600"
+    },
+    {
+      name: "حاضنة الأعمال نماء",
+      desc: "حاضنة أعمال لدعم المشاريع الناشئة وتوفير بيئة نمو متكاملة.",
+      icon: <Rocket className="text-brand" size={28} />,
+      color: "bg-green-50 border-green-100",
+      textColor: "text-green-600"
+    },
+    {
+      name: "مسرعة أعمال رالي (Rally)",
+      desc: "مسرعة أعمال متخصصة في دعم رواد الأعمال والشركات الناشئة في مختلف القطاعات.",
+      icon: <Target className="text-brand" size={28} />,
+      color: "bg-red-50 border-red-100",
+      textColor: "text-red-600"
+    },
+    {
+      name: "حاضنة Startup Power",
+      desc: "أكبر حاضنة أعمال في مصر، توفر دعماً شاملاً وتوجيهاً استراتيجياً لتسريع نمو الشركات.",
+      icon: <Zap className="text-brand" size={28} />,
+      color: "bg-indigo-50 border-indigo-100",
+      textColor: "text-indigo-600"
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-gray-50 border-y border-gray-100 overflow-hidden" dir="rtl">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-brand/5 text-brand rounded-full text-sm font-bold mb-6"
+          >
+            <GraduationCap size={18} />
+            أساس متين في الأعمال
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-black mb-6 text-gray-900"
+          >
+            خريج أبرز مسرعات وحاضنات <span className="text-brand">الأعمال</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-gray-500 max-w-2xl mx-auto font-medium"
+          >
+            رحلة تعليمية وعملية مكثفة في إدارة المنتجات، تأسيس الشركات الناشئة، واستراتيجيات النمو مع أفضل البرامج محلياً وعالمياً.
+          </motion.p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {programs.map((program, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group"
+            >
+              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 ${program.color} group-hover:scale-110 transition-transform`}>
+                <div className={program.textColor}>
+                  {program.icon}
+                </div>
+              </div>
+              <h3 className="text-lg font-black text-gray-900 mb-2">{program.name}</h3>
+              <p className="text-gray-500 text-sm font-medium leading-relaxed">
+                {program.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const HomePage = () => (
   <>
     <Hero />
     <TrustedBy />
+    <StartupPrograms />
     <ImpactSection />
     <Services />
     <Portfolio />
