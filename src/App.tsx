@@ -13,7 +13,7 @@ import {
   useLocation,
   useParams
 } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { 
   Search, 
   Layout, 
@@ -75,7 +75,7 @@ import {
   Shield,
 } from "lucide-react";
 
-import { useState } from "react";
+
 import { homeInfluencers, influencers, testimonials, projects, experience, blogPosts } from "./data";
 
 // Scroll to top on route change
@@ -423,7 +423,16 @@ const Hero = () => (
 
         {/* Main Image Container */}
         <div className="relative z-10 aspect-[4/5] w-full max-w-md rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group border-4 border-transparent group-hover:border-orange-500/30 transition-all duration-500">
-          {/* Available for Work Badge Removed */}
+          {/* Available for Work Badge */}
+          <div className="absolute top-4 right-4 z-20">
+            <div className="text-green-600 text-sm font-bold flex items-center gap-2 bg-green-50/95 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-green-200 shadow-xl">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              متاح للعمل
+            </div>
+          </div>
 
           <div className="absolute inset-0 bg-brand/10 group-hover:opacity-0 transition-opacity duration-700"></div>
           <img 
@@ -1717,7 +1726,7 @@ const AboutPage = () => {
                   />
                   
                   {/* Available for Work Badge */}
-                  <div className="absolute bottom-8 right-8 z-20">
+                  <div className="absolute top-4 right-4 z-20">
                     <div className="text-green-600 text-sm font-bold flex items-center gap-2 bg-green-50/95 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-green-200 shadow-xl">
                       <span className="relative flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -2771,6 +2780,16 @@ const ConsultationPage = () => {
                 className="rounded-[3rem] relative z-10 w-full object-cover aspect-square shadow-2xl"
                 referrerPolicy="no-referrer"
               />
+              {/* Available for Work Badge */}
+              <div className="absolute top-4 right-4 z-20">
+                <div className="text-green-600 text-sm font-bold flex items-center gap-2 bg-green-50/95 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-green-200 shadow-xl">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                  </span>
+                  متاح للعمل
+                </div>
+              </div>
             </div>
           </div>
         </div>
