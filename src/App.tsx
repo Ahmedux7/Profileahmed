@@ -533,17 +533,17 @@ const TrustedBy = () => {
           </motion.div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="flex items-center gap-3"
+              className="flex flex-col items-center text-center gap-2"
             >
-              <span className="text-4xl font-black text-brand">{stat.value}</span>
-              <span className="text-gray-400 font-bold text-[10px] uppercase tracking-wider">{stat.label}</span>
+              <span className="text-4xl md:text-5xl font-black text-brand">{stat.value}</span>
+              <span className="text-gray-500 font-bold text-xs md:text-sm uppercase tracking-wider">{stat.label}</span>
             </motion.div>
           ))}
         </div>
