@@ -3068,18 +3068,23 @@ const ImpactSection = () => {
     {
       name: "غدوة",
       category: "تكنولوجيا الأغذية",
+      logo: "https://i.ibb.co/Nng16MKB/527197715-4202471453357667-4828324456619388377-n-2.jpg",
+      link: "https://www.facebook.com/Ghadwa14",
       metrics: [
         { label: "الطلبات", value: "1,500+" },
-        { label: "الإيرادات", value: "500 ألف+ جنيه" },
+        { label: "الإيرادات", value: "+500 ألف جنيه" },
         { label: "أتمتة العمليات", value: "70%" },
+        { label: "المسابقات", value: "3" },
       ]
     },
     {
-      name: "ربيكية",
+      name: "ريبكيا",
       category: "تكنولوجيا خضراء",
+      logo: "https://i.ibb.co/kVJMK1HM/468788849-501985789552422-54133115533631103-n-1.jpg",
+      link: "https://www.facebook.com/photo/?fbid=501985786219089&set=a.118763727874632",
       metrics: [
         { label: "الطلبات", value: "15,000+" },
-        { label: "الإيرادات", value: "3 مليون+ جنيه" },
+        { label: "الإيرادات", value: "+3 مليون جنيه" },
         { label: "المنح", value: "2 مليون+ جنيه" },
         { label: "المسابقات", value: "30+" },
       ]
@@ -3102,11 +3107,26 @@ const ImpactSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.2 }}
-              className="bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 relative"
             >
-              <h3 className="text-2xl font-black text-gray-900 mb-1">{project.name}</h3>
-              <p className="text-brand font-bold text-sm mb-6">{project.category}</p>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-4">
+                  <img src={project.logo} alt={project.name} className="w-12 h-12 rounded-full object-cover" referrerPolicy="no-referrer" />
+                  <div>
+                    <h3 className="text-2xl font-black text-gray-900">{project.name}</h3>
+                    <p className="text-brand font-bold text-sm">{project.category}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="bg-green-100 text-green-800 text-[10px] font-black px-2 py-1 rounded-md uppercase">
+                    جاهزة للاستثمار
+                  </span>
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-100 rounded-full hover:bg-brand hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 mb-6">
                 {project.metrics.map((metric, j) => (
                   <div key={j} className="border-r-2 border-brand/20 pr-3">
                     <div className="text-2xl font-black text-gray-900 mb-0.5">{metric.value}</div>
