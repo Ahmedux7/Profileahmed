@@ -502,92 +502,25 @@ const TrustedBy = () => {
     { label: "عميل سعيد", value: "+80" },
   ];
 
-  const companies = [
-    { name: "Partner 1", logo: "https://i.ibb.co/SDqsHZzJ/468788849-501985789552422-54133115533631103-n.jpg" },
-    { name: "Partner 2", logo: "https://i.ibb.co/xtxqB1G9/490261387-1058367519670463-2966296700854741634-n.jpg" },
-    { name: "Partner 3", logo: "https://i.ibb.co/gFTQWQsJ/527197715-4202471453357667-4828324456619388377-n-1.jpg" },
-  ];
+  const partners = ["Ghadwa", "Ibn Sina", "Kidihow", "Rebekia", "Weautopilot", "Fasila"];
+  const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="py-24 bg-white border-y border-gray-50">
+    <section className="py-24 bg-white border-y border-gray-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">شركاء النجاح</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto font-medium leading-relaxed">
-            فخور بالتعاون مع نخبة من الشركات والعلامات التجارية الرائدة التي وضعت ثقتها في رؤيتي الإبداعية وحلولي التقنية.
-          </p>
-          <div className="mt-8 h-1 w-16 bg-brand/20 mx-auto rounded-full overflow-hidden">
-            <div className="h-full w-1/2 bg-brand rounded-full"></div>
-          </div>
-        </div>
-
-        <div className="overflow-hidden space-y-8">
-          {/* Row 1 */}
+        <div className="flex-1 overflow-hidden mb-16">
           <motion.div 
-            className="flex gap-4"
+            className="flex items-center gap-12 md:gap-16 opacity-50 justify-center"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
           >
-            {[...companies, ...companies, ...companies, ...companies, ...companies, ...companies].map((company, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -5, backgroundColor: "#fff" }}
-                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
-              >
-                <img 
-                  src={company.logo} 
-                  alt={company.name}
-                  className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    const parent = (e.target as HTMLImageElement).parentElement;
-                    if (parent) {
-                      const span = document.createElement('span');
-                      span.className = 'text-gray-300 font-bold text-sm';
-                      span.innerText = company.name;
-                      parent.appendChild(span);
-                    }
-                  }}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Row 2 */}
-          <motion.div 
-            className="flex gap-4"
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-          >
-            {[...companies, ...companies, ...companies, ...companies, ...companies, ...companies].map((company, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ y: -5, backgroundColor: "#fff" }}
-                className="h-28 w-48 flex-shrink-0 bg-gray-50/40 rounded-2xl flex items-center justify-center p-8 group transition-all duration-300 border border-transparent hover:border-gray-100 hover:shadow-xl hover:shadow-gray-200/30"
-              >
-                <img 
-                  src={company.logo} 
-                  alt={company.name}
-                  className="max-h-full max-w-full object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    const parent = (e.target as HTMLImageElement).parentElement;
-                    if (parent) {
-                      const span = document.createElement('span');
-                      span.className = 'text-gray-300 font-bold text-sm';
-                      span.innerText = company.name;
-                      parent.appendChild(span);
-                    }
-                  }}
-                />
-              </motion.div>
+            {duplicatedPartners.map((brand, i) => (
+              <div key={i} className="text-xl font-black text-gray-900 tracking-tighter whitespace-nowrap hover:text-brand transition-colors duration-300">{brand}</div>
             ))}
           </motion.div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 pt-12 border-t border-gray-50">
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-6">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -1842,26 +1775,6 @@ const AboutPage = () => {
               أنا مدير منتجات ومؤسس لشركتين ناشئتين، مع أكثر من 5 سنوات من الخبرة في بناء المنتجات الرقمية. شغفي يكمن في استكشاف كيفية تفكير الناس، ثم تحويل هذه الرؤية إلى منتجات ذات مغزى تحل مشاكل حقيقية. أستمتع بإنشاء الحلول، قيادة الفرق، بناء نماذج العمل، وتقديم ورش عمل تلهم الفرق للتفكير بعمق أكبر والعمل بذكاء أكثر. التواصل والوضوح هما جوهر كل ما أفعله.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section className="py-20 border-y border-gray-100 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
-            <p className="text-sm font-black text-gray-400 uppercase tracking-[0.2em] text-center md:text-right mb-8 md:mb-0">موثوق به من قبل علامات تجارية عالمية</p>
-            <div className="flex-1 overflow-hidden">
-              <motion.div 
-                className="flex items-center gap-12 md:gap-16 opacity-30 grayscale"
-                animate={{ x: ["0%", "-50%"] }}
-                transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              >
-                {["Kimabox", "Taji", "Ridez", "Raskoda", "Tard", "Kimabox", "Taji", "Ridez", "Raskoda", "Tard"].map((brand, i) => (
-                  <div key={i} className="text-xl font-black text-gray-900 tracking-tighter whitespace-nowrap">{brand}</div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
         </div>
       </section>
 
