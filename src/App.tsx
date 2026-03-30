@@ -75,6 +75,7 @@ import {
   Shield,
   GraduationCap,
   Building2,
+  Download,
 } from "lucide-react";
 
 
@@ -321,11 +322,11 @@ const Navbar = () => {
             <Globe size={16} />
             <span>العربية</span>
           </div>
-          <button className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
+          <a href="/ahmed_ali_cv.pdf" download="Ahmed_Ali_CV.pdf" className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
-            <FileText size={14} />
-            تحميل CV
-          </button>
+            <Download size={14} />
+            تحميل السيرة الذاتية
+          </a>
         </div>
       </div>
 
