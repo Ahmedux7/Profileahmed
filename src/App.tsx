@@ -322,7 +322,7 @@ const Navbar = () => {
             <Globe size={16} />
             <span>العربية</span>
           </div>
-          <a href="/ahmed_ali_cv.pdf" download="Ahmed_Ali_CV.pdf" className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
+          <a href="https://image2url.com/r2/default/files/1774870160750-24cdad6d-7214-469c-8d5a-65bfe867973b.pdf" target="_blank" rel="noopener noreferrer" download="Ahmed_Ali_CV.pdf" className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
             <Download size={14} />
             تحميل السيرة الذاتية
@@ -396,7 +396,7 @@ const Hero = () => (
                 <Star key={i} size={16} fill="currentColor" className="text-gray-900" />
               ))}
             </div>
-            <span className="text-gray-600 font-bold text-sm mt-1">( +6.9K طالب )</span>
+            <span className="text-gray-600 font-bold text-sm mt-1">( +200 استشارة )</span>
           </div>
         </div>
       </motion.div>
