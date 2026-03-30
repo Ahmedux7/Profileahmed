@@ -196,36 +196,39 @@ export const blogPosts = [
 
 export const projects = [
   {
-    name: "Rebecia Delivery",
-    type: "Mobile App",
-    roles: ["Designer", "Lead"],
-    tags: ["Figma", "UI/UX", "Mobile"],
-    desc: "تصميم واجهة مستخدم كاملة لتطبيق توصيل طلبات يركز على تجربة المستخدم السلسة والسرعة في الأداء.",
-    image: "https://picsum.photos/seed/rebecia/600/400"
+    name: "Ghadwa Platform & Ops",
+    type: "Platform",
+    roles: ["Product Lead", "Growth Ops"],
+    tags: ["FoodTech", "Marketplace_Management", "Automation", "n8n"],
+    desc: "منصة متكاملة لربط وإدارة الشيفات مع نظام أتمتة عالج +1,500 طلب وحقق 500 ألف ج.م إيرادات في 3 أشهر.",
+    image: "https://i.ibb.co/C5RY3g3F/Gemini-Generated-Image-k1xgcbk1xgcbk1xg.png",
+    link: "https://www.ghadwah.com/"
   },
   {
-    name: "Ghadwa Automation",
-    type: "Workflow",
-    roles: ["Developer"],
-    tags: ["React", "Node.js", "Automation"],
-    desc: "نظام أتمتة متكامل لإدارة العمليات الداخلية لشركة غدوة، مما ساعد في تقليل الوقت المهدر بنسبة 40%.",
-    image: "https://picsum.photos/seed/ghadwa/600/400"
+    name: "Rebekia: Waste-to-Value Platform",
+    type: "Green-Tech Platform",
+    roles: ["Founder & PM", "UI/UX Designer"],
+    tags: ["Green_Tech", "Product_Design", "Fundraising", "Logistics"],
+    desc: "منصة Green-Tech لرقمنة إدارة النفايات، حققت +3 مليون ج.م إيرادات وحصلت على منح بقيمة 2 مليون ج.م.",
+    image: "https://i.ibb.co/b5cMK38H/480650020-560298037054530-297461002153503365-n.jpg",
+    link: "https://www.facebook.com/search/top?q=rebekia%20-%20%D8%B1%D9%8A%D8%A8%D9%8A%D9%83%D9%8A%D8%A7%20"
   },
   {
-    name: "Admin Dashboard",
-    type: "Dashboard",
-    roles: ["PM", "Designer"],
-    tags: ["Dashboard", "Analytics", "B2B"],
-    desc: "إدارة وتخطيط لوحة تحكم متقدمة لتحليل البيانات الضخمة وتسهيل اتخاذ القرارات الإدارية.",
-    image: "https://picsum.photos/seed/dash1/600/400"
+    name: "Ibn Sina EdTech Scaling",
+    type: "EdTech Platform",
+    roles: ["Product Lead", "Growth Engineer"],
+    tags: ["EdTech", "Product_Growth", "Automation", "User_Experience"],
+    desc: "قيادة وتطوير منصة تعليمية تخدم +250 ألف متعلم، مع أتمتة الأنظمة.",
+    image: "https://i.ibb.co/PLDVNVN/633063279-1305255694981643-264405767237916710-n.jpg",
+    link: "https://ibnsinatrainingacademy.com/"
   },
   {
-    name: "E-commerce App",
-    type: "Mobile App",
-    roles: ["Designer"],
-    tags: ["E-commerce", "Retail", "UX"],
-    desc: "تجربة تسوق فريدة تركز على التحويلات العالية وسهولة التصفح والدفع الآمن.",
-    image: "https://picsum.photos/seed/shop/600/400"
+    name: "Kidihow: Skill-Building Platform",
+    type: "EdTech Platform",
+    roles: ["Product Manager", "UI/UX Lead"],
+    tags: ["Child_Development", "Marketplace", "Product_Design", "Booking_Systems"],
+    desc: "منصة متخصصة لربط أولياء الأمور بخبراء تنمية مهارات الأطفال، مع التركيز على تجربة مستخدم سلسة ونظام حجز مؤتمت.",
+    image: "https://i.ibb.co/4gm3qDGZ/image.png"
   },
   {
     name: "Fintech Platform",

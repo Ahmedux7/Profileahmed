@@ -563,6 +563,14 @@ const Portfolio = () => {
       case 'developer': return 'bg-blue-50 text-blue-600 border-blue-100';
       case 'pm': return 'bg-purple-50 text-purple-600 border-purple-100';
       case 'lead': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product lead': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'automation engineer': return 'bg-blue-50 text-blue-600 border-blue-100';
+      case 'growth ops': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'founder & pm': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'growth engineer': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product manager': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux lead': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -627,10 +635,17 @@ const Portfolio = () => {
                 </div>
                 
                 <div className="mt-auto">
-                  <button className="flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-4 py-2.5 rounded-xl transition-all text-xs font-bold w-full justify-center shadow-md shadow-brand/10">
-                    <ExternalLink size={14} />
-                    تفاصيل المشروع
-                  </button>
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-4 py-2.5 rounded-xl transition-all text-xs font-bold w-full justify-center shadow-md shadow-brand/10">
+                      <ExternalLink size={14} />
+                      تفاصيل المشروع
+                    </a>
+                  ) : (
+                    <button className="flex items-center gap-2 bg-brand text-white hover:bg-brand/90 px-4 py-2.5 rounded-xl transition-all text-xs font-bold w-full justify-center shadow-md shadow-brand/10">
+                      <ExternalLink size={14} />
+                      تفاصيل المشروع
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -2319,6 +2334,14 @@ const ProjectsPage = () => {
       case 'developer': return 'bg-blue-50 text-blue-600 border-blue-100';
       case 'pm': return 'bg-purple-50 text-purple-600 border-purple-100';
       case 'lead': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product lead': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'automation engineer': return 'bg-blue-50 text-blue-600 border-blue-100';
+      case 'growth ops': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'founder & pm': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'growth engineer': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product manager': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux lead': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -2388,10 +2411,17 @@ const ProjectsPage = () => {
                 </div>
                 
                 <div className="mt-auto">
-                  <button className="flex items-center gap-3 bg-brand text-white hover:bg-brand/90 px-6 py-3 rounded-xl transition-all text-sm font-bold w-full justify-center group/btn shadow-lg shadow-brand/20">
-                    <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />
-                    مشاهدة تفاصيل المشروع
-                  </button>
+                  {project.link ? (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-brand text-white hover:bg-brand/90 px-6 py-3 rounded-xl transition-all text-sm font-bold w-full justify-center group/btn shadow-lg shadow-brand/20">
+                      <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />
+                      مشاهدة تفاصيل المشروع
+                    </a>
+                  ) : (
+                    <button className="flex items-center gap-3 bg-brand text-white hover:bg-brand/90 px-6 py-3 rounded-xl transition-all text-sm font-bold w-full justify-center group/btn shadow-lg shadow-brand/20">
+                      <ExternalLink size={18} className="group-hover/btn:scale-110 transition-transform" />
+                      مشاهدة تفاصيل المشروع
+                    </button>
+                  )}
                 </div>
               </div>
             </motion.div>
