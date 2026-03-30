@@ -571,6 +571,10 @@ const Portfolio = () => {
       case 'growth engineer': return 'bg-green-50 text-green-600 border-green-100';
       case 'product manager': return 'bg-purple-50 text-purple-600 border-purple-100';
       case 'ui/ux lead': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ux strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer & manger': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'e-commerce strategist': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -606,8 +610,8 @@ const Portfolio = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md text-[10px] font-bold rounded text-white">
-                  {project.type}
+                <div className="absolute top-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-md text-[10px] font-bold rounded text-white flex items-center gap-1">
+                  {project.type} {project.country && <span>{project.country}</span>}
                 </div>
               </div>
               
@@ -2342,6 +2346,10 @@ const ProjectsPage = () => {
       case 'growth engineer': return 'bg-green-50 text-green-600 border-green-100';
       case 'product manager': return 'bg-purple-50 text-purple-600 border-purple-100';
       case 'ui/ux lead': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ux strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer & manger': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'e-commerce strategist': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -2382,8 +2390,8 @@ const ProjectsPage = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-4 right-4 px-3 py-1.5 bg-black/60 backdrop-blur-md text-[10px] font-bold rounded-lg text-white shadow-lg">
-                  {project.type}
+                <div className="absolute top-4 right-4 px-3 py-1.5 bg-black/60 backdrop-blur-md text-[10px] font-bold rounded-lg text-white shadow-lg flex items-center gap-1">
+                  {project.type} {project.country && <span>{project.country}</span>}
                 </div>
               </div>
               

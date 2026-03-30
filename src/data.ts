@@ -198,6 +198,7 @@ export const projects = [
   {
     name: "Ghadwa Platform & Ops",
     type: "Platform",
+    country: "🇪🇬",
     roles: ["Product Lead", "Growth Ops"],
     tags: ["FoodTech", "Marketplace_Management", "Automation", "n8n"],
     desc: "منصة متكاملة لربط وإدارة الشيفات مع نظام أتمتة عالج +1,500 طلب وحقق 500 ألف ج.م إيرادات في 3 أشهر.",
@@ -207,6 +208,7 @@ export const projects = [
   {
     name: "Rebekia: Waste-to-Value Platform",
     type: "Green-Tech Platform",
+    country: "🇪🇬",
     roles: ["Founder & PM", "UI/UX Designer"],
     tags: ["Green_Tech", "Product_Design", "Fundraising", "Logistics"],
     desc: "منصة Green-Tech لرقمنة إدارة النفايات، حققت +3 مليون ج.م إيرادات وحصلت على منح بقيمة 2 مليون ج.م.",
@@ -216,6 +218,7 @@ export const projects = [
   {
     name: "Ibn Sina EdTech Scaling",
     type: "EdTech Platform",
+    country: "🇪🇬",
     roles: ["Product Lead", "Growth Engineer"],
     tags: ["EdTech", "Product_Growth", "Automation", "User_Experience"],
     desc: "قيادة وتطوير منصة تعليمية تخدم +250 ألف متعلم، مع أتمتة الأنظمة.",
@@ -225,42 +228,30 @@ export const projects = [
   {
     name: "Kidihow: Skill-Building Platform",
     type: "EdTech Platform",
+    country: "🇪🇬",
     roles: ["Product Manager", "UI/UX Lead"],
     tags: ["Child_Development", "Marketplace", "Product_Design", "Booking_Systems"],
     desc: "منصة متخصصة لربط أولياء الأمور بخبراء تنمية مهارات الأطفال، مع التركيز على تجربة مستخدم سلسة ونظام حجز مؤتمت.",
     image: "https://i.ibb.co/4gm3qDGZ/image.png"
   },
   {
-    name: "Fintech Platform",
-    type: "Web App",
-    roles: ["Lead Designer"],
-    tags: ["Fintech", "Banking", "Security"],
-    desc: "منصة مالية متكاملة تهدف لتسهيل المعاملات البنكية الرقمية مع التركيز على الأمان وسهولة الوصول.",
-    image: "https://picsum.photos/seed/fintech/600/400"
+    name: "Honna La Hona: Women Empowerment",
+    type: "Platform",
+    country: "🇪🇬",
+    roles: ["Lead Product Designer", "UX Strategist"],
+    tags: ["Social_Impact", "Product_Design", "Women_Empowerment", "UX_Research"],
+    desc: "منصة متخصصة لدعم عمل المرأة من المنزل، تهدف لتمكين السيدات اقتصادياً من خلال توفير فرص عمل مرنة وواجهة مستخدم بسيطة وشاملة.",
+    image: "https://i.ibb.co/ynnfCzJY/45.png"
   },
   {
-    name: "Health & Fitness",
-    type: "Mobile App",
-    roles: ["UX Researcher"],
-    tags: ["Health", "Fitness", "Mobile"],
-    desc: "تطبيق لتتبع النشاط البدني والتغذية، تم بناؤه بناءً على أبحاث مكثفة لسلوك المستخدمين.",
-    image: "https://picsum.photos/seed/health/600/400"
-  },
-  {
-    name: "Real Estate Portal",
-    type: "Website",
-    roles: ["Designer"],
-    tags: ["Real Estate", "Web", "UI"],
-    desc: "موقع عقاري يسهل عملية البحث عن العقارات وشرائها مع تجربة تصفح غنية بالصور والبيانات.",
-    image: "https://picsum.photos/seed/estate/600/400"
-  },
-  {
-    name: "Learning Management",
-    type: "LMS",
-    roles: ["Product Designer"],
-    tags: ["EdTech", "LMS", "Education"],
-    desc: "نظام إدارة تعلم متطور يدعم الفصول الافتراضية وتتبع تقدم الطلاب بشكل تفاعلي.",
-    image: "https://picsum.photos/seed/learn/600/400"
+    name: "Faseela: Eco-Friendly Decor",
+    type: "E-commerce",
+    country: "🇪🇬",
+    roles: ["Lead Product Designer & manger", "E-commerce Strategist"],
+    tags: ["E-commerce", "Sustainable_Design", "UI/UX", "Nature_Products"],
+    desc: "متجر إلكتروني متخصص في الديكورات المستمدة من الطبيعة، يركز على تجربة تسوق بصرية مريحة تربط بين الحرف اليدوية وعشاق التصميم المستدام.",
+    image: "https://i.ibb.co/pvnPDCG1/480932989-1459014528817597-3730280492153839194-n.jpg",
+    link: "https://www.facebook.com/fasila.decorations"
   }
 ];
 
