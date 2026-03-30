@@ -52,7 +52,7 @@ export const testimonials = [
     role: "مؤسس شركة غدوة"
   },
   {
-    name: "سارة أحمد",
+    name: "دكتورة ميسم مجدى",
     text: "أحمد ليس مجرد مدير منتجات، بل هو شريك في النجاح. خلال عملنا معاً، أثبت مهارة استثنائية في حل المشكلات المعقدة من خلال التخطيط الاستراتيجي والتصميم. التزامه بالجودة والمواعيد يجعله الخيار الأول دائماً.",
     img: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg",
     role: "مديرة شركة ابن سينا"
@@ -252,6 +252,34 @@ export const projects = [
     desc: "متجر إلكتروني متخصص في الديكورات المستمدة من الطبيعة، يركز على تجربة تسوق بصرية مريحة تربط بين الحرف اليدوية وعشاق التصميم المستدام.",
     image: "https://i.ibb.co/pvnPDCG1/480932989-1459014528817597-3730280492153839194-n.jpg",
     link: "https://www.facebook.com/fasila.decorations"
+  },
+  {
+    name: "Web Autopilot: AI Localization",
+    type: "AI SaaS",
+    country: "🇸🇦",
+    roles: ["Product Designer (AI)", "Interaction Designer"],
+    tags: ["AI_SaaS", "SEO_Optimized", "UX_Design", "Global_Scale"],
+    desc: "أداة مدعومة بالذكاء الاصطناعي لترجمة المواقع وتدويلها (Globalization) مع الحفاظ التام على أداء الـ SEO وتجربة المستخدم الأصلية.",
+    image: "https://i.ibb.co/JjMfwfF5/45.png",
+    link: "https://webautopilot.ai/"
+  },
+  {
+    name: "Scolifay: Gamified EdTech",
+    type: "EdTech",
+    country: "🇦🇪",
+    roles: ["Interaction Designer", "Gamification Specialist"],
+    tags: ["EdTech_Kids", "Gamification", "Interactive_Learning", "User-Centered_Design"],
+    desc: "منصة تعليمية تفاعلية للأطفال تدمج بين الألعاب والأنشطة الأكاديمية (الرياضيات، العلوم، والقراءة) لتقديم تجربة تعلم ممتعة ومحفزة.",
+    image: "https://i.ibb.co/JWzs5TZ2/5-5.png"
+  },
+  {
+    name: "Basset: Sustainable Swapping",
+    type: "Platform",
+    country: "🇪🇬",
+    roles: ["Product Designer", "User Experience (UX) Specialist"],
+    tags: ["Circular_Economy", "P2P_Marketplace", "Sustainable_Living", "UI/UX"],
+    desc: "منصة مصرية رائدة للمقايضة الذكية، تهدف لتقليل الهدر وتعزيز الاستهلاك المستدام من خلال ربط المستخدمين لتبادل السلع والمنتجات بسهولة وأمان.",
+    image: "https://i.ibb.co/0yC3m8nq/5-5-5.png"
   }
 ];
 

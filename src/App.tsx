@@ -575,6 +575,11 @@ const Portfolio = () => {
       case 'ux strategist': return 'bg-brand/10 text-brand border-brand/20';
       case 'lead product designer & manger': return 'bg-purple-50 text-purple-600 border-purple-100';
       case 'e-commerce strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'product designer (ai)': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'interaction designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'gamification specialist': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'user experience (ux) specialist': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -2350,6 +2355,11 @@ const ProjectsPage = () => {
       case 'ux strategist': return 'bg-brand/10 text-brand border-brand/20';
       case 'lead product designer & manger': return 'bg-purple-50 text-purple-600 border-purple-100';
       case 'e-commerce strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'product designer (ai)': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'interaction designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'gamification specialist': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'user experience (ux) specialist': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
