@@ -319,7 +319,12 @@ const Navbar = () => {
         {/* Actions - Desktop */}
         <div className="hidden md:flex justify-end items-center gap-6 whitespace-nowrap">
           <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
-            <Globe size={16} />
+            <img 
+              src="https://flagcdn.com/w40/eg.png" 
+              alt="Egypt Flag" 
+              className="w-5 h-5 rounded-full object-cover border border-gray-100"
+              referrerPolicy="no-referrer"
+            />
             <span>العربية</span>
           </div>
           <a href="https://image2url.com/r2/default/files/1774870160750-24cdad6d-7214-469c-8d5a-65bfe867973b.pdf" target="_blank" rel="noopener noreferrer" download="Ahmed_Ali_CV.pdf" className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
