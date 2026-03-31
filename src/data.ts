@@ -1,9 +1,9 @@
 export const homeInfluencers = [
-  { src: "https://i.ibb.co/5gxMrJBW/626302384-1807681613230382-8649067781445416988-n.jpg", height: "h-32" },
+  { src: "https://i.ibb.co/nq55PhZD/618511856-1441106430977518-1909843670823778383-n.jpg", height: "h-32" },
   { src: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg", height: "h-28" },
   { src: "https://i.ibb.co/jvpj442N/271974866-5195343743897489-1185375077007356153-n.jpg", height: "h-48" },
   { src: "https://i.ibb.co/G4N2vfjk/451656152-3817656788505804-8821984264431332180-n.jpg", height: "h-44" },
-  { src: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg", height: "h-48" },
+  { src: "https://i.ibb.co/5gxMrJBW/626302384-1807681613230382-8649067781445416988-n.jpg", height: "h-48" },
   { src: "https://i.ibb.co/d4VrJFLz/473079489-1799843420753034-726780744381604068-n.jpg", height: "h-36" },
   { src: "https://i.ibb.co/jZHNTXHB/548183374-803517145699947-1055836045542047515-n-1.jpg", height: "h-40" },
   { src: "https://i.ibb.co/7hfj6mP/2sds4.png", height: "h-32" },
@@ -18,12 +18,12 @@ export const influencers = [
   { src: "https://i.ibb.co/7hfj6mP/2sds4.png", height: "h-32" },
   { src: "https://i.ibb.co/KxL0V4D0/482242748-23986036960986271-1620725418600049193-n.jpg", height: "h-40" },
   { src: "https://i.ibb.co/RpxCrW4V/487225120-1198729698273892-1454770218628643691-n.jpg", height: "h-44" },
-  { src: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg", height: "h-48" },
+  { src: "https://i.ibb.co/5gxMrJBW/626302384-1807681613230382-8649067781445416988-n.jpg", height: "h-48" },
   { src: "https://i.ibb.co/6J1wvp0m/508108834-4296502983955751-8425227864715454658-n.jpg", height: "h-36" },
   { src: "https://i.ibb.co/m5Kh92n7/342784547-2690681411075051-4136922621935771916-n.jpg", height: "h-44" },
   { src: "https://i.ibb.co/gZyhYJBN/OIP.webp", height: "h-40" },
   { src: "https://i.ibb.co/jZHNTXHB/548183374-803517145699947-1055836045542047515-n-1.jpg", height: "h-40" },
-  { src: "https://i.ibb.co/5gxMrJBW/626302384-1807681613230382-8649067781445416988-n.jpg", height: "h-28" },
+  { src: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg", height: "h-28" },
   { src: "https://i.ibb.co/G4N2vfjk/451656152-3817656788505804-8821984264431332180-n.jpg", height: "h-44" },
   { src: "https://i.ibb.co/nq55PhZD/618511856-1441106430977518-1909843670823778383-n.jpg", height: "h-32" },
   { src: "https://i.ibb.co/jvpj442N/271974866-5195343743897489-1185375077007356153-n.jpg", height: "h-48" },
@@ -54,7 +54,7 @@ export const testimonials = [
   {
     name: "دكتورة ميسم مجدى",
     text: "أحمد ليس مجرد مدير منتجات، بل هو شريك في النجاح. خلال عملنا معاً، أثبت مهارة استثنائية في حل المشكلات المعقدة من خلال التخطيط الاستراتيجي والتصميم. التزامه بالجودة والمواعيد يجعله الخيار الأول دائماً.",
-    img: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg",
+    img: "https://i.ibb.co/5gxMrJBW/626302384-1807681613230382-8649067781445416988-n.jpg",
     role: "مديرة شركة ابن سينا"
   },
   {
@@ -66,7 +66,7 @@ export const testimonials = [
   {
     name: "سوسن احمد",
     text: "تعلمت منها الكثير حول صناعة المحتوى وكيفية بناء حضور رقمي مؤثر وجذاب.",
-    img: "https://i.ibb.co/5gxMrJBW/626302384-1807681613230382-8649067781445416988-n.jpg",
+    img: "https://i.ibb.co/fdcHktw2/595314692-2789237971426224-2629402992759056661-n.jpg",
     role: "كونتت كريتور"
   },
   {

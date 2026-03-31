@@ -12,6 +12,7 @@
 @layer base {
   body {
     @apply bg-[#F8F9FA] text-dark font-sans;
+    direction: rtl;
   }
 }
 

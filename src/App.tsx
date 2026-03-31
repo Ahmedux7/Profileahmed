@@ -96,7 +96,7 @@ const coursesData = [
     desc: "تعلم كيفية بناء عرض تقديمي (Pitch Deck) احترافي يجذب المستثمرين ويقنعهم بتمويل مشروعك أو شركتك الناشئة.",
     price: "قريباً",
     oldPrice: "",
-    category: "بيزنس",
+    category: "BUSINESS",
     students: "قريباً",
     duration: "قريباً",
     rating: "5.0",
@@ -107,7 +107,7 @@ const coursesData = [
     desc: "احترف أتمتة المهام والعمليات باستخدام أداة n8n، ووفر مئات الساعات من العمل اليدوي لزيادة إنتاجيتك.",
     price: "قريباً",
     oldPrice: "",
-    category: "أتمتة",
+    category: "AUTOMATION",
     students: "قريباً",
     duration: "قريباً",
     rating: "5.0",
@@ -118,7 +118,7 @@ const coursesData = [
     desc: "دليلك الشامل لتعلم البرمجة بالذكاء الاصطناعي (Vibe Coding) وبناء تطبيقات متكاملة بسرعة وكفاءة عالية.",
     price: "قريباً",
     oldPrice: "",
-    category: "برمجة بالذكاء الاصطناعي",
+    category: "AI CODING",
     students: "قريباً",
     duration: "قريباً",
     rating: "5.0",
@@ -132,7 +132,7 @@ const courseDetailsData = [
     desc: "تعلم كيفية بناء عرض تقديمي (Pitch Deck) احترافي يجذب المستثمرين ويقنعهم بتمويل مشروعك أو شركتك الناشئة.",
     price: "قريباً",
     oldPrice: "",
-    category: "بيزنس",
+    category: "BUSINESS",
     students: "قريباً",
     duration: "قريباً",
     rating: "4.9",
@@ -180,7 +180,7 @@ const courseDetailsData = [
     desc: "اكتشف قوة الأتمتة مع n8n لتوفير الوقت والجهد. تعلم كيف تربط التطبيقات المختلفة وتبني مسارات عمل ذكية.",
     price: "قريباً",
     oldPrice: "",
-    category: "أتمتة",
+    category: "AUTOMATION",
     students: "قريباً",
     duration: "قريباً",
     rating: "5.0",
@@ -228,7 +228,7 @@ const courseDetailsData = [
     desc: "تعلم كيف تستخدم أدوات الذكاء الاصطناعي لكتابة الأكواد وبناء التطبيقات بسرعة وكفاءة، حتى لو لم تكن مبرمجاً محترفاً.",
     price: "قريباً",
     oldPrice: "",
-    category: "برمجة بالذكاء الاصطناعي",
+    category: "AI CODING",
     students: "قريباً",
     duration: "قريباً",
     rating: "4.8",
@@ -293,7 +293,7 @@ const Navbar = () => {
           <Link to="/" className="hover:scale-105 transition-transform">
             <img 
               src="https://cdn-icons-png.flaticon.com/512/3609/3609930.png" 
-              alt="الشعار" 
+              alt="Logo" 
               className="h-10 w-auto"
               referrerPolicy="no-referrer"
             />
@@ -318,14 +318,9 @@ const Navbar = () => {
 
         {/* Actions - Desktop */}
         <div className="hidden md:flex justify-end items-center gap-6 whitespace-nowrap">
-          <div className="flex items-center gap-2 text-gray-600 font-bold">
-            <img 
-              src="https://flagcdn.com/w40/eg.png" 
-              alt="علم مصر" 
-              className="w-5 h-3.5 object-cover rounded-sm shadow-sm border border-gray-100" 
-              referrerPolicy="no-referrer" 
-            />
-            <span className="text-xs">العربية</span>
+          <div className="flex items-center gap-2 text-sm font-medium text-gray-600">
+            <Globe size={16} />
+            <span>العربية</span>
           </div>
           <a href="https://image2url.com/r2/default/files/1774870160750-24cdad6d-7214-469c-8d5a-65bfe867973b.pdf" target="_blank" rel="noopener noreferrer" download="Ahmed_Ali_CV.pdf" className="px-5 py-2 bg-brand text-white rounded-xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-all relative overflow-hidden group">
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></div>
@@ -349,15 +344,6 @@ const Navbar = () => {
           <Link to="/consultation" onClick={() => setIsMenuOpen(false)}>الاستشارات</Link>
           <Link to="/blog" onClick={() => setIsMenuOpen(false)}>المدونة</Link>
           <Link to="/contact" onClick={() => setIsMenuOpen(false)}>تواصل معي</Link>
-          <div className="flex items-center gap-2 text-gray-600 font-bold pt-4 border-t">
-            <img 
-              src="https://flagcdn.com/w40/eg.png" 
-              alt="علم مصر" 
-              className="w-5 h-3.5 object-cover rounded-sm shadow-sm border border-gray-100" 
-              referrerPolicy="no-referrer" 
-            />
-            <span className="text-xs">العربية</span>
-          </div>
         </motion.div>
       )}
     </nav>
@@ -400,7 +386,7 @@ const Hero = () => (
               "https://i.pravatar.cc/150?u=3"
             ].map((src, i) => (
               <div key={i} className="w-12 h-12 rounded-full border-4 border-white overflow-hidden shadow-sm">
-                <img src={src} alt="طالب" className="w-full h-full object-cover" />
+                <img src={src} alt="Student" className="w-full h-full object-cover" />
               </div>
             ))}
           </div>
@@ -454,7 +440,7 @@ const Hero = () => (
           <div className="absolute inset-0 bg-brand/10 group-hover:opacity-0 transition-opacity duration-700"></div>
           <img 
             src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" 
-            alt="أحمد علي" 
+            alt="Ahmed Ali" 
             className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
             referrerPolicy="no-referrer"
           />
@@ -530,7 +516,7 @@ const TrustedBy = () => {
     { label: "مسابقة فزت بها", value: "+30" },
   ];
 
-  const partners = ["غدوة", "ابن سينا", "كيديهاو", "ريبيكيا", "ويب أوتوبايلوت", "فسيلة"];
+  const partners = ["Ghadwa", "Ibn Sina", "Kidihow", "Rebekia", "Weautopilot", "Fasila"];
   const duplicatedPartners = [...partners, ...partners];
 
   return (
@@ -573,23 +559,27 @@ const Portfolio = () => {
   
   const getRoleColor = (role: string) => {
     switch (role.toLowerCase()) {
-      case 'مصمم': return 'bg-brand/10 text-brand border-brand/20';
-      case 'مطور': return 'bg-blue-50 text-blue-600 border-blue-100';
-      case 'مدير منتج': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'عمليات النمو': return 'bg-orange-50 text-orange-600 border-orange-100';
-      case 'مؤسس ومدير منتج': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'مصمم واجهات مستخدم': return 'bg-brand/10 text-brand border-brand/20';
-      case 'مهندس نمو': return 'bg-green-50 text-green-600 border-green-100';
-      case 'مدير تصميم واجهات': return 'bg-brand/10 text-brand border-brand/20';
-      case 'كبير مصممي المنتجات': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'استراتيجي تجربة المستخدم': return 'bg-brand/10 text-brand border-brand/20';
-      case 'كبير مصممي ومديري المنتجات': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'استراتيجي تجارة إلكترونية': return 'bg-brand/10 text-brand border-brand/20';
-      case 'مصمم منتجات (ذكاء اصطناعي)': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'مصمم تفاعل': return 'bg-brand/10 text-brand border-brand/20';
-      case 'متخصص ألعاب': return 'bg-orange-50 text-orange-600 border-orange-100';
-      case 'مصمم منتجات': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'متخصص تجربة مستخدم': return 'bg-brand/10 text-brand border-brand/20';
+      case 'designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'developer': return 'bg-blue-50 text-blue-600 border-blue-100';
+      case 'pm': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'lead': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product lead': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'automation engineer': return 'bg-blue-50 text-blue-600 border-blue-100';
+      case 'growth ops': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'founder & pm': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'growth engineer': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product manager': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux lead': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ux strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer & manger': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'e-commerce strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'product designer (ai)': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'interaction designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'gamification specialist': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'user experience (ux) specialist': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -859,7 +849,7 @@ const FAQ = () => {
               <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden border-8 border-white shadow-2xl">
                 <img 
                   src="https://i.ibb.co/8DyXMqRJ/534936271-783282314390097-1989541586977274025-n.jpg" 
-                  alt="أحمد علي" 
+                  alt="Ahmed Ali" 
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -914,7 +904,7 @@ const Footer = () => (
             <Link to="/" className="hover:scale-105 transition-transform">
               <img 
                 src="https://cdn-icons-png.flaticon.com/512/3609/3609930.png" 
-                alt="الشعار" 
+                alt="Logo" 
                 className="h-10 w-auto"
                 referrerPolicy="no-referrer"
               />
@@ -1101,32 +1091,32 @@ const Courses = () => (
 const awards = [
   {
     id: 1,
-    tag: "مسابقة قوة الشركات الناشئة",
-    title: "🇪🇬 من أوائل الفائزين في مسابقة قوة الشركات الناشئة 🏆",
+    tag: "Startup Power Competition",
+    title: "🇪🇬Top Winners Startup Power Competition 🏆",
     description: "التكريم كأحد الفائزين الأوائل للتميز في حلول إدارة النفايات المدعومة تقنياً.",
     image: "https://i.ibb.co/HDbnHJ7c/4-25.png",
     icon: <Trophy className="text-yellow-500" size={20} />
   },
   {
     id: 2,
-    tag: "جرينيش مصر",
-    title: "🇫🇷 جرينيش مصر - المركز الثالث 🏆",
+    tag: "Greenish Egypt",
+    title: "🇫🇷 Greenish Egypt - 3rd Place 🏆",
     description: "تقدير على المستوى الوطني للأثر المستدام في برنامج مدعوم من جهات دولية فرنسية.",
     image: "https://i.ibb.co/4nBvSw2s/5-5.png",
     icon: <Flame className="text-brand" size={20} />
   },
   {
     id: 3,
-    tag: "مسابقة الإبداع",
-    title: "المركز الثاني في مسابقة الإبداع 🏆",
+    tag: "Creativity Competition",
+    title: "Second Place in the Creativity Competition 🏆",
     description: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
     image: "https://i.ibb.co/fKVbrdn/5-556.png",
     icon: <Trophy className="text-yellow-600" size={20} />
   },
   {
     id: 4,
-    tag: "مسابقة جيل زد",
-    title: "الفائز بالمسابقة الوطنية جيل زد (قناة DMC) 🏆 📺",
+    tag: "Gen Z Competition",
+    title: "Gen Z National Competition Winner (DMC TV) 🏆 📺",
     description: "الفوز بالمركز الأول في المسابقة الوطنية Gen Z المذاعة على قناة DMC.",
     image: "https://i.ibb.co/JFKDKxcL/2-2.png",
     icon: <Award className="text-brand" size={20} />
@@ -1363,7 +1353,7 @@ const CourseDetailPage = () => {
           {/* Instructor */}
           <section className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm flex flex-col md:flex-row items-center gap-8">
             <div className="w-32 h-32 rounded-2xl overflow-hidden border-4 border-brand/10 flex-shrink-0 shadow-xl">
-              <img src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" alt="مدرب" className="w-full h-full object-cover" />
+              <img src="https://i.ibb.co/v4j3TQYF/548183374-803517145699947-1055836045542047515-n-1.jpg" alt="Instructor" className="w-full h-full object-cover" />
             </div>
             <div className="text-center md:text-right">
               <div className="text-brand font-bold text-[10px] mb-1 uppercase tracking-widest">المدرب المعتمد</div>
@@ -1457,16 +1447,16 @@ const CourseDetailPage = () => {
               <div className="pt-6 border-t border-gray-100">
                 <div className="text-center text-[9px] text-gray-400 font-black mb-4 uppercase tracking-[0.2em]">طرق الدفع الآمنة</div>
                 <div className="flex justify-center items-center gap-5 grayscale opacity-60">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="بايبال" className="h-4" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Vodafone_2017_logo.svg" alt="فودافون" className="h-5" />
-                  <img src="https://instapay.eg/assets/images/logo.png" alt="إنستاباي" className="h-4" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-4" />
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Vodafone_2017_logo.svg" alt="Vodafone" className="h-5" />
+                  <img src="https://instapay.eg/assets/images/logo.png" alt="Instapay" className="h-4" />
                 </div>
               </div>
               
               {course.price !== "قريباً" && (
                 <div className="mt-6">
                   <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-3.5 bg-[#A435F0] text-white rounded-xl font-bold text-xs hover:opacity-90 transition-opacity shadow-lg shadow-[#A435F0]/20">
-                    <img src="https://www.udemy.com/static/images/v7/logo-udemy.svg" alt="يوديمي" className="h-4 invert" />
+                    <img src="https://www.udemy.com/static/images/v7/logo-udemy.svg" alt="Udemy" className="h-4 invert" />
                     شراء من Udemy
                   </a>
                 </div>
@@ -1503,85 +1493,85 @@ const AboutPage = () => {
 
   const certifications = [
     {
-      title: "دور مالك المنتج في بيئة أجايل: التقنيات",
-      issuer: "معهد إدارة المشاريع (PMI)",
+      title: "Agile Product Owner Role: Techniques",
+      issuer: "Project Management Institute",
       date: "2024",
       desc: "شهادة متخصصة في تقنيات دور مالك المنتج في بيئة Agile.",
       icon: <Award className="text-brand" size={24} />
     },
     {
-      title: "مانوس لمديري المنتجات",
-      issuer: "مانوس AI",
+      title: "Manus For Product Manager",
+      issuer: "Manus AI",
       date: "2023",
       desc: "برنامج مكثف لمديري المنتجات يركز على الأدوات والمنهجيات الحديثة.",
       icon: <Layers className="text-brand" size={24} />
     },
     {
-      title: "معسكر سبرينتس ومايكروسوفت الصيفي - إدارة المنتجات",
-      issuer: "سبرينتس",
+      title: "Sprints x Microsoft Summer Camp - Product Management",
+      issuer: "Sprints",
       date: "2023",
       desc: "معسكر تدريبي مكثف بالتعاون مع مايكروسوفت في إدارة المنتجات.",
       icon: <Zap className="text-brand" size={24} />
     },
     {
-      title: "رؤية المنتج، الاستراتيجية، والأهداف",
-      issuer: "ذا برودكت كومباس",
+      title: "Product Vision, Strategy, and Objectives",
+      issuer: "The Product Compass",
       date: "2023",
       desc: "دورة متقدمة في بناء رؤية المنتج واستراتيجيته وتحديد الأهداف.",
       icon: <Target className="text-brand" size={24} />
     },
     {
-      title: "اكتشاف المنتج المستمر",
-      issuer: "ذا برودكت كومباس",
+      title: "Continuous Product Discovery",
+      issuer: "The Product Compass",
       date: "2023",
       desc: "تعلم منهجيات اكتشاف المنتج المستمر لضمان تقديم قيمة حقيقية للمستخدمين.",
       icon: <Search className="text-brand" size={24} />
     },
     {
-      title: "التفكير الجذري في المنتج: وضع الرؤية",
-      issuer: "بيندو.آي أو",
+      title: "Radical Product Thinking: Vision Setting",
+      issuer: "Pendo.io",
       date: "2024",
       desc: "منهجية التفكير الجذري في بناء رؤية المنتجات الرقمية.",
       icon: <Flame className="text-brand" size={24} />
     },
     {
-      title: "شهادة أساسيات إدارة المنتجات",
-      issuer: "بيندو.آي أو",
+      title: "Product Management Basics Certification",
+      issuer: "Pendo.io",
       date: "2024",
       desc: "أساسيات إدارة المنتجات والتعامل مع البيانات والتحليلات.",
       icon: <CheckCircle className="text-brand" size={24} />
     },
     {
-      title: "الذكاء الاصطناعي للشركات الناشئة",
-      issuer: "يوديمي",
+      title: "AI For Startups",
+      issuer: "Udemy",
       date: "2024",
       desc: "كيفية دمج تقنيات الذكاء الاصطناعي في الشركات الناشئة.",
       icon: <Cpu className="text-brand" size={24} />
     },
     {
-      title: "أسرار الاستثمار: فن التمويل",
-      issuer: "ينفع",
+      title: "Investments Hacks: The Art of Fund",
+      issuer: "Yanfaa.com",
       date: "2024",
       desc: "فهم أساسيات الاستثمار وجمع التمويل للشركات الناشئة.",
       icon: <CreditCard className="text-brand" size={24} />
     },
     {
-      title: "تمويل المناخ",
-      issuer: "مايكرومينتور",
+      title: "Climate Finance",
+      issuer: "Micromentor",
       date: "2024",
       desc: "أساسيات التمويل المناخي والمشاريع المستدامة.",
       icon: <Globe className="text-brand" size={24} />
     },
     {
-      title: "التخفيف والتكيف مع تغير المناخ للشركات",
-      issuer: "مايكرومينتور",
+      title: "Mitigating and Adapting to Climate Change for Businesses",
+      issuer: "Micromentor",
       date: "2024",
       desc: "استراتيجيات التكيف مع التغير المناخي في بيئة الأعمال.",
       icon: <Globe className="text-brand" size={24} />
     },
     {
-      title: "مقدمة في العمل المناخي لرواد الأعمال",
-      issuer: "مايكرومينتور",
+      title: "Introduction to Climate Action for Entrepreneurs",
+      issuer: "Micromentor",
       date: "2024",
       desc: "مقدمة في العمل المناخي لرواد الأعمال في منطقة الشرق الأوسط.",
       icon: <Globe className="text-brand" size={24} />
@@ -1590,85 +1580,85 @@ const AboutPage = () => {
 
   const awards = [
     {
-      title: "🇪🇬 الفائزون الأوائل في مسابقة قوة الشركات الناشئة 🏆",
-      issuer: "مسابقة قوة الشركات الناشئة",
+      title: "🇪🇬Top Winners Startup Power Competition 🏆",
+      issuer: "Startup Power Competition",
       date: "2025",
       desc: "التكريم كأحد الفائزين الأوائل للتميز في حلول إدارة النفايات المدعومة تقنياً.",
       icon: <Trophy className="text-brand" size={24} />
     },
     {
-      title: "🇫🇷 جرينيش مصر - المركز الثالث 🏆",
-      issuer: "جرينيش مصر",
+      title: "🇫🇷 Greenish Egypt - 3rd Place 🏆",
+      issuer: "Greenish Egypt",
       date: "2024",
       desc: "تقدير على المستوى الوطني للأثر المستدام في برنامج مدعوم من جهات دولية فرنسية.",
       icon: <Flame className="text-brand" size={24} />
     },
     {
-      title: "المركز الثاني في مسابقة الإبداع 🏆",
-      issuer: "مسابقة الإبداع",
+      title: "Second Place in the Creativity Competition 🏆",
+      issuer: "Creativity Competition",
       date: "2024",
       desc: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
       icon: <Award className="text-brand" size={24} />
     },
     {
-      title: "الفائز بالمسابقة الوطنية جيل زد (قناة DMC) 🏆 📺",
-      issuer: "قناة DMC",
+      title: "Gen Z National Competition Winner (DMC TV) 🏆 📺",
+      issuer: "DMC TV",
       date: "2024",
       desc: "تأمين تمويل من خلال برنامج ريادة الأعمال الأول في مصر على قناة DMC.",
       icon: <Star className="text-brand" size={24} />
     },
     {
-      title: "دعم ييد أليكس",
-      issuer: "ييد-رالي",
+      title: "Yied Alex Support",
+      issuer: "Yied-Rally",
       date: "2024",
       desc: "المركز الأول والحصول على تمويل ودعم استراتيجي من مبادرة مدعومة من الدنمارك.",
       icon: <Zap className="text-brand" size={24} />
     },
     {
-      title: "حاضنة نماء",
-      issuer: "نماء",
+      title: "Namaa Incubation",
+      issuer: "Nema",
       date: "2024",
       desc: "القبول في حاضنة الأعمال المرموقة مع تمويل ودعم استراتيجي.",
       icon: <Layers className="text-brand" size={24} />
     },
     {
-      title: "مقبول في برامج فينتكرز",
-      issuer: "ريبيكيا",
+      title: "Accepted in Fintekrs Programs",
+      issuer: "Rebekia",
       date: "2023",
       desc: "برنامج ما قبل الاحتضان مصمم لدعم رواد الأعمال والشركات الناشئة ذات الإمكانات العالية.",
       icon: <CheckCircle className="text-brand" size={24} />
     },
     {
-      title: "المركز الثاني في مسابقة الإبداع",
-      issuer: "ريبيكيا",
+      title: "Second Place in the Creativity Competition",
+      issuer: "Rebekia",
       date: "2023",
       desc: "المركز الثاني في مسابقة الإبداع تقديراً للابتكار والتميز.",
       icon: <Palette className="text-brand" size={24} />
     },
     {
-      title: "المركز الأول في محافظة الغربية للمشاريع الخضراء",
-      issuer: "الحكومة المصرية",
+      title: "First place in Gharbia Governorate in green projects",
+      issuer: "Government",
       date: "2023",
       desc: "الممثل الرسمي لـ COP27: تم اختياره لتمثيل مصر (الغربية) في مسار المشاريع الخضراء بالأمم المتحدة.",
       icon: <Globe className="text-brand" size={24} />
     },
     {
-      title: "المركز الأول في أكاديمية ابن سينا",
-      issuer: "أكاديمية ابن سينا",
+      title: "First Place in Ibn Sina Academy",
+      issuer: "Ibn Sina Academy",
       date: "2023",
       desc: "أفضل أداء في مسابقة مرموقة بين ألمع العقول في المنطقة.",
       icon: <Trophy className="text-brand" size={24} />
     },
     {
-      title: "المركز الأول في أز-سينسيس",
-      issuer: "ريبيكيا",
+      title: "First Place in Az-sences",
+      issuer: "Rebekia",
       date: "2022",
       desc: "جائزة أفضل فكرة تطبيق موبايل على مستوى الجامعة لحل مشكلة التلوث البيئي.",
       icon: <Cpu className="text-brand" size={24} />
     },
     {
-      title: "المركز الثالث في هاكاثون المنصورة",
-      issuer: "ريبيكيا",
+      title: "The Third place in Hackathon mansoura",
+      issuer: "Rebekia",
       date: "2022",
       desc: "الحصول على المركز الثالث بين عدد كبير من الفرق المتنافسة في أول هاكاثون بالمنصورة.",
       icon: <Zap className="text-brand" size={24} />
@@ -1758,7 +1748,7 @@ const AboutPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
                   <img 
                     src="https://i.ibb.co/7tZwf6FS/547438725-805625648822430-8229388273858976577-n.jpg" 
-                    alt="رؤية المنتج" 
+                    alt="Product Visionary" 
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
                     referrerPolicy="no-referrer"
                   />
@@ -2349,23 +2339,27 @@ const CoursesPage = () => {
 const ProjectsPage = () => {
   const getRoleColor = (role: string) => {
     switch (role.toLowerCase()) {
-      case 'مصمم': return 'bg-brand/10 text-brand border-brand/20';
-      case 'مطور': return 'bg-blue-50 text-blue-600 border-blue-100';
-      case 'مدير منتج': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'عمليات النمو': return 'bg-orange-50 text-orange-600 border-orange-100';
-      case 'مؤسس ومدير منتج': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'مصمم واجهات مستخدم': return 'bg-brand/10 text-brand border-brand/20';
-      case 'مهندس نمو': return 'bg-green-50 text-green-600 border-green-100';
-      case 'مدير تصميم واجهات': return 'bg-brand/10 text-brand border-brand/20';
-      case 'كبير مصممي المنتجات': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'استراتيجي تجربة المستخدم': return 'bg-brand/10 text-brand border-brand/20';
-      case 'كبير مصممي ومديري المنتجات': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'استراتيجي تجارة إلكترونية': return 'bg-brand/10 text-brand border-brand/20';
-      case 'مصمم منتجات (ذكاء اصطناعي)': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'مصمم تفاعل': return 'bg-brand/10 text-brand border-brand/20';
-      case 'متخصص ألعاب': return 'bg-orange-50 text-orange-600 border-orange-100';
-      case 'مصمم منتجات': return 'bg-purple-50 text-purple-600 border-purple-100';
-      case 'متخصص تجربة مستخدم': return 'bg-brand/10 text-brand border-brand/20';
+      case 'designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'developer': return 'bg-blue-50 text-blue-600 border-blue-100';
+      case 'pm': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'lead': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product lead': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'automation engineer': return 'bg-blue-50 text-blue-600 border-blue-100';
+      case 'growth ops': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'founder & pm': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'growth engineer': return 'bg-green-50 text-green-600 border-green-100';
+      case 'product manager': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ui/ux lead': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'ux strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'lead product designer & manger': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'e-commerce strategist': return 'bg-brand/10 text-brand border-brand/20';
+      case 'product designer (ai)': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'interaction designer': return 'bg-brand/10 text-brand border-brand/20';
+      case 'gamification specialist': return 'bg-orange-50 text-orange-600 border-orange-100';
+      case 'product designer': return 'bg-purple-50 text-purple-600 border-purple-100';
+      case 'user experience (ux) specialist': return 'bg-brand/10 text-brand border-brand/20';
       default: return 'bg-gray-50 text-gray-600 border-gray-100';
     }
   };
@@ -2557,12 +2551,12 @@ const ContactPage = () => {
               <div>
                 <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">التواجد الرقمي</h3>
                 <div className="flex flex-wrap gap-4">
-                    {[
-                      { name: 'بيهانس', icon: <span className="font-black text-lg leading-none">Bē</span>, link: "https://www.behance.net/ahmedali4f006" },
-                      { name: 'لينكد إن', icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/ahmed-ali-%F0%9F%A6%84-1353a3200/" },
-                      { name: 'فيسبوك', icon: <Facebook size={20} />, link: "https://www.facebook.com/ahmed.ali.137893/" },
-                      { name: 'واتساب', icon: <MessageCircle size={20} />, link: "https://wa.me/201554295388" },
-                    ].map((social, i) => (
+                  {[
+                    { name: 'Behance', icon: <span className="font-black text-lg leading-none">Bē</span>, link: "https://www.behance.net/ahmedali4f006" },
+                    { name: 'LinkedIn', icon: <Linkedin size={20} />, link: "https://www.linkedin.com/in/ahmed-ali-%F0%9F%A6%84-1353a3200/" },
+                    { name: 'Facebook', icon: <Facebook size={20} />, link: "https://www.facebook.com/ahmed.ali.137893/" },
+                    { name: 'WhatsApp', icon: <MessageCircle size={20} />, link: "https://wa.me/201554295388" },
+                  ].map((social, i) => (
                     <a 
                       key={i} 
                       href={social.link} 
@@ -2582,7 +2576,7 @@ const ContactPage = () => {
                   <div className="flex -space-x-2 space-x-reverse">
                     {[1, 2, 3].map(i => (
                       <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="عميل" className="w-full h-full object-cover" />
+                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="Client" className="w-full h-full object-cover" />
                       </div>
                     ))}
                   </div>
@@ -2835,12 +2829,12 @@ const ConsultationPage = () => {
             </div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-brand/20 to-transparent rounded-[3rem] transform rotate-3 scale-105"></div>
-                <img 
-                  src="https://i.ibb.co/WNZZ1nMW/492554153-714896711228658-704044520897984266-n.jpg" 
-                  alt="استشارة" 
-                  className="rounded-[3rem] relative z-10 w-full object-cover aspect-square shadow-2xl"
-                  referrerPolicy="no-referrer"
-                />
+              <img 
+                src="https://i.ibb.co/WNZZ1nMW/492554153-714896711228658-704044520897984266-n.jpg" 
+                alt="Consultation" 
+                className="rounded-[3rem] relative z-10 w-full object-cover aspect-square shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
               {/* Available for Work Badge */}
               <div className="absolute top-4 right-4 z-20">
                 <div className="text-green-600 text-sm font-bold flex items-center gap-2 bg-green-50/95 backdrop-blur-sm px-4 py-2.5 rounded-xl border border-green-200 shadow-xl">
@@ -2918,7 +2912,7 @@ const ConsultationPage = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
               <div className="inline-block px-4 py-1.5 bg-white/20 text-white font-bold rounded-full text-sm mb-6 backdrop-blur-sm">60 دقيقة</div>
               <h3 className="text-2xl font-black text-white mb-4">جلسة متعمقة</h3>
-              <p className="text-white/80 mb-8 text-sm leading-relaxed">مثالية للمواضيع العميقة أو مراجعة وتقييم المشاريع (مراجعة معرض الأعمال) في جلسة واحدة.</p>
+              <p className="text-white/80 mb-8 text-sm leading-relaxed">مثالية للمواضيع العميقة أو مراجعة وتقييم المشاريع (Portfolio Review) في جلسة واحدة.</p>
               <div className="text-4xl font-black text-white mb-8">1000 جنيه</div>
               <button onClick={() => handleBook("جلسة متعمقة", "1000 جنيه")} className="w-full py-4 rounded-2xl bg-white text-brand font-bold hover:bg-gray-50 transition-all flex items-center justify-center gap-2 shadow-lg">
                 احجز الآن <ArrowLeft size={18} />
@@ -2929,7 +2923,7 @@ const ConsultationPage = () => {
             <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all">
               <div className="inline-block px-4 py-1.5 bg-gray-100 text-gray-600 font-bold rounded-full text-sm mb-6">4 جلسات (شهر)</div>
               <h3 className="text-2xl font-black text-gray-900 mb-4">توجيه مستمر</h3>
-              <p className="text-gray-500 mb-8 text-sm leading-relaxed">متابعة مستمرة وتوجيه مخصص لتطوير مسارك المهني بالكامل (توجيه وإرشاد).</p>
+              <p className="text-gray-500 mb-8 text-sm leading-relaxed">متابعة مستمرة وتوجيه مخصص لتطوير مسارك المهني بالكامل (Mentorship).</p>
               <div className="text-4xl font-black text-gray-900 mb-8">4000 جنيه</div>
               <button onClick={() => handleBook("توجيه مستمر", "4000 جنيه")} className="w-full py-4 rounded-2xl border-2 border-gray-200 text-gray-700 font-bold hover:border-brand hover:text-brand transition-all flex items-center justify-center gap-2">
                 احجز الآن <ArrowLeft size={18} />
@@ -3079,7 +3073,7 @@ const ConsultationPage = () => {
                 {selectedPlan.price !== 'مجاناً' && (
                   <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-5 mt-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <img src="https://instapay.eg/assets/images/logo.png" alt="إنستاباي" className="h-6" />
+                      <img src="https://instapay.eg/assets/images/logo.png" alt="Instapay" className="h-6" />
                       <span className="font-bold text-blue-900">الدفع عبر إنستاباي</span>
                     </div>
                     <p className="text-sm text-gray-600 mb-4 leading-relaxed">
@@ -3227,7 +3221,7 @@ const GalleryPage = () => {
             className="inline-flex items-center gap-3 px-5 py-2 bg-brand/5 border border-brand/10 text-brand rounded-full text-[10px] font-black uppercase tracking-widest mb-10"
           >
             <span className="w-2 h-2 bg-brand rounded-full animate-pulse"></span>
-            معرض الصور • حياتي وعملي
+            معرض الصور • My Life & Work
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -3276,7 +3270,7 @@ const GalleryPage = () => {
             >
               <img
                 src={photo}
-                alt={`معرض الصور ${i}`}
+                alt={`Gallery ${i}`}
                 className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
                 referrerPolicy="no-referrer"
               />
@@ -3376,28 +3370,28 @@ const ImpactSection = () => {
 const StartupPrograms = () => {
   const programs = [
     {
-      name: "منحة ماكينزي",
+      name: "منحة ماكينزي (McKinsey Forward)",
       desc: "برنامج مكثف في القيادة، استراتيجيات الأعمال، وحل المشكلات المعقدة.",
       icon: <TrendingUp className="text-brand" size={28} />,
       color: "bg-blue-50 border-blue-100",
       textColor: "text-blue-600"
     },
     {
-      name: "مختبر الجامعة الأمريكية بالقاهرة لريادة الأعمال",
+      name: "AUC Venture Lab",
       desc: "أكبر مسرعة أعمال جامعية في إفريقيا، تدريب مكثف على نمو الشركات الناشئة.",
       icon: <Building2 className="text-brand" size={28} />,
       color: "bg-yellow-50 border-yellow-100",
       textColor: "text-yellow-600"
     },
     {
-      name: "أورانج كورنرز",
+      name: "أورانج كورنرز (Orange Corners)",
       desc: "مبادرة هولندية لدعم رواد الأعمال الشباب وتطوير الأفكار المبتكرة.",
       icon: <Lightbulb className="text-brand" size={28} />,
       color: "bg-orange-50 border-orange-100",
       textColor: "text-orange-600"
     },
     {
-      name: "مسرعة أعمال فينتكرز",
+      name: "مسرعة أعمال Fintkers",
       desc: "مسرعة متخصصة في التكنولوجيا المالية (Fintech) وتطوير المنتجات.",
       icon: <Briefcase className="text-brand" size={28} />,
       color: "bg-purple-50 border-purple-100",
@@ -3411,14 +3405,14 @@ const StartupPrograms = () => {
       textColor: "text-green-600"
     },
     {
-      name: "مسرعة أعمال رالي",
+      name: "مسرعة أعمال رالي (Rally)",
       desc: "مسرعة أعمال متخصصة في دعم رواد الأعمال والشركات الناشئة في مختلف القطاعات.",
       icon: <Target className="text-brand" size={28} />,
       color: "bg-red-50 border-red-100",
       textColor: "text-red-600"
     },
     {
-      name: "حاضنة ستارتاب باور",
+      name: "حاضنة Startup Power",
       desc: "أكبر حاضنة أعمال في مصر، توفر دعماً شاملاً وتوجيهاً استراتيجياً لتسريع نمو الشركات.",
       icon: <Zap className="text-brand" size={28} />,
       color: "bg-indigo-50 border-indigo-100",
